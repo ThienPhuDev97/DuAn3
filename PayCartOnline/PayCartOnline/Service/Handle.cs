@@ -48,24 +48,26 @@ namespace PayCartOnline.Service
         /// check user access
         /// </summary>
         /// <returns> string name role</returns>
-        public string CheckUserLogin(string phone)
+        public CheckUser CheckUserLogin(string phone,string pwd)
         {
             SqlCommand com = new SqlCommand(CheckUser, con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.Add(new SqlParameter("@Phone", phone));
+            com.Parameters.Add(new SqlParameter("@Pass", pwd));
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable ds = new DataTable();
             da.Fill(ds);
-            string isCheck = "";
+            
+            CheckUser user = new CheckUser();
             foreach (DataRow item in ds.Rows)
             {
 
-
-                isCheck = string.IsNullOrEmpty(item["Name"].ToString()) ? isCheck : item["Name"].ToString();
-
+                user.Phone = string.IsNullOrEmpty(item["Phone"].ToString()) ? null : item["Phone"].ToString();
+                user.Role = string.IsNullOrEmpty(item["Name"].ToString()) ? null : item["Name"].ToString();
+                user.UserName = string.IsNullOrEmpty(item["UserName"].ToString()) ? null : item["UserName"].ToString();
             }
 
-            return isCheck;
+            return user;
 
         }
     }

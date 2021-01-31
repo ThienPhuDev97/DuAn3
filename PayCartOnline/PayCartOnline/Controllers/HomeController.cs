@@ -1,4 +1,5 @@
 ﻿
+using PayCartOnline.Models;
 using PayCartOnline.Service;
 using System;
 using System.Collections.Generic;
@@ -40,24 +41,31 @@ namespace PayCartOnline.Controllers
         }
 
         [HttpPost]
-        public ActionResult CheckLogin(string phone,string password)
+        public ActionResult CheckLogin()
         {
-            var t = phone;
-            var Denominations = db.ShowDenomination();
-            
-            var check2 = db.CheckUserLogin(t);
-            if (String.IsNullOrEmpty(check2))
+            var phone = Request["phone"];
+            var password = Request["password"];
+
+            CheckUser isCheck = db.CheckUserLogin(phone, password);
+            if (isCheck is null)
             {
-                return View();
+
+                return RedirectToAction("Index");
             }
             else
             {
-              
-                ViewBag.user = check2;
-                return View();
+                Session["Account"] = isCheck.Role;
+
+                return RedirectToAction("Index", "Admin", new { Area = "Admin" });
+
             }
-            
-            
+
+
+        }
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index");
         }
 
 

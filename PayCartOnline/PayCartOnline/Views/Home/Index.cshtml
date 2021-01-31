@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var isCheck = Session["Account"] != null ? Session["Account"] : "Đăng Nhập";
 
 }
 
@@ -39,14 +40,26 @@
                             </a>
                         </li>
                         <li class="btn_dangnhap">
-                            <a href="/Home/Login">
-                                Đăng nhập
-                            </a>
+                            @if (Session["Account"] != null)
+                            {
+                                <button type="button" class="btn btn-light">@Session["Account"]</button>
+                            }
+                            else
+                            {
+                                <a href="/Home/Login">Đăng Nhập</a>
+                            }
                         </li>
                         <li class="btn_dangky">
-                            <a href="javascript:;" onclick="login.RegisterLoginView(2);">
-                                Đăng ký
-                            </a>
+                            @if (isCheck.Equals("Đăng Nhập"))
+                            {
+                                <a href="/Home/">Đăng kí</a>
+                            }
+                            else
+                            {
+                                <a href="/Home/Logout">Đăng xuất</a>
+                            }
+
+
                         </li>
                     </ul>
                 </div>
