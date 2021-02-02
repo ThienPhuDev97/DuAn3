@@ -52,7 +52,7 @@
                         <li class="btn_dangky">
                             @if (isCheck.Equals("Đăng Nhập"))
                             {
-                                <a href="/Home/">Đăng kí</a>
+                                <a href="/Home/Register">Đăng kí</a>
                             }
                             else
                             {
@@ -117,10 +117,10 @@
             </li>
             <li class="checkbox2">
                 <input id="radio_didong2" class="css-checkbox" type="radio" name="radio_didong" checked="checked">
-                <label for="radio_didong2" name="radio_didong" class="css-label chrome-style">Nạp trả sau</label>
+                <label for="radio_didong2" name="radio_didong" class="css-label chrome-style">Nap tra sau</label>
             </li>
             <li class="checkbox3">
-                <input id="radio_didong3" class="css-checkbox3" type="radio" name="radio_didong" checked="checked">
+                <input id="radio_didong3" class="css-checkbox3" type="radio" name="radio_didong" checked="checked" >
                 <label for="radio_didong3" name="radio_didong" class="css-label chrome-style">Mua mã thẻ</label>
             </li>
         </ul>
@@ -156,10 +156,28 @@
                         THANH TOÁN
                     </button>
                     <script>
+
                         function dieu_huong() {
-                            location.assign("https://vtcpay.vn/phuong-thuc-thanh-toan");
+                            let radioCheck = document.getElementsByName('radio_didong');
+                            let radioSelect = '';
+                            
+                            for (var i = 0; i < radioCheck.length; i++) {
+                                if (radioCheck[i].checked)
+                                {
+                                    radioCheck[i].id === 'radio_didong1' ? radioSelect = 'Nạp trả trước' : radioSelect = 'Nap tra sau';
+                                   
+                                    
+                                }
+                            }
+                            let mobile = $('#mobile').val()
+                            let menhgia = $('#menhgia').val()
+                            let nhamang = $('#nhamang').val()
+                               
+                            location.assign("https://localhost:44392/Home/Pay?phone=" + mobile + "&menhgia=" +
+                                menhgia + "&nhamang=" + nhamang + "&type=" + radioSelect);
                         }
-                    </script>
+
+                    </script>  
                 </div>
             </div>
             <div class="discount">

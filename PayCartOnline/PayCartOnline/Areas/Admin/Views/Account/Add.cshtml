@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model List<PayCartOnline.Models.Roles>
+<div class="content-wrapper" style=" background-color: white; ">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+
+        <div class="row mb-2">
+            <div class="col-sm-6">
+
+                <ol class="breadcrumb float-sm-left">
+
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">
+                        <a href="/Admin/Account">Manage Account</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Add Account
+                    </li>
+                </ol>
+            </div><!-- /.col -->
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <a class="btn btn-light" href="/Admin/Account"><i class="fas fa-backward"></i> Back</a>
+                </ol>
+            </div>
+        </div>
+
+        <form action="/Admin/Account/Update2" method="post">
+            @Html.AntiForgeryToken()
+            <hr>
+            <div class="form-group" style="display:none">
+                <label class="control-label col-md-2" for="Phone">ID</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="ID_User" name="ID_User" type="text">
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="Role">Role</label>
+                <div class="col-md-10">
+                    <select class="form-control" id="Role" name="Role">
+                        @foreach (var role in Model)
+                        {
+                           
+                                <option value="@role.ID">@role.Name</option>
+                        }
+                    </select>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="Phone">Phone</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="Phone" name="Phone" type="text" onchange="changePhone()" required>
+                    <span class="field-validation-valid text-danger" id="errPhone" style="font-weight: 600; font-size: 15px;"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="UserName">UserName</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="UserName" name="UserName" type="text" required>
+                    <span class="field-validation-valid text-danger" id="errUserName" style="font-weight: 600; font-size: 15px;"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="Pwd">Pwd</label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line" id="Pwd" name="Pwd" type="text"  required>
+                    <span class="field-validation-valid text-danger" id="errPwd" style="font-weight: 600; font-size: 15px;"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2" for="Status">Status</label>
+                <div class="col-md-10">
+                    <select class="form-control" id="Status" name="Status">
+                                         
+                            <option value="On">On</option>
+                            <option value="OFF">OFF</option>
+
+                    </select>
+
+                    <span class="field-validation-valid text-danger" data-valmsg-for="Status" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default">
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<script>
+    var arr_phone = @Html.Raw(Json.Encode(ViewBag.arr_phone))
+    console.log(arr_phone);
+    const changePhone = () => {
+        var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+        var mobile = $('#Phone').val();
+        if (mobile !== '') {
+            if (vnf_regex.test(mobile) == false) {
+                $('#errPhone').html('Số điện thoại của bạn không đúng định dạng!')
+                $('#Phone').val("")
+                return;
+            }
+            if (arr_phone.indexOf(mobile) != -1) {
+                $('#errPhone').html('Số điện thoại của bạn đã tồn tại!')
+                $('#Phone').val("")
+                return;
+            }
+
+            $('#errPhone').html('')
+
+
+        } else {
+            $('#errPhone').html('Bạn chưa điền số điện thoại!')
+        }
+    }
+</script>
+
