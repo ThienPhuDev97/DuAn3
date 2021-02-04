@@ -2251,6 +2251,7 @@
     <Content Include="Asset\css\owl.theme.default.css" />
     <Content Include="Asset\css\style.css" />
     <Content Include="Asset\css\swiper-bundle.min.css" />
+    <Content Include="Asset\css\thanhtoan.css" />
     <Content Include="Asset\fonts\icomoon\demo-files\demo.css" />
     <Content Include="Asset\fonts\icomoon\demo-files\demo.js" />
     <Content Include="Asset\fonts\icomoon\demo.html" />
@@ -2910,8 +2911,9 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\CheckLogin.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Home\Pay.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\ShowInfo.cshtml" />
+    <Content Include="Views\Home\ReceiveInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -155,29 +155,7 @@
     height: 100%;">
                         THANH TOÁN
                     </button>
-                    <script>
-
-                        function dieu_huong() {
-                            let radioCheck = document.getElementsByName('radio_didong');
-                            let radioSelect = '';
-                            
-                            for (var i = 0; i < radioCheck.length; i++) {
-                                if (radioCheck[i].checked)
-                                {
-                                    radioCheck[i].id === 'radio_didong1' ? radioSelect = 'Nạp trả trước' : radioSelect = 'Nap tra sau';
-                                   
-                                    
-                                }
-                            }
-                            let mobile = $('#mobile').val()
-                            let menhgia = $('#menhgia').val()
-                            let nhamang = $('#nhamang').val()
-                               
-                            location.assign("https://localhost:44392/Home/Pay?phone=" + mobile + "&menhgia=" +
-                                menhgia + "&nhamang=" + nhamang + "&type=" + radioSelect);
-                        }
-
-                    </script>  
+                  
                 </div>
             </div>
             <div class="discount">
@@ -693,3 +671,43 @@
                 </div>
             </footer>
 
+            <script>
+
+                function dieu_huong() {
+                    alert('test')
+                    let radioCheck = document.getElementsByName('radio_didong');
+                    let radioSelect = '';
+
+                    for (var i = 0; i < radioCheck.length; i++) {
+                        if (radioCheck[i].checked) {
+                            radioCheck[i].id === 'radio_didong1' ? radioSelect = 'Nạp trả trước' : radioSelect = 'Nap tra sau';
+
+
+                        }
+                    }
+                    
+                    let mobile = $('#mobile').val()
+                    let menhgia = $('#menhgia').val()
+                    let nhamang = $('#nhamang').val()
+                    location.assign("https://localhost:44392/Home/ReceiveInfo?mobile=" + mobile + "&menhgia=" +
+                        menhgia + "&nhamang=" + nhamang + "&type=" + radioSelect);
+                 
+                    //$.ajax({
+                    //    method: "POST",
+                    //    url: "/Home/ReceiveInfo",
+                    //    data:
+                    //    {
+                    //        mobile: mobile,
+                    //        menhgia: menhgia,
+                    //        nhamang: nhamang,
+                    //        radioSelect: radioSelect
+                    //    },
+                    //    success: function (rs) {
+                    //        window.location.href = '/Home/';
+
+                    //    }
+                    //});
+                   
+                }
+
+            </script>
