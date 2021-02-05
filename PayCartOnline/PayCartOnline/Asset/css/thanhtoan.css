@@ -1,0 +1,214 @@
+.list_all_thongtin_thanhtoan>li>span{
+    margin : 0;
+}
+
+    .box_all_noidung_thanhtoan {
+    background-color: #fff;
+    display: block;
+    margin-bottom: 15px;
+}
+    .box_tieude_all_noidung_thanhtoan {
+    padding: 30px 50px;
+    background-color: #009de2;
+    background-image: -webkit-linear-gradient(-15deg, #00b6f2, #0475c5);
+    background-image: -moz-linear-gradient(-15deg, #00b6f2, #0475c5);
+    background-image: -o-linear-gradient(-15deg, #00b6f2, #0475c5);
+    background-image: -ms-linear-gradient(-15deg, #00b6f2, #0475c5);
+    background-image: linear-gradient(-15deg, #00b6f2, #0475c5);
+}
+.list_all_thongtin_thanhtoan {
+    margin-bottom: 20px;
+}
+.box_img_thumb_thanhtoan {
+    background-color: #fff;
+    border-radius: 5px;
+    position: relative;
+    width: 110px;
+    height: 75px;
+}
+.box_img_thumb_thanhtoan img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+}
+ol, ul {
+    list-style: none;
+}
+.list_all_thongtin_thanhtoan li {
+    display: inline-block;
+    margin-right: 30px;
+    width: 200px;
+    margin-bottom: 20px;
+}
+.list_all_thongtin_thanhtoan li h6 {
+    display: block;
+    font-size: 13px;
+    color: #fff;
+    border-bottom: dashed 1px #35a8e1;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.list_all_thongtin_thanhtoan li span {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+}
+
+.box_all_phuongthuc_thanhtoan {
+    background-color: #fff;
+    padding: 30px 50px;
+  
+}
+.text_tieude_phuongthuc_thanhtoan {
+    display: block;
+    text-align: left;
+    text-transform: uppercase;
+    color: #0475c5;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.accor_phuongthuc {
+    max-width: 1040px;
+}
+.accor_phuongthuc .panel-default {
+    box-shadow: none;
+    border: none;
+}
+.accor_phuongthuc .panel-default>.panel-heading {
+    border-bottom: dashed 1px #e5e5e4;
+    background-color: transparent;
+    padding: 20px 0px;
+    border-radius: 0 0 0 0;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+}
+.accor_phuongthuc .panel-default>.panel-heading+.panel-collapse>.panel-body {
+    border-top: none;
+    padding-left: 35px;
+    padding-right: 0;
+}
+.max_width_300 {
+    max-width: 300px;
+}
+.box_chonso_tien {
+    max-width: 340px;
+    margin: 0 auto;
+}
+.select_dropdownform {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 42px;
+}
+.panel-body .box_hienthi_danhsach_nap {
+    position: relative;
+    max-width: 100%;
+}
+.box_hienthi_danhsach_nap {
+    display: block;
+    color: #373435;
+    font-size: 14px;
+    border-bottom: solid 1px #ccc;
+    overflow: hidden;
+    max-width: 340px;
+    vertical-align: middle;
+    position: relative;
+    padding: 10px 0px;
+}
+.panel-body .box_hienthi_danhsach_nap input {
+    padding-right: 60px;
+}
+.box_hienthi_danhsach_nap input {
+    width: 100%;
+    border: none;
+    outline: none;
+}
+.xoa_margin {
+    margin: 0;
+}
+.link_thanhtoan_naptien {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 3px;
+    background-color: #0475c5;
+    line-height: 40px;
+    max-width: 300px;
+    -webkit-transition: 0.4s ease all;
+    -o-transition: 0.4s ease all;
+    -moz-transition: 0.4s ease all;
+    transition: 0.4s ease all;
+    margin-top: 21px;
+}
+.all_text_chuatk_dangky {
+    font-size: 13px;
+    color: #8d8b8c;
+    margin-top: 25px;
+}
+.all_text_chuatk_dangky a {
+    text-decoration: underline;
+    display: block;
+    margin-bottom: 10px;
+    color: #0475c5;
+}
+em, i {
+    pointer-events: none;
+}
+.all_link_back {
+    display: inline-block;
+    line-height: 16px;
+    color: #0475c5;
+    font-size: 14px;
+}
+.box_hienthi_danhsach_nap {
+    margin-top: 16px;
+}
+.text_mien_phithanhtoan {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    right: 100px;
+    background: url('https://vtcpay.vn/content/images/btn_mienphi.png') no-repeat;
+    width: 162px;
+    height: 36px;
+    line-height: 36px;
+    padding-left: 25px;
+    font-style: italic;
+    color: #0475c5;
+    font-size: 13px;
+}
+.accor_phuongthuc .panel-default>.panel-heading .panel-title a {
+    padding: 0px 0px 0px 35px;
+    position: relative;
+    font-size: 14px;
+    color: #0475c5;
+    font-weight: 600;
+}
+.accor_phuongthuc .panel-default>.panel-heading .panel-title a {
+    display: block;
+}
+.collapse.in {
+    display: block;
+}
+.panel-body {
+    padding: 15px;
+}

@@ -13,126 +13,131 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.~/Asset/js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Asset/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.~/Asset/js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/~/Asset/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="~/Asset/css/style.css" />
+
     <script src="~/Asset/js/script.js"></script>
 
 </head>
 
 <body>
-    @RenderBody()
-</body>
-<script type="text/javascript" src="~/Asset/js/bootstrap.js"></script>
-<script type="text/javascript" src="~/Asset/js/bootstrap.bundle.js"></script>
-<script type="text/javascript" src="~/Asset/js/util.js"></script>
-<script type="text/javascript" src="~/Asset/js/owl.carousel.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="~/Asset/js/bundle-swiper.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script>
-    $('.owl-carousel').owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: true,
-
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 3
-            },
-            1000: {
-                items: 5
-            }
-        }
-    })
-</script>
-
-<script>
-    $(function () {
-        $('.box_slide_doitac').owlCarousel({
+    <div class="container-fluid">
+        @Html.Partial("~/Views/Shared/Header.cshtml")
+        @RenderBody()
+        @Html.Partial("~/Views/Shared/Footer.cshtml")
+    </div>
+    <script type="text/javascript" src="~/Asset/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Asset/js/bootstrap.bundle.js"></script>
+    <script type="text/javascript" src="~/Asset/js/util.js"></script>
+    <script type="text/javascript" src="~/Asset/js/owl.carousel.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="~/Asset/js/bundle-swiper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
             loop: true,
-            autoWidth: false,
-            margin: 20,
-            autoplay: true,
+            margin: 10,
             nav: true,
-            navText: false,
-            mouseDrag: true,
-            items: true,
+
             responsive: {
                 0: {
-                    items: 2,
+                    items: 1
                 },
                 600: {
-                    items: 4,
+                    items: 3
                 },
                 1000: {
-                    items: 4,
-                },
-                1200: {
-                    items: 6,
+                    items: 5
                 }
             }
+        })
+    </script>
+
+    <script>
+        $(function () {
+            $('.box_slide_doitac').owlCarousel({
+                loop: true,
+                autoWidth: false,
+                margin: 20,
+                autoplay: true,
+                nav: true,
+                navText: false,
+                mouseDrag: true,
+                items: true,
+                responsive: {
+                    0: {
+                        items: 2,
+                    },
+                    600: {
+                        items: 4,
+                    },
+                    1000: {
+                        items: 4,
+                    },
+                    1200: {
+                        items: 6,
+                    }
+                }
+            });
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            TopupMobilePrepaid.init();
+            TopupMobileMultiPhone.init();
         });
-    })
-</script>
+    </script>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        TopupMobilePrepaid.init();
-        TopupMobileMultiPhone.init();
-    });
-</script>
+    <script type="text/javascript">
+        $(document).ready(function () {
 
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $('body').on('click', '.checkmobile', function () {
-            var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
-            var mobile = $('#mobile').val();
-            if (mobile !== '') {
-                if (vnf_regex.test(mobile) == false) {
-                    alert('Số điện thoại của bạn không đúng định dạng!');
+            $('body').on('click', '.checkmobile', function () {
+                var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+                var mobile = $('#mobile').val();
+                if (mobile !== '') {
+                    if (vnf_regex.test(mobile) == false) {
+                        alert('Số điện thoại của bạn không đúng định dạng!');
+                    } else {
+                        alert('Số điện thoại của bạn hợp lệ!');
+                    }
                 } else {
-                    alert('Số điện thoại của bạn hợp lệ!');
+                    alert('Bạn chưa điền số điện thoại!');
                 }
-            } else {
-                alert('Bạn chưa điền số điện thoại!');
-            }
+            });
+
+
         });
 
-
-    });
-
-    $("#mobile").keydown(function () {
-        let viettel = ['086', '096', '097', '098', '032', '033', '034', '035', '036', '037', '038', '039'];
-        let vinaPhone = ['088', '091', '094', '083', '084', '085', '081', '082'];
-        let mobifone = ['089', '090', '093', '070', '079', '077', '076', '078'];
-        let vietnammobile = ['092', '056', '058'];
-        let phone = $('#mobile').val();
+        $("#mobile").keydown(function () {
+            let viettel = ['086', '096', '097', '098', '032', '033', '034', '035', '036', '037', '038', '039'];
+            let vinaPhone = ['088', '091', '094', '083', '084', '085', '081', '082'];
+            let mobifone = ['089', '090', '093', '070', '079', '077', '076', '078'];
+            let vietnammobile = ['092', '056', '058'];
+            let phone = $('#mobile').val();
 
 
-        if (viettel.indexOf(phone) != -1) {
-            $("#nhamang").val("viettel");
-        }
-        if (vinaPhone.indexOf(phone) != -1) {
-            $("#nhamang").val("vinaPhone");
-        }
-        if (mobifone.indexOf(phone) != -1) {
-            $("#nhamang").val("mobifone");
-        }
-        if (vietnammobile.indexOf(phone) != -1) {
-            $("#nhamang").val("vietnammobile");
-        }
-        if (phone == null) {
-            $("#nhamang").val("");
-        }
+            if (viettel.indexOf(phone) != -1) {
+                $("#nhamang").val("viettel");
+            }
+            if (vinaPhone.indexOf(phone) != -1) {
+                $("#nhamang").val("vinaPhone");
+            }
+            if (mobifone.indexOf(phone) != -1) {
+                $("#nhamang").val("mobifone");
+            }
+            if (vietnammobile.indexOf(phone) != -1) {
+                $("#nhamang").val("vietnammobile");
+            }
+            if (phone == null) {
+                $("#nhamang").val("");
+            }
 
-    });
-</script>
-
-
+        });
+    </script>
+</body>
 </html>
+

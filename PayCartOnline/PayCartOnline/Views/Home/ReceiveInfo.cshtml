@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var isCheck = Session["Account"] != null ? Session["Account"] : "Đăng Nhập";
+}
+<head>
+    <link rel="stylesheet" href="~/Asset/css/thanhtoan.css" />
+</head>
+<div class="box_all_noidung_thanhtoan">
+    <div id="div_Left_OrderInfo">
+        <div class="box_tieude_all_noidung_thanhtoan">
+            <div class="nong">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="list_all_thongtin_thanhtoan list_all_thongtin_thanhtoan_thongtin">
+                        <li>
+                            <div class="box_img_thumb_thanhtoan">
+                                <img src="~/Asset/images/viettel.jpg" style="max-width: 110px;max-height: 105px;">
+                            </div>
+                        </li>
+                        <li>
+                            <h6>@ViewBag.type : @ViewBag.nhamang</h6>
+                            <span>@ViewBag.menhgia</span>
+                        </li>
+                        <li>
+                            <h6> Số được nạp</h6>
+                            <span>@ViewBag.mobile</span>
+                        </li>
+                    </ul>
+                    <ul class="list_all_thongtin_thanhtoan" style="margin-bottom: 0;">
+                        <li>
+                            <h6>Chiết khấu</h6>
+                            <span>250 VND</span>
+                        </li>
+                        <li>
+                            <h6>Thành tiền</h6>
+                            <span>9.750 VND</span>
+                        </li>
+                        <li>
+                            <h6>Phí</h6>
+                            <span id="txtbank">0 VND</span>
+                        </li>
+                        <li>
+                            <h6 style="font-weight: 800;font-size: 15px;">Tổng thanh toán</h6>
+                            <span id="txtTotalAmount">9.750 VND</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+                    <div class="box_thanhtoan_qr_code">
+                        <h4>
+                            Thanh toán nhanh
+                        </h4>
+                        <p>
+                            Quét mã QRCode để thanh toán nhanh
+                            <br/>
+                            trên App VTC Pay
+                        </p>
+                        <span>
+                            <img src="" alt="">
+                        </span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="box_all_phuongthuc_thanhtoan">
+        <h4 class="text_tieude_phuongthuc_thanhtoan">Phương thức thanh toán</h4>
+        <div class="panel-group accor_phuongthuc" id="accordion" role="tablist">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" href="#">
+                            Ví điện tử VTC Pay
+                            <span class="text_mien_phithanhtoan">Miễn phí thanh toán</span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="box_chonso_tien max_width_300">
+                                    <div class="select_dropdownform">
+                                        <div class="box_hienthi_danhsach_nap">
+                                            <input type="text" name="" id="txtUserName" placeholder="Số tài khoản" maxlength="10">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="box_chonso_tien max_width_300">
+                                    <div class="select_dropdownform">
+                                        @if (Session["Account"] != null)
+                                        {
+                                            <a href="@ViewBag.demoUrl" id="btnPayVTC" class="link_thanhtoan_naptien xoa_margin">Thanh toán</a>
+                                        }
+                                        else
+                                        {
+                                            <a href="/Home/Login" id="btnPayVTC" class="link_thanhtoan_naptien xoa_margin">Đăng nhập</a>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                @if (Session["Account"] == null)
+                                {
+                                    <div class="all_text_chuatk_dangky">
+                                        Chưa có tài khoản
+                                        <a href="/Home/Register">Đăng ký ngay</a>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                                <div style="color: red;padding: 5px 10px;font-size: 14px;">
+                                    <i>Thanh toán với App VTC Pay để được hoàn tới 2 triệu VND cho mọi giao dịch vào thứ 6 hàng tuần. Quét QR code để thanh toán ngay! Xem chi tiết </i>
+                                    <a href="" class="all_link_back">
+                                        <i>tại đây</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
