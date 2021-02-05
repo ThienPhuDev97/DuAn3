@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PayCartOnline.Areas.Admin.AttributeLogin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,7 +9,7 @@ namespace PayCartOnline.Areas.Admin.Controllers
 {
     public class AdminController : Controller
     {
-        // GET: Admin/Admin
+        [CheckLogin]
         public ActionResult Index()
         {
             return View();

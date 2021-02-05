@@ -10,11 +10,9 @@ namespace PayCartOnline.Models
     public class Roles
     {   
         [Key]
-        
-        
         public int ID { get; set; }
-        public string Name { get; set; }
-        //public virtual ICollection<Permision> Permisions { get; set; }
+        public string Name { get; set; } = null;
+      
 
     }
 }

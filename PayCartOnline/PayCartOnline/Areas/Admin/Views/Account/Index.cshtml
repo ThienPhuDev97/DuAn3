@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var index = 1;
+}
+@model List<PayCartOnline.Models.CheckUser>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+
+
+<div class="content-wrapper" style=" background-color: white; ">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+
+                    <ol class="breadcrumb float-sm-left">
+
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">
+                            <a href="/Admin">Manage Account</a>
+                        </li>
+                    </ol>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+
+
+
+                        <a href="/Admin/Account/Add" class="btn btn-success" style="margin-right:5px"><i class="fa fa-plus"></i> Add</a>
+
+
+                        <a id="btnGroupDrop1" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Hành động
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <button class="dropdown-item" onclick="updateStatus(1)"><i class="fa fa-check" style="margin-right:5px"></i>Duyệt tất cả</button>
+                            <button class="dropdown-item" onclick="updateStatus(0)"><i class="fa fa-times" style="margin-right:5px"></i>Bỏ duyệt tất cả</button>
+                            <button class="dropdown-item" onclick="DeleteAll()"><i class="fa fa-trash" style="margin-right:5px"></i>Xóa tất cả</button>
+
+                        </div>
+
+                        <!--test-->
+                        <!-- The Modal -->
+                        <!--test-->
+                    </ol>
+                </div><!-- /.col -->
+            </div>
+            <div class="row mb-2">
+                <table class="table table-striped" id="example">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">UserName</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var account in ViewBag.list_account)
+                        {
+
+                            <tr>
+                                <th scope="row">@(index++)</th>
+                                <td>@account.Phone</td>
+                                <td>@account.Pwd</td>
+                                <td>@account.UserName</td>
+                                <td>@account.Role</td>
+                                <td>
+                                    @if (account.Status == "On")
+                                    {
+                                        <span class="badge badge-success">@account.Status</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-danger">@account.Status</span>
+                                    }
+
+                                </td>
+                                <td>
+                                    <button type="button" id="Update" onclick="HandleUpdate(@account.ID_User)" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                                    <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+
+            </div>
+
+            <!--pagelisst-->
+            <div class="row">
+                    <div class="col-6">
+                        <p class="float-sm-left edit_size">Showing 1 to @ViewBag.numSize of  @ViewBag.totalPage entries</p>
+                    </div>
+
+                    <div class="col-6">
+                        <ul class="pagination  float-sm-right">
+
+                            @{
+                                int position;
+                                int pageCurrent = ViewBag.pageCurrent;
+
+                                float numSize = ViewBag.numSize;
+
+                                if (pageCurrent > 1)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="@Url.Action("/Index", new {page = pageCurrent-1 })" tabindex="-1">Previous</a>
+                                    </li>
+                                }
+
+                                for (position = 1; position <= numSize; position++)
+                                {
+
+                                    if (position == pageCurrent)
+                                    {
+                                        <li class="page-item active">
+                                            <a class="page-link" href="@Url.Action("/Index", new {page = position })">@position</a>
+                                                                </li>
+                                                            }
+
+                                                            else
+                                                            {
+                                                                <li class="page-item">
+                                                                    <a class="page-link" href="@Url.Action("/Index", new {page = position })">@position</a>
+                                                                </li>
+                                                            }
+
+                                                        }
+                                                        if (pageCurrent > 0 && pageCurrent < numSize)
+                                                        {
+                                                            <li class="page-item">
+                                                                <a class="page-link" href="@Url.Action("/Index", new {page = pageCurrent+1 })" tabindex="-1">Next</a>
+                                                            </li>
+                                                        }
+
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Customine/js/UpdateAcc.js"></script>
