@@ -1,8 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-
+    var list_menhgia = ViewBag.menhgia;
 }
     <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
         <ol class="carousel-indicators">
@@ -34,13 +33,7 @@
                 Previous
             </span>
         </a>
-        <a class="carousel-control-next" data-slide="next" href="#carouselExampleIndicators" role="button">
-            <span aria-hidden="true" class="carousel-control-next-icon">
-            </span>
-            <span class="sr-only">
-                Next
-            </span>
-        </a>
+       
     </div>
 
     <div class="buycard">
@@ -63,13 +56,8 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="input-group">
-                        <input id="mobile" type="number" class="form-control" placeholder="Số điện thoại" required>
-
-                        @*<div class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                Kiểm tra
-                            </button>
-                        </div>*@
+                        <input id="mobile" type="number" class="form-control" placeholder="Số điện thoại" required>                    
+              
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -79,12 +67,23 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="box_hienthi_danhsach_nap">
-                        <input id="menhgia" type="text" class="form-control" placeholder="Chọn mệnh giá" required>
+                        <select class="form-control" id="id_menhgia">
+                       
+                        @foreach (var item in list_menhgia)
+                        {
 
+                                 <option value="@item.ID"> @item.Price VND</option >
+
+                                
+
+                            }
+                           </select>
+   
+                        
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <button class=" checkmobile" type="button" onclick="dieu_huong()" style="background-color: #0475c5; color: white; width: 100%;
+                    <button class=" checkmobile" type="button"  style="background-color: #0475c5; color: white; width: 100%;
     height: 100%;">
                         THANH TOÁN
                     </button>
@@ -491,45 +490,7 @@
                 </div>
 
 
-                <script>
-
-                    function dieu_huong() {
-                        let radioCheck = document.getElementsByName('radio_didong');
-                        let radioSelect = '';
-
-                        for (var i = 0; i < radioCheck.length; i++) {
-                            if (radioCheck[i].checked) {
-                                radioCheck[i].id === 'radio_didong1' ? radioSelect = 'Nạp trả trước' : radioSelect = 'Nap tra sau';
-
-
-                            }
-                        }
-
-                        let mobile = $('#mobile').val()
-                        let menhgia = $('#menhgia').val()
-                        let nhamang = $('#nhamang').val()
-                        location.assign("https://localhost:44392/Home/ReceiveInfo?mobile=" + mobile + "&menhgia=" +
-                            menhgia + "&nhamang=" + nhamang + "&type=" + radioSelect);
-
-                        //$.ajax({
-                        //    method: "POST",
-                        //    url: "/Home/ReceiveInfo",
-                        //    data:
-                        //    {
-                        //        mobile: mobile,
-                        //        menhgia: menhgia,
-                        //        nhamang: nhamang,
-                        //        radioSelect: radioSelect
-                        //    },
-                        //    success: function (rs) {
-                        //        window.location.href = '/Home/';
-
-                        //    }
-                        //});
-
-                    }
-
-                </script>
+              
 
             </div>
         </div>

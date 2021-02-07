@@ -2912,7 +2912,6 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\CheckLogin.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\ShowInfo.cshtml" />
     <Content Include="Views\Home\ReceiveInfo.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />

@@ -102,7 +102,20 @@
                     if (vnf_regex.test(mobile) == false) {
                         alert('Số điện thoại của bạn không đúng định dạng!');
                     } else {
-                        alert('Số điện thoại của bạn hợp lệ!');
+                        let radioCheck = document.getElementsByName('radio_didong');
+                        let radioSelect = '';
+                        
+                        for (var i = 0; i < radioCheck.length; i++) {
+                            if (radioCheck[i].checked) {
+                                radioCheck[i].id === 'radio_didong1' ? radioSelect = 'Nạp trả trước' : radioSelect = 'Nap tra sau';
+                            }
+                        }
+                        let menhgia = $('#id_menhgia').val()
+                        let test2 = $('#id_menhgia').text()
+                        
+                        let nhamang = $('#nhamang').val();
+                        location.assign("https://localhost:44392/Home/ReceiveInfo?mobile=" + mobile + "&menhgia=" +
+                            menhgia + "&nhamang=" + nhamang + "&type=" + radioSelect);
                     }
                 } else {
                     alert('Bạn chưa điền số điện thoại!');
@@ -112,31 +125,31 @@
 
         });
 
-        $("#mobile").keydown(function () {
-            let viettel = ['086', '096', '097', '098', '032', '033', '034', '035', '036', '037', '038', '039'];
-            let vinaPhone = ['088', '091', '094', '083', '084', '085', '081', '082'];
-            let mobifone = ['089', '090', '093', '070', '079', '077', '076', '078'];
-            let vietnammobile = ['092', '056', '058'];
-            let phone = $('#mobile').val();
+            $("#mobile").keydown(function () {
+                let viettel = ['086', '096', '097', '098', '032', '033', '034', '035', '036', '037', '038', '039'];
+                let vinaPhone = ['088', '091', '094', '083', '084', '085', '081', '082'];
+                let mobifone = ['089', '090', '093', '070', '079', '077', '076', '078'];
+                let vietnammobile = ['092', '056', '058'];
+                let phone = $('#mobile').val();
 
 
-            if (viettel.indexOf(phone) != -1) {
-                $("#nhamang").val("viettel");
-            }
-            if (vinaPhone.indexOf(phone) != -1) {
-                $("#nhamang").val("vinaPhone");
-            }
-            if (mobifone.indexOf(phone) != -1) {
-                $("#nhamang").val("mobifone");
-            }
-            if (vietnammobile.indexOf(phone) != -1) {
-                $("#nhamang").val("vietnammobile");
-            }
-            if (phone == null) {
-                $("#nhamang").val("");
-            }
+                if (viettel.indexOf(phone) != -1) {
+                    $("#nhamang").val("viettel");
+                }
+                if (vinaPhone.indexOf(phone) != -1) {
+                    $("#nhamang").val("vinaPhone");
+                }
+                if (mobifone.indexOf(phone) != -1) {
+                    $("#nhamang").val("mobifone");
+                }
+                if (vietnammobile.indexOf(phone) != -1) {
+                    $("#nhamang").val("vietnammobile");
+                }
+                if (phone == null) {
+                    $("#nhamang").val("");
+                }
 
-        });
+            });
     </script>
 </body>
 </html>

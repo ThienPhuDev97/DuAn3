@@ -1,4 +1,5 @@
 ﻿using PayCartOnline.Models;
+using PayCartOnline.Models.VNPAY;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -23,6 +24,7 @@ namespace PayCartOnline.Service
         private const string UpdateAccount = "UpdateAccount";
         private const string InsertAcc = "Test";
         private const string Register = "Register";
+        private const string InsertOrder = "InsertOrder";
 
 
 
@@ -44,7 +46,7 @@ namespace PayCartOnline.Service
             foreach (DataRow item in ds.Rows)
             {
                 Denomination record = new Denomination();
-                record.ID = item["ID"] != null ? Int32.Parse(item["ID"].ToString()) : 0;
+                record.ID = item["ID_Denomination"] != null ? Int32.Parse(item["ID_Denomination"].ToString()) : 0;
                 record.Price = item["Price"] != null ? Int32.Parse(item["Price"].ToString()) : 0;
                
                 data.Add(record);
@@ -219,6 +221,32 @@ namespace PayCartOnline.Service
                 command.Parameters.Add(new SqlParameter("@Status", user.Status));
                 command.Parameters.Add(new SqlParameter("@Role_Id", user.Role));
                 command.Parameters.Add(new SqlParameter("@Create_At", user.Create_At));
+                int ID = command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+        public void AddOrder(VnPayResponse vnPayResponse )
+        {
+            var connection = new SqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = InsertOrder;
+
+                //command.Parameters.Add(new SqlParameter("@USER_ID", vnPayResponse.));
+                //command.Parameters.Add(new SqlParameter("@TypePay", vnPayResponse.ty));
+                //command.Parameters.Add(new SqlParameter("@Denomination_ID", menhgia));
+                //command.Parameters.Add(new SqlParameter("@Status", user.Status));
+                //command.Parameters.Add(new SqlParameter("@Role_Id", user.Role));
+                //command.Parameters.Add(new SqlParameter("@Create_At", user.Create_At));
                 int ID = command.ExecuteNonQuery();
                 connection.Close();
             }

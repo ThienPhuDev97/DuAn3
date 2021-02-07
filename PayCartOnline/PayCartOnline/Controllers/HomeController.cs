@@ -15,14 +15,16 @@ namespace PayCartOnline.Controllers
     public class HomeController : Controller
     {
         private Handle db = new Handle();
-        public ActionResult Index()
+        //VnPayResponse? nong)
+
+        public ActionResult Index(VnPayResponse nong)
         {
-           
-            int x = 1;
+            //ViewBag.phi = nong;
+            ViewBag.menhgia = db.ShowDenomination();
             return View();
         }
 
-        public ActionResult About(VnPayResponse nong)
+        public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
@@ -147,11 +149,7 @@ namespace PayCartOnline.Controllers
             //data.vnpay = vnpay;
             return View();
         }
-        public ActionResult Test(VnPayResponse nong)
-        {
-            ViewBag.phi = nong;
-            return View();
-        }
+        
         public string GetIpAddress()
         {
             string ipAddress;
@@ -174,12 +172,14 @@ namespace PayCartOnline.Controllers
         public ActionResult ReceiveInfo()
         {
             var phone = Request["phone"];
-            var menhgia = Request["menhgia"];
+            var menhgia = Convert.ToInt32(Request["menhgia"]);
+            var valueMenhgia = db.ShowDenomination().Find(c=>c.ID == menhgia);
             var nhamang = Request["nhamang"];
             var type = Request["type"];
 
             ViewBag.mobile = Request["mobile"];
             ViewBag.menhgia = Request["menhgia"];
+            ViewBag.valueMenhgia = valueMenhgia;
             ViewBag.nhamang = Request["nhamang"];
             ViewBag.type = Request["type"];
 
@@ -191,13 +191,16 @@ namespace PayCartOnline.Controllers
             //Get payment input
             OrderInfo order = new OrderInfo();
             //Save order to db
-            order.OrderId = DateTime.Now.Ticks;
-            order.Phone = Convert.ToInt32( Request["mobile"].ToString());
-            order.Amount = Convert.ToInt32(Request["menhgia"].ToString());
-            order.OrderDescription = "aloalo thanh toan";
-            //order.Amount = Convert.ToDecimal(Request.QueryString["Amount"]);
-            //order.OrderDescription = Request.QueryString["OrderDescription"];
-            order.CreatedDate = DateTime.Now;
+            if (ModelState.IsValid)
+            {
+                order.OrderId = DateTime.Now.Ticks;
+                order.Phone = Convert.ToInt32(Request["mobile"].ToString());
+                order.Amount = Convert.ToInt32(Request["menhgia"].ToString());
+                order.OrderDescription = "aloalo thanh toan";
+                //order.Amount = Convert.ToDecimal(Request.QueryString["Amount"]);
+                //order.OrderDescription = Request.QueryString["OrderDescription"];
+                order.CreatedDate = DateTime.Now;
+            }
 
             //Build URL for VNPAY
             VnPayLibrary vnpay = new VnPayLibrary();

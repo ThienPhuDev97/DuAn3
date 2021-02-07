@@ -209,7 +209,6 @@ E:\ProjectSem3\PayCartOnline\PayCartOnline\bin\Microsoft.Owin.Security.Twitter.x
 E:\ProjectSem3\PayCartOnline\PayCartOnline\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\ProjectSem3\PayCartOnline\PayCartOnline\bin\Microsoft.Owin.Security.OAuth.xml
 E:\ProjectSem3\PayCartOnline\PayCartOnline\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.csprojAssemblyReference.cache
 E:\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.csproj.CoreCompileInputs.cache
 E:\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.csproj.CopyComplete
 E:\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.dll
@@ -330,3 +329,4 @@ E:\ProjectSem3\PayCartOnline\PayCartOnline\bin\PagedList.dll
 E:\ProjectSem3\PayCartOnline\PayCartOnline\bin\PagedList.Mvc.dll
 E:\ProjectSem3\PayCartOnline\PayCartOnline\bin\PagedList.xml
 E:\ProjectSem3\PayCartOnline\PayCartOnline\bin\PagedList.Mvc.xml
+E:\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.csprojAssemblyReference.cache
