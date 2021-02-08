@@ -17,10 +17,22 @@ namespace PayCartOnline.Controllers
         private Handle db = new Handle();
         //VnPayResponse? nong)
 
-        public ActionResult Index(VnPayResponse nong)
+        public ActionResult Index( )
         {
-            //ViewBag.phi = nong;
+            
             ViewBag.menhgia = db.ShowDenomination();
+            return View();
+        }
+        public ActionResult VnResponse(VnPayResponse vnPayResponse)
+        {
+
+            var inforOrder = (InforOrder)Session["InforOrder"];
+            ViewBag.infor = inforOrder;
+            ViewBag.phi = vnPayResponse;
+          
+            var user = (CheckUser)Session["Account"];
+            Pay pay = new Pay();
+            pay.AddOrder(vnPayResponse,user, inforOrder);
             return View();
         }
 
@@ -73,7 +85,7 @@ namespace PayCartOnline.Controllers
             }
             else
             {
-                Session["Account"] = isCheck.Role;
+                Session["Account"] = isCheck;
 
                 return RedirectToAction("Index", "Admin", new { Area = "Admin" });
 
@@ -85,70 +97,7 @@ namespace PayCartOnline.Controllers
         {
             Session.Clear();
             return RedirectToAction("Index");
-        }
-        [HttpGet]
-        public ActionResult Pay()
-        {
-            //doan nay k can dung k a
-            var phone = Request["phone"];
-            var menhgia = Request["menhgia"];
-            var nhamang = Request["nhamang"];
-            var type = Request["type"];
-            //Get Config Info
-            // phần bên dưới này để sang actionresult khác
-            string vnp_Returnurl = ConfigurationManager.AppSettings["vnp_Returnurl"]; //URL nhan ket qua tra ve 
-            string vnp_Url = ConfigurationManager.AppSettings["vnp_Url"]; //URL thanh toan cua VNPAY 
-            string vnp_TmnCode = ConfigurationManager.AppSettings["vnp_TmnCode"]; //Ma website
-            string vnp_HashSecret = ConfigurationManager.AppSettings["vnp_HashSecret"]; //Chuoi bi mat
-
-            //Get payment input
-            OrderInfo order = new OrderInfo();
-            //Save order to db
-            order.OrderId = DateTime.Now.Ticks;
-            order.Phone = 0904448044;
-            order.Amount = 1000000;
-            order.OrderDescription = "124124";
-            //order.Amount = Convert.ToDecimal(Request.QueryString["Amount"]);
-            //order.OrderDescription = Request.QueryString["OrderDescription"];
-            order.CreatedDate = DateTime.Now;
-
-            //Build URL for VNPAY
-            VnPayLibrary vnpay = new VnPayLibrary();
-
-            vnpay.AddRequestData("vnp_Version", "2.0.0");
-            vnpay.AddRequestData("vnp_Command", "pay");
-            vnpay.AddRequestData("vnp_TmnCode", vnp_TmnCode);
-
-            string locale = "vn";//"en"
-            if (!string.IsNullOrEmpty(locale))
-            {
-                vnpay.AddRequestData("vnp_Locale", locale);
-            }
-            else
-            {
-                vnpay.AddRequestData("vnp_Locale", "vn");
-            }
-
-            vnpay.AddRequestData("vnp_CurrCode", "VND");
-            vnpay.AddRequestData("vnp_TxnRef", order.OrderId.ToString());
-            vnpay.AddRequestData("vnp_Phone",order.Phone.ToString());
-            vnpay.AddRequestData("vnp_OrderInfo", order.OrderDescription);
-            vnpay.AddRequestData("vnp_OrderType", "insurance"); //default value: other
-            vnpay.AddRequestData("vnp_Amount", (order.Amount * 100).ToString());
-            vnpay.AddRequestData("vnp_ReturnUrl", vnp_Returnurl);
-            vnpay.AddRequestData("vnp_IpAddr", GetIpAddress());
-            vnpay.AddRequestData("vnp_CreateDate", order.CreatedDate.ToString("yyyyMMddHHmmss"));
-            //if (bank.SelectedItem != null && !string.IsNullOrEmpty(bank.SelectedItem.Value))
-            //{
-            //    vnpay.AddRequestData("vnp_BankCode", bank.SelectedItem.Value);
-            //}
-            string paymentUrl = vnpay.CreateRequestUrl(vnp_Url, vnp_HashSecret);
-            ViewBag.demoUrl = paymentUrl;
-            //log.InfoFormat("VNPAY URL: {0}", paymentUrl);
-            //dynamic data = new ExpandoObject();
-            //data.vnpay = vnpay;
-            return View();
-        }
+        }   
         
         public string GetIpAddress()
         {
@@ -171,14 +120,26 @@ namespace PayCartOnline.Controllers
       
         public ActionResult ReceiveInfo()
         {
-            var phone = Request["phone"];
+            
             var menhgia = Convert.ToInt32(Request["menhgia"]);
             var valueMenhgia = db.ShowDenomination().Find(c=>c.ID == menhgia);
             var nhamang = Request["nhamang"];
             var type = Request["type"];
 
-            ViewBag.mobile = Request["mobile"];
+            var sdt = Int32.Parse(Request["mobile"]);
+
+            InforOrder inforOrder = new InforOrder();
+            inforOrder.phone = sdt;
+            inforOrder.denomination = valueMenhgia.ID;
+            inforOrder.network = nhamang;
+            inforOrder.CardType = type;
+
+
+            Session["InforOrder"] = inforOrder;
+
+            ViewBag.mobile = sdt;
             ViewBag.menhgia = Request["menhgia"];
+             
             ViewBag.valueMenhgia = valueMenhgia;
             ViewBag.nhamang = Request["nhamang"];
             ViewBag.type = Request["type"];
@@ -195,7 +156,7 @@ namespace PayCartOnline.Controllers
             {
                 order.OrderId = DateTime.Now.Ticks;
                 order.Phone = Convert.ToInt32(Request["mobile"].ToString());
-                order.Amount = Convert.ToInt32(Request["menhgia"].ToString());
+                order.Amount = Convert.ToInt32(valueMenhgia.Price);
                 order.OrderDescription = "aloalo thanh toan";
                 //order.Amount = Convert.ToDecimal(Request.QueryString["Amount"]);
                 //order.OrderDescription = Request.QueryString["OrderDescription"];
@@ -227,7 +188,7 @@ namespace PayCartOnline.Controllers
             vnpay.AddRequestData("vnp_Amount", (order.Amount * 100).ToString());
             vnpay.AddRequestData("vnp_ReturnUrl", vnp_Returnurl);
             vnpay.AddRequestData("vnp_IpAddr", GetIpAddress());
-            vnpay.AddRequestData("vnp_CreateDate", order.CreatedDate.ToString("yyyyMMddHHmmss"));
+            vnpay.AddRequestData("vnp_CreateDate", order.CreatedDate.ToString());
             //if (bank.SelectedItem != null && !string.IsNullOrEmpty(bank.SelectedItem.Value))
             //{
             //    vnpay.AddRequestData("vnp_BankCode", bank.SelectedItem.Value);

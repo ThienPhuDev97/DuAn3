@@ -1,5 +1,6 @@
 ﻿@{ 
-    var isCheck = Session["Account"] != null ? Session["Account"] : "Đăng Nhập";
+    PayCartOnline.Models.CheckUser isCheck = Session["Account"] != null ? (PayCartOnline.Models.CheckUser)Session["Account"] : null;
+    
 }
 
 <div class="header-top row">
@@ -38,7 +39,7 @@
                     <li class="btn_dangnhap">
                         @if (Session["Account"] != null)
                         {
-                            <button type="button" class="btn btn-light">@Session["Account"]</button>
+                            <button type="button" class="btn btn-light">@isCheck.Phone</button>
                         }
                         else
                         {
@@ -46,15 +47,15 @@
                         }
                     </li>
                     <li class="btn_dangky">
-                        @if (isCheck.Equals("Đăng Nhập"))
-                        {
-                            <a href="/Home/Register">Đăng kí</a>
-                        }
-                        else
-                        {
-                            <a href="/Home/Logout">Đăng xuất</a>
-                        }
-
+                        @*@if (isCheck.Equals("Đăng Nhập"))
+        {
+            <a href="/Home/Register">Đăng kí</a>
+        }
+        else
+        {
+            <a href="/Home/Logout">Đăng xuất</a>
+        }*@
+                        <a href="/Home/Register">Đăng kí</a>
 
                     </li>
                 </ul>
