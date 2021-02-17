@@ -39,7 +39,7 @@
                     <li class="btn_dangnhap">
                         @if (Session["Account"] != null)
                         {
-                            <button type="button" class="btn btn-light">@isCheck.Phone</button>
+                            <a href="/User/AccountUser" class="btn btn-light">@isCheck.Phone  </a>
                         }
                         else
                         {
@@ -47,15 +47,15 @@
                         }
                     </li>
                     <li class="btn_dangky">
-                        @*@if (isCheck.Equals("Đăng Nhập"))
-        {
-            <a href="/Home/Register">Đăng kí</a>
-        }
-        else
-        {
-            <a href="/Home/Logout">Đăng xuất</a>
-        }*@
-                        <a href="/Home/Register">Đăng kí</a>
+                        @if (isCheck is null)
+                            {
+                                <a href="/Home/Register">Đăng kí</a>
+                            }
+                            else
+                            {
+                                <a href="/Home/Logout">Đăng xuất</a>
+                            }
+                         @*<a href="/Home/Register">Đăng kí</a>*@
 
                     </li>
                 </ul>

@@ -180,11 +180,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckUser.cs" />
+    <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\Denomination.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InforOrder.cs" />
@@ -2919,6 +2921,9 @@
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Home\VnResponse.cshtml" />
+    <Content Include="Views\User\AccountUser.cshtml" />
+    <Content Include="Views\User\HistoryDeal.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

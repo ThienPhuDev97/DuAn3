@@ -22,7 +22,9 @@ namespace PayCartOnline.Models
         public string Address { get; set; } = null;
         public string Birthday { get; set; } = null;
         public string ImageFace { get; set; } = null;
-    
+        public int Identity_people { get; set; }
+        public int Gender { get; set; }
+
         public string Status { get; set; }
       
         public DateTime? Create_At { get; set; }
