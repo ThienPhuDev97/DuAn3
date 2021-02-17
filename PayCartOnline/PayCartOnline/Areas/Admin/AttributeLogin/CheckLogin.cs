@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PayCartOnline.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,8 @@ namespace PayCartOnline.Areas.Admin.AttributeLogin
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             //kiem tra dang nhap
-            if (HttpContext.Current.Session["Account"] == null || HttpContext.Current.Session["Account"].Equals("User"))
+            CheckUser user = (CheckUser)HttpContext.Current.Session["Account"];
+            if ( user == null || user.Role.Equals("User"))
             {
                 HttpContext.Current.Response.Redirect("/Home/Index");
                 base.OnActionExecuting(filterContext);
