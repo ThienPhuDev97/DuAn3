@@ -11,7 +11,7 @@ namespace PayCartOnline.Models
     {
       
        
-        public int ID { get; set; }
+        public int? ID { get; set; }
         public string UserName { get; set; } = null;
      
         public string Password { get; set; }
