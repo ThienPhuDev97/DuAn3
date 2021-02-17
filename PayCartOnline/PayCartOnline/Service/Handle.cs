@@ -73,7 +73,7 @@ namespace PayCartOnline.Service
             CheckUser user = new CheckUser();
             foreach (DataRow item in ds.Rows)
             {
-
+                user.ID_User = Int32.Parse(item["User_ID"].ToString());
                 user.Phone = string.IsNullOrEmpty(item["Phone"].ToString()) ? null : item["Phone"].ToString();
                 user.Role = string.IsNullOrEmpty(item["Name"].ToString()) ? null : item["Name"].ToString();
                 user.UserName = string.IsNullOrEmpty(item["UserName"].ToString()) ? null : item["UserName"].ToString();
@@ -230,32 +230,7 @@ namespace PayCartOnline.Service
                 Console.WriteLine(e.Message);
             }
         }
-        public void AddOrder(VnPayResponse vnPayResponse )
-        {
-            var connection = new SqlConnection(connectionString);
-            try
-            {
-                connection.Open();
-                var command = connection.CreateCommand();
-
-                command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = InsertOrder;
-
-                //command.Parameters.Add(new SqlParameter("@USER_ID", vnPayResponse.));
-                //command.Parameters.Add(new SqlParameter("@TypePay", vnPayResponse.ty));
-                //command.Parameters.Add(new SqlParameter("@Denomination_ID", menhgia));
-                //command.Parameters.Add(new SqlParameter("@Status", user.Status));
-                //command.Parameters.Add(new SqlParameter("@Role_Id", user.Role));
-                //command.Parameters.Add(new SqlParameter("@Create_At", user.Create_At));
-                int ID = command.ExecuteNonQuery();
-                connection.Close();
-            }
-
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
+      
 
         public void RegisterAcc(string phone,string pwd,DateTime date)
         {

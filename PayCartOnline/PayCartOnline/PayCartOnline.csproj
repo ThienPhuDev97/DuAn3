@@ -187,6 +187,7 @@
     <Compile Include="Models\CheckUser.cs" />
     <Compile Include="Models\Denomination.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InforOrder.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\VNPAY\OrderInfo.cs" />
     <Compile Include="Models\Permision.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="Models\VNPAY\VnPayResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Handle.cs" />
+    <Compile Include="Service\Pay.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2916,6 +2918,7 @@
     <Content Include="Views\Home\ReceiveInfo.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Home\VnResponse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
