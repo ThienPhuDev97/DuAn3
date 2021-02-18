@@ -1,4 +1,5 @@
 ﻿using PayCartOnline.Models;
+using PayCartOnline.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace PayCartOnline.Controllers
 {
     public class UserController : Controller
     {
+        Handle db = new Handle();
         // GET: User
         public ActionResult Index()
         {
@@ -16,7 +18,12 @@ namespace PayCartOnline.Controllers
         }    
         public ActionResult AccountUser()
         {
-            return View();
+            CheckUser current =(CheckUser)Session["Account"];
+            
+            
+            Users us = db.FindAccByID2(current.ID_User);
+           
+                return View();
         }   
         public ActionResult HistoryDeal()
         {
@@ -25,15 +32,17 @@ namespace PayCartOnline.Controllers
         [HttpPost]
         public ActionResult CreatePost(FormCollection fc)
         {
-            string _fullname = fc["fullname"].Trim();
-            string _address = fc["address"].Trim();
-            string _birthday = fc["birthday"].Trim();
+            CheckUser currentUser = (CheckUser)Session["Account"];
             var record = new Users();
-            record.FullName = _fullname;
-            record.Address = _address;
-            record.Birthday = _birthday;
-            
-            return View();
+            record.ID = currentUser.ID_User;
+            record.FullName = fc["fullname"].Trim();
+            record.Address = fc["address"].Trim();
+            record.Birthday = fc["birthday"].Trim();
+            record.Gender= fc["gender"].Trim().Equals("Nam") ? 1 :2;
+            record.Identity_people = Int32.Parse(fc["cmnd"].Trim());
+
+            db.UpdateInformationUser(record);
+            return RedirectToAction("AccountUser");
         }
     }
 }

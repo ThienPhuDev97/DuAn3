@@ -19,13 +19,14 @@ namespace PayCartOnline.Service
         private const string CheckUser = "CheckUser";
         private const string GetAllAccount = "GetAllAccount";
         private const string GetAccById = "GetAccById";
+        private const string GetAccById2 = "TakeAccById";
         private const string CheckPhone = "CheckPhone";
         private const string AllRole = "AllRole";
         private const string UpdateAccount = "UpdateAccount";
         private const string InsertAcc = "Test";
         private const string Register = "Register";
         private const string InsertOrder = "InsertOrder";
-
+        private const string UpdateInformationCustomer = "UpdateInformationCustomer";
 
 
 
@@ -129,6 +130,30 @@ namespace PayCartOnline.Service
                 record.Status = string.IsNullOrEmpty(dr["Status"].ToString()) ? null : dr["Status"].ToString();
                 
             
+
+            return record;
+
+        }
+        public Users FindAccByID2(int? id)
+
+        {
+            SqlCommand com = new SqlCommand(GetAccById2, con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.Add(new SqlParameter("@ID", id));
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable ds = new DataTable();
+            da.Fill(ds);
+            DataRow dr = ds.NewRow();
+            if (ds.Rows.Count > 0)
+                dr = ds.Rows[0];
+
+            Users record = new Users();
+            record.FullName = string.IsNullOrEmpty(dr["FullName"].ToString()) ? null : dr["FullName"].ToString();
+            record.Address = string.IsNullOrEmpty(dr["Address"].ToString()) ? null : dr["Address"].ToString();
+            record.Birthday = string.IsNullOrEmpty(dr["Birthday"].ToString()) ? null : dr["Birthday"].ToString();
+            record.Gender = string.IsNullOrEmpty(dr["Gender"].ToString()) ? 0 : Int32.Parse(dr["Gender"].ToString());
+            record.Identity_people = dr["ID"].ToString() == null ? 0 : Int32.Parse(dr["ID"].ToString());
+            record.ID = Int32.Parse(dr["ID"].ToString());
 
             return record;
 
@@ -257,5 +282,36 @@ namespace PayCartOnline.Service
                 Console.WriteLine(e.Message);
             }
         }
+
+       //cap nhat thông tin tài khoảng user
+       public void UpdateInformationUser(Users user)
+        {
+            var connection = new SqlConnection(connectionString);
+
+            try
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = UpdateInformationCustomer;
+                command.Parameters.Add(new SqlParameter("@ID_user", user.ID));
+                command.Parameters.Add(new SqlParameter("@FullName", user.FullName));
+                command.Parameters.Add(new SqlParameter("@Address", user.Address));
+                command.Parameters.Add(new SqlParameter("@Identity_people", user.Identity_people));
+                command.Parameters.Add(new SqlParameter("@Gender", user.Gender));
+                command.Parameters.Add(new SqlParameter("@Birthday", user.Birthday));
+                int ID = command.ExecuteNonQuery();
+                connection.Close();
+               
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+           
+        }
+
     }
 }
