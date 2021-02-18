@@ -101,6 +101,8 @@
                 if (mobile !== '') {
                     if (vnf_regex.test(mobile) == false) {
                         alert('Số điện thoại của bạn không đúng định dạng!');
+                        $("#nhamang").val("");
+                        $('#mobile').val("");
                     } else {
                         let radioCheck = document.getElementsByName('radio_didong');
                         let radioSelect = '';
@@ -125,31 +127,46 @@
 
         });
 
-            $("#mobile").keydown(function () {
-                let viettel = ['086', '096', '097', '098', '032', '033', '034', '035', '036', '037', '038', '039'];
-                let vinaPhone = ['088', '091', '094', '083', '084', '085', '081', '082'];
-                let mobifone = ['089', '090', '093', '070', '079', '077', '076', '078'];
-                let vietnammobile = ['092', '056', '058'];
-                let phone = $('#mobile').val();
+        $("#mobile").keyup(function () {
+            let viettel = ['086', '096', '097', '098', '032', '033', '034', '035', '036', '037', '038', '039'];
+            let vinaPhone = ['088', '091', '094', '083', '084', '085', '081', '082'];
+            let mobifone = ['089', '090', '093', '070', '079', '077', '076', '078'];
+            let vietnammobile = ['092', '056', '058'];
+            var phone = $('#mobile').val();
 
-
-                if (viettel.indexOf(phone) != -1) {
-                    $("#nhamang").val("Viettel");
-                }
-                if (vinaPhone.indexOf(phone) != -1) {
-                    $("#nhamang").val("VinaPhone");
-                }
-                if (mobifone.indexOf(phone) != -1) {
-                    $("#nhamang").val("Mobifone");
-                }
-                if (vietnammobile.indexOf(phone) != -1) {
-                    $("#nhamang").val("Vietnammobile");
-                }
-                if (phone == null) {
+            if (phone.length > 2) {
+                const phone1 = phone.slice(0, 3);
+                if ($.inArray(phone1, vietnammobile) == -1 && $.inArray(phone1, mobifone) == -1 && $.inArray(phone1, vinaPhone) == -1 && $.inArray(phone1, viettel) == -1) {
+                    alert("không có nhà mạng nào cho số này");
                     $("#nhamang").val("");
+                    $('#mobile').val("");
                 }
+                console.log(phone1);
 
-            });
+                if ($.inArray(phone1, viettel) != -1) {
+                    $("#nhamang").val("viettel");
+                }
+                else if ($.inArray(phone1, vinaPhone) != -1) {
+                    $("#nhamang").val("vinaPhone");
+                }
+                else if ($.inArray(phone1, mobifone) != -1) {
+                    $("#nhamang").val("mobifone");
+                }
+                else if ($.inArray(phone1, vietnammobile) != -1) {
+                    $("#nhamang").val("vietnammobile");
+                }
+            }
+            if (phone.length < 3 && phone.length > 10) {
+                $("#nhamang").val("");
+            }
+        });
+
+        $("#mobile").change(function () {
+            var phone = $('#mobile').val();
+            if (phone.length == 0) {
+                $("#nhamang").val("");
+            }
+        });
     </script>
 </body>
 </html>

@@ -247,28 +247,28 @@
 
                                 <div class="form-group">
                                     <label>Họ và tên</label>
-                                    <input id="fullname" class="form-control" type="text" value="" name="fullname">
+                                    <input id="fullname" class="form-control" type="text" value="" name="fullname" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ liên hệ</label>
-                                    <input id="address" class="form-control" type="text" value="" name="address">
+                                    <input id="address" class="form-control" type="text" value="" name="address" required>
                                 </div>
                                 <div class="form-group">
                                     <label>CMND/Hộ chiếu</label>
-                                    <input maxlength="15" class="form-control" id="passport" type="text" value="" name="cmnd">
+                                    <input maxlength="15" class="form-control" id="passport" type="number" value="" name="cmnd" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Giới tính</label>
-                                    <select id="gender" name="gender" class="form-control" >
+                                    <select id="gender" name="gender" class="form-control">
                                         <option value="1">Nam</option>
                                         <option value="2" selected="selected">Nữ</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Ngày sinh</label>
-                                    <input id="dob" class="form-control" type="date" value="" name="birthday">
+                                    <input id="dob" class="form-control" type="date" value="" name="birthday" required>
                                 </div>
-                               
+
                                 <button type="submit" class="btn_all_admin_ud">Cập nhật</button>
 
                             </div>
@@ -388,7 +388,26 @@
     <script type="text/javascript" src="https://vtcpay.vn/content/js/views/integrate/ManageProfile.js?v=202101290945"></script>
     <script type="text/javascript" src="https://vtcpay.vn/content/js/views/integrate/ManageSubAccount.js?v=202101290945"></script>
     <script type="text/javascript" src="https://vtcpay.vn/content/js/views/accountsecure/AccountSecure.js?v=202101290945"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var ngayHienTai = new Date().toISOString();
+            $("#dob").change(function () {
+                if ($('#dob').val() > ngayHienTai) {
+                    alert("Sai ngày rồi bạn.");
+                    $('#dob').val("");
+                }
+            });
+            $("#passport").change(function () {
+                var cmnd = $("#passport").val();
+                if (cmnd.length != 9 && cmnd.length != 12) {
+                    alert("Nhập lại đi bạn, sai định dạng rồi.");
+                    $('#passport').val("");
+                }
+               
+            });
+        });
+    </script>
 
 
 </body>
