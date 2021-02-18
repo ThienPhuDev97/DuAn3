@@ -3,135 +3,209 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var list_menhgia = ViewBag.menhgia;
 }
-    <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
-        <ol class="carousel-indicators">
-            <li class="active" data-slide-to="0" data-target="#carouselExampleIndicators">
-            </li>
-            <li data-slide-to="1" data-target="#carouselExampleIndicators">
-            </li>
-            <li data-slide-to="2" data-target="#carouselExampleIndicators">
-            </li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img alt="..." class="d-block w-100" src="https://vtcpay.vn/media2/upload/images/news/web-banner-home-05-01-2021-11-06-14.jpg">
-                </img>
+<body>
+    <div class="slideShow">
+        <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
+            <ol class="carousel-indicators">
+                <li class="active" data-slide-to="0" data-target="#carouselExampleIndicators">
+                </li>
+                <li data-slide-to="1" data-target="#carouselExampleIndicators">
+                </li>
+                <li data-slide-to="2" data-target="#carouselExampleIndicators">
+                </li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img alt="..." class="d-block w-100"
+                         src="https://vtcpay.vn/media2/upload/images/news/web-banner-home-05-01-2021-11-06-14.jpg">
+                    </img>
+                </div>
+                <div class="carousel-item">
+                    <img alt="..." class="d-block w-100"
+                         src="https://vtcpay.vn/media2/upload/images/news/web-banner-home-05-01-2021-11-07-00.jpg">
+                    </img>
+                </div>
+                <div class="carousel-item">
+                    <img alt="..." class="d-block w-100"
+                         src="https://vtcpay.vn/media2/upload/images/news/web-banner-home-05-01-2021-11-06-04.jpg">
+                    </img>
+                </div>
             </div>
-            <div class="carousel-item">
-                <img alt="..." class="d-block w-100" src="https://vtcpay.vn/media2/upload/images/news/web-banner-home-05-01-2021-11-07-00.jpg">
-                </img>
-            </div>
-            <div class="carousel-item">
-                <img alt="..." class="d-block w-100" src="https://vtcpay.vn/media2/upload/images/news/web-banner-home-05-01-2021-11-06-04.jpg">
-                </img>
-            </div>
+            <a class="carousel-control-prev" data-slide="prev" href="#carouselExampleIndicators" role="button">
+                <span aria-hidden="true" class="carousel-control-prev-icon">
+                </span>
+                <span class="sr-only">
+                    Previous
+                </span>
+            </a>
+            <a class="carousel-control-next" data-slide="next" href="#carouselExampleIndicators" role="button">
+                <span aria-hidden="true" class="carousel-control-next-icon">
+                </span>
+                <span class="sr-only">
+                    Next
+                </span>
+            </a>
         </div>
-        <a class="carousel-control-prev" data-slide="prev" href="#carouselExampleIndicators" role="button">
-            <span aria-hidden="true" class="carousel-control-prev-icon">
-            </span>
-            <span class="sr-only">
-                Previous
-            </span>
-        </a>
-       
     </div>
-
-    <div class="buycard">
-        <h4>Nạp & mua mã thẻ điện thoại di động</h4>
-        <ul class="list_radio_didong">
-            <li class="checkbox1">
-                <input id="radio_didong1" class="css-checkbox" type="radio" name="radio_didong" checked="checked">
-                <label for="radio_didong1" name="radio_didong" class="css-lable chrome-style">Nạp trả trước</label>
-            </li>
-            <li class="checkbox2">
-                <input id="radio_didong2" class="css-checkbox" type="radio" name="radio_didong" checked="checked">
-                <label for="radio_didong2" name="radio_didong" class="css-label chrome-style">Nap tra sau</label>
-            </li>
-            @*<li class="checkbox3">
-                <input id="radio_didong3" class="css-checkbox3" type="radio" name="radio_didong" checked="checked">
-                <label for="radio_didong3" name="radio_didong" class="css-label chrome-style">Mua mã thẻ</label>
-            </li>*@
-        </ul>
-        <div id="MobiView">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <div class="input-group">
-                        <input id="mobile" type="number" class="form-control" placeholder="Số điện thoại" required>                    
-              
+    <div class="container-fluid">
+        <div class="box_all">
+            <div class="slideService">
+                <div class="swiper-container service" style=" height: 60px;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <i class="fab fa-google-play"></i>
+                                <p>Google play</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <i class="fas fa-wifi"></i>
+                                <p>Internet</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <i class="fas fa-mobile-alt"></i>
+                                <p>Phone</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <i class="fas fa-signal"></i>
+                                <p>Data 3G/4G</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <i class="fas fa-gamepad"></i>
+                                <p>Cart Game</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>Electricity</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <i class="fas fa-tint"></i>
+                                <p>Water</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <i class="fas fa-tv"></i>
+                                <p>TV</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <i class="fas fa-plane"></i>
+                                <p>Air ticket</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <i class="fas fa-credit-card"></i>
+                                <p>Credit</p>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <div class="box_hienthi_danhsach_nap">
-                        <input id="nhamang" type="text" class="form-control" placeholder="Nhà mạng" readonly>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <div class="box_hienthi_danhsach_nap">
-                        <select class="form-control" id="id_menhgia">
-                       
-                        @foreach (var item in list_menhgia)
-                        {
-
-                                 <option value="@item.ID"> @item.Price VND</option >
-
-                                
-
-                            }
-                           </select>
-   
-                        
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <button class=" checkmobile" type="button"  style="background-color: #0475c5; color: white; width: 100%;
-    height: 100%;">
-                        THANH TOÁN
-                    </button>
-
+                    <!-- Add Pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next" style=" margin-right: -11px;"></div>
+                    <div class="swiper-button-prev" style=" margin-left: -11px;"></div>
                 </div>
             </div>
-            <div class="discount">
-                <h5 class="text-discount">Rẻ nhất thị trường</h5>
-                <table style="width: 100%">
-                    <tr>
-                        <th rowspan="4">Chiết khấu tối đa</th>
-                        <td>Sản phẩm</td>
-                        <td>Viettel</td>
-                        <td>Mobifone</td>
-                        <td>Vinaphone</td>
-                        <td>Vietnamobile</td>
-                        <td>Gmobile</td>
-                    </tr>
-                    <tr>
-                        <td>Mã thẻ điện thoại</td>
-                        <td>2,7%</td>
-                        <td>3,7%</td>
-                        <td>4,1%</td>
-                        <td>5,4%</td>
-                        <td>5,2%</td>
-                    </tr>
-                    <tr>
-                        <td>Nạp tiền thuê bao trả trước</td>
-                        <td>2,5%</td>
-                        <td>4%</td>
-                        <td>4%</td>
-                        <td>5,4%</td>
-                        <td>5,2%</td>
-                    </tr>
-                    <tr>
-                        <td>Nạp tiền thuê bao trả sau</td>
-                        <td>2,5%</td>
-                        <td>4%</td>
-                        <td>4%</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
-                <br></br>
+            <div class="buycard">
+                <h4>Nạp & mua mã thẻ điện thoại di động</h4>
+                <ul class="list_radio_didong">
+                    <li class="checkbox1">
+                        <input id="radio_didong1" class="css-checkbox" type="radio" name="radio_didong" checked="checked">
+                        <label for="radio_didong1" name="radio_didong" class="css-lable chrome-style">Nạp trả trước</label>
+                    </li>
+                    <li class="checkbox2">
+                        <input id="radio_didong2" class="css-checkbox" type="radio" name="radio_didong" checked="checked">
+                        <label for="radio_didong2" name="radio_didong" class="css-label chrome-style">Nap tra sau</label>
+                    </li>
+                </ul>
+                <div id="MobiView">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="input-group">
+                                <input id="mobile" type="text" class="form-control" placeholder="Số điện thoại" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="box_hienthi_danhsach_nap">
+                                <input id="nhamang" type="text" class="form-control" placeholder="Nhà mạng" readonly>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="box_hienthi_danhsach_nap">
+                                <select class="form-control" id="id_menhgia">
+
+                                    @foreach (var item in list_menhgia)
+                                    {
+                                        <option value="@item.ID"> @item.Price VND</option>
+
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <button class="checkmobile" type="button" style="background-color: #0475c5; color: white; width: 100%;
+    height: 100%;">
+                                THANH TOÁN
+                            </button>
+                        </div>
+                    </div>
+                    <div class="discount">
+                        <h5 class="text-discount">Rẻ nhất thị trường</h5>
+                        <table style="width: 100%">
+                            <tr>
+                                <th rowspan="4">Chiết khấu tối đa</th>
+                                <td>Sản phẩm</td>
+                                <td>Viettel</td>
+                                <td>Mobifone</td>
+                                <td>Vinaphone</td>
+                                <td>Vietnamobile</td>
+                                <td>Gmobile</td>
+                            </tr>
+                            <tr>
+                                <td>Mã thẻ điện thoại</td>
+                                <td>2,7%</td>
+                                <td>3,7%</td>
+                                <td>4,1%</td>
+                                <td>5,4%</td>
+                                <td>5,2%</td>
+                            </tr>
+                            <tr>
+                                <td>Nạp tiền thuê bao trả trước</td>
+                                <td>2,5%</td>
+                                <td>4%</td>
+                                <td>4%</td>
+                                <td>5,4%</td>
+                                <td>5,2%</td>
+                            </tr>
+                            <tr>
+                                <td>Nạp tiền thuê bao trả sau</td>
+                                <td>2,5%</td>
+                                <td>4%</td>
+                                <td>4%</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <br><br>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Start SlideShow By Phuong -->
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 p-0">
@@ -281,216 +355,693 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- slider controls -->
-                        <!-- pagination -->
+                        slider controls
+                        pagination
                         <div class="swiper-pagination pagination-ctrl"></div>
                     </div>
                 </div>
             </div>
-
         </div>
-
-            <!-- End SlideShow Phuong -->
-            <div class="home-partner active" style="left: 0px;">
-                <div class="box_doitac_thanhtoan_ud">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">
-                            <div class="box_info_doitac_thanhtoan">
-                                <h3>ĐỐI TÁC NỔI BẬT</h3>
-                                <p>
-                                    Là đơn vị được Ngân hàng Nhà nước Việt Nam giấy phép cung ứng dịch vụ Trung gian Thanh toán từ năm 2016, VTC Pay là đối tác tin cậy và là sự lựa chọn hàng đầu của các doanh nghiệp trong và ngoài nước.
-                                    Hiện nay, VTC Pay có kết nối với hơn 2000 doanh nghiệp, hoạt động trên nhiều lĩnh vực.
-                                </p>
-                                <div class="box_slide_doitac owl-carousel owl-theme owl-loaded">
-                                    <div class="owl-stage-outer">
-                                        <div class="owl-stage" style="transform: translate3d(-1017px, 0px, 0px); transition: all 0.25s ease 0s; width: 5085px;">
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/docomo.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/nimotv.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/ppro.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/shopify.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/sopa.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/tinder.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/google.png"></a></div>
-                                            </div>
-                                            <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/1.png"></a></div>
-                                            </div>
-                                            <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/2.png"></a></div>
-                                            </div>
-                                            <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/3.png"></a></div>
-                                            </div>
-                                            <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/4.png"></a></div>
-                                            </div>
-                                            <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/5.png"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/6.png"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/7.png"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/9.png"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/10.png"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/12.png"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/13.png"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/docomo.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/nimotv.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/ppro.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/shopify.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/sopa.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/tinder.jpg"></a></div>
-                                            </div>
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/google.png"></a></div>
-                                            </div>
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/1.png"></a></div>
-                                            </div>
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/2.png"></a></div>
-                                            </div>
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/3.png"></a></div>
-                                            </div>
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/4.png"></a></div>
-                                            </div>
-                                            <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
-                                                <div class="item"><a href="javascript:;"><img src="https://vtcpay.vn/content/images/logo_partner/5.png"></a></div>
-                                            </div>
+        <!-- End SlideShow Phuong -->
+    </div>
+    <div class="home-partner active" style="left: 0px;">
+        <div class="box_doitac_thanhtoan_ud">
+            <div class="row">
+                <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">
+                    <div class="box_info_doitac_thanhtoan">
+                        <h3>ĐỐI TÁC NỔI BẬT</h3>
+                        <p>
+                            Là đơn vị được Ngân hàng Nhà nước Việt Nam giấy phép cung ứng dịch vụ Trung gian Thanh toán từ năm 2016,
+                            VTC Pay là đối tác tin cậy và là sự lựa chọn hàng đầu của các doanh nghiệp trong và ngoài nước.
+                            Hiện nay, VTC Pay có kết nối với hơn 2000 doanh nghiệp, hoạt động trên nhiều lĩnh vực.
+                        </p>
+                        <div class="box_slide_doitac owl-carousel owl-theme owl-loaded">
+                            <div class="owl-stage-outer">
+                                <div class="owl-stage"
+                                     style="transform: translate3d(-1017px, 0px, 0px); transition: all 0.25s ease 0s; width: 5085px;">
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/docomo.jpg">
+                                            </a>
                                         </div>
                                     </div>
-
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/nimotv.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/ppro.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/shopify.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/sopa.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/tinder.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/google.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/1.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/2.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/3.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/4.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item active" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/5.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/6.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/7.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/9.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/10.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/12.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/13.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/docomo.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/nimotv.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/ppro.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/shopify.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/sopa.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/tinder.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/google.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/1.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/2.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/3.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/4.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="owl-item cloned" style="width: 149.5px; margin-right: 20px;">
+                                        <div class="item">
+                                            <a href="javascript:;">
+                                                <img src="https://vtcpay.vn/content/images/logo_partner/5.png">
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                            <ul class="list_tinhnang_doitac">
-                                <li>
-                                    <div class="img_thumb_tinnang_doitac"><img src="https://vtcpay.vn/content/images/icon2_tinhnang_doitac.png"></div>
-                                    <div class="img_noidung_tinnang_doitac">
-                                        Cộng đồng khách hàng
-                                        <span>bền vững</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="img_thumb_tinnang_doitac"><img src="https://vtcpay.vn/content/images/icon1_tinhnang_doitac.png"></div>
-                                    <div class="img_noidung_tinnang_doitac">
-                                        Hạ tầng thanh toán
-                                        <span>hoàn hảo</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="img_thumb_tinnang_doitac"><img src="https://vtcpay.vn/content/images/icon3_tinhnang_doitac.png"></div>
-                                    <div class="img_noidung_tinnang_doitac">
-                                        Sức mạnh công nghệ
-                                        <span>vượt trội</span>
-                                    </div>
-                                </li>
-                            </ul>
+
                         </div>
                     </div>
                 </div>
-
-
-                <div class="suport-pay">
-                    <h3 class="text-bank" style="font-size: 2.75rem;">Hỗ trợ thanh toán</h3>
-                    <span style="color: blue; margin-left: 480px;
-    font-size: 15px;">Qua 37 ngân hàng nội địa và 3 tổ chức thẻ quốc tế</span>
-
-                    <div class="flex-container">
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/baoviet.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/donga.png" class="bank" style="width:50%" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/bidv.png" class="bank" style="width:50%" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/kienlong.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/lienviet.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/sea.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/shb.png" class="bank" style="width:50%" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/jvb.png" class="bank" style="width:50%" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/vib.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/exim.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/acb.png" class="bank" style="width:50%" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/techcom.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/scb.png" class="bank" style="width:30%" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/viettin.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/sacom.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/hd.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/vietcom.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/gp.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/baca.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/maritime.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/abb.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/vp.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/ocb.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/ocean.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/agri.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/saigon.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/pg.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/vieta.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/vrb.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/nama.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/tp.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/ncb.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/pvcombank.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/PublicBank.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/ivb.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/uob.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/woo.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/visa.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/master.png" class="bank" alt=""></a></div>
-                        <div class="nofade"><a href="javascript:;"><img src="https://vtcpay.vn/Content/Images/bank/jcb.png" class="bank" style="width:50%" alt=""></a></div>
-                    </div>
+                <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+                    <ul class="list_tinhnang_doitac">
+                        <li>
+                            <div class="img_thumb_tinnang_doitac">
+                                <img src="https://vtcpay.vn/content/images/icon2_tinhnang_doitac.png">
+                            </div>
+                            <div class="img_noidung_tinnang_doitac">
+                                <p>
+                                    Cộng đồng khách hàng
+                                    </br>BỀN VỮNG
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img_thumb_tinnang_doitac">
+                                <img src="https://vtcpay.vn/content/images/icon1_tinhnang_doitac.png">
+                            </div>
+                            <div class="img_noidung_tinnang_doitac">
+                                <p>
+                                    Hạ tầng thanh toán
+                                    </br>HOÀN HẢO
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img_thumb_tinnang_doitac">
+                                <img src="https://vtcpay.vn/content/images/icon3_tinhnang_doitac.png">
+                            </div>
+                            <div class="img_noidung_tinnang_doitac">
+                                <P>
+                                    Sức mạnh công nghệ
+                                    </br>VƯỢT TRỘI
+                                </P>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="content-pay-home">
-                    <div class="why-reg acc">
-                        <div class="tt-w">
-                            <P>
-                                CHỈ VỚI MỘT TÀI KHOẢN VÍ ĐIỆN TỬ VTC
-                                </br>PAY THANH TOÁN Ở MỌI NƠI THEO CÁCH BẠN MUỐN
-                            </P>
-                            <a href="https://vtcpay.vn/dang-ky" class="btn-black">THAM GIA NGAY</a>
-                        </div>
-                    </div>
-                </div>
-
-
-              
-
             </div>
         </div>
+        <div class="suport-pay">
+            <h3 class="text-bank" style="font-size: 2.75rem;">Hỗ trợ thanh toán</h3>
+            <span style="color: blue; margin-left: 480px;
+    font-size: 15px;">Qua 37 ngân hàng nội địa và 3 tổ chức thẻ quốc tế</span>
+
+            <div class="flex-container">
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/baoviet.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/donga.png"
+                             class="bank" style="width:50%" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/bidv.png"
+                             class="bank" style="width:50%" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/kienlong.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/lienviet.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/sea.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/shb.png" class="bank"
+                             style="width:50%" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/jvb.png" class="bank"
+                             style="width:50%" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/vib.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/exim.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/acb.png" class="bank"
+                             style="width:50%" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/techcom.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/scb.png" class="bank"
+                             style="width:30%" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/viettin.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/sacom.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/hd.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/vietcom.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/gp.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/baca.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/maritime.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/abb.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/vp.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/ocb.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/ocean.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/agri.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/saigon.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/pg.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/vieta.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/vrb.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/nama.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/tp.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/ncb.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/pvcombank.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/PublicBank.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/ivb.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/uob.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/woo.png" class="bank"
+                             alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/visa.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/master.png"
+                             class="bank" alt="">
+                    </a>
+                </div>
+                <div class="nofade">
+                    <a href="javascript:;">
+                        <img src="https://vtcpay.vn/Content/Images/bank/jcb.png" class="bank"
+                             style="width:50%" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="content-pay-home">
+            <div class="why-reg acc">
+                <div class="tt-w">
+                    <P>
+                        CHỈ VỚI MỘT TÀI KHOẢN VÍ ĐIỆN TỬ VTC
+                        </br>PAY THANH TOÁN Ở MỌI NƠI THEO CÁCH BẠN MUỐN
+                    </P>
+                    <a href="https://vtcpay.vn/dang-ky" class="btn-black">THAM GIA NGAY</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script type="text/javascript" src="~/Assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src="~/Assets/js/bootstrap.bundle.js"></script>
+        <script type="text/javascript" src="~/Assets/js/util.js"></script>
+        <script type="text/javascript" src="~/Assets/js/owl.carousel.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="~/Assets/js/bundle-swiper.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            })
+        </script>
+
+        <script>
+            $(function () {
+                $('.box_slide_doitac').owlCarousel({
+                    loop: true,
+                    autoWidth: false,
+                    margin: 20,
+                    autoplay: true,
+                    nav: true,
+                    navText: false,
+                    mouseDrag: true,
+                    items: true,
+                    responsive: {
+                        0: {
+                            items: 2,
+                        },
+                        600: {
+                            items: 4,
+                        },
+                        1000: {
+                            items: 4,
+                        },
+                        1200: {
+                            items: 6,
+                        }
+                    }
+                });
+            })
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                TopupMobilePrepaid.init();
+                TopupMobileMultiPhone.init();
+            });
+        </script>
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $('body').on('click', '.checkmobile', function () {
+                    var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+                    var mobile = $('#mobile').val();
+                    if (mobile !== '') {
+                        if (vnf_regex.test(mobile) == false) {
+                            alert('Số điện thoại của bạn không đúng định dạng!');
+                            $("#nhamang").val("");
+                            $('#mobile').val("");
+                        } else {
+                            let radioCheck = document.getElementsByName('radio_didong');
+                            let radioSelect = '';
+
+                            for (var i = 0; i < radioCheck.length; i++) {
+                                if (radioCheck[i].checked) {
+                                    radioCheck[i].id === 'radio_didong1' ? radioSelect = 'Nạp trả trước' : radioSelect = 'Nap tra sau';
+                                }
+                            }
+                            let menhgia = $('#id_menhgia').val()
+                            let test2 = $('#id_menhgia').text()
+
+                            let nhamang = $('#nhamang').val();
+                            location.assign("https://localhost:44392/Home/ReceiveInfo?mobile=" + mobile + "&menhgia=" +
+                                menhgia + "&nhamang=" + nhamang + "&type=" + radioSelect);
+                        }
+                    } else {
+                        alert('Bạn chưa điền số điện thoại!');
+                    }
+                });
+            });
+
+            $("#mobile").keyup(function () {
+                let viettel = ['086', '096', '097', '098', '032', '033', '034', '035', '036', '037', '038', '039'];
+                let vinaPhone = ['088', '091', '094', '083', '084', '085', '081', '082'];
+                let mobifone = ['089', '090', '093', '070', '079', '077', '076', '078'];
+                let vietnammobile = ['092', '056', '058'];
+                var phone = $('#mobile').val();
+                if (phone.length > 2) {
+                    const phone1 = phone.slice(0, 3);
+                    if ($.inArray(phone1, vietnammobile) == -1 && $.inArray(phone1, mobifone) == -1 && $.inArray(phone1, vinaPhone) == -1 && $.inArray(phone1, viettel) == -1) {
+                        alert("không có nhà mạng nào cho số này");
+                        $("#nhamang").val("");
+                        $('#mobile').val("");
+                    }
+                    if ($.inArray(phone1, viettel) != -1) {
+                        $("#nhamang").val("viettel");
+                    } else if ($.inArray(phone1, vinaPhone) != -1) {
+                        $("#nhamang").val("vinaPhone");
+                    } else if ($.inArray(phone1, mobifone) != -1) {
+                        $("#nhamang").val("mobifone");
+                    } else if ($.inArray(phone1, vietnammobile) != -1) {
+                        $("#nhamang").val("vietnammobile");
+                    }
+                }
+                if (phone.length < 3 && phone.length > 10) {
+                    $("#nhamang").val("");
+                }
+            });
+            $("#mobile").change(function () {
+                var phone = $('#mobile').val();
+                if (phone.length == 0) {
+                    $("#nhamang").val("");
+                }
+            });
+        </script>
+
+        <!-- Initialize Swiper -->
+        <script>
+
+            var swiper = new Swiper('.service', {
+                slidesPerView: 10,
+                spaceBetween: 30,
+                loop: true,
+
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        </script>
+</body>
+

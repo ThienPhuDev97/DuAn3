@@ -1,0 +1,908 @@
+.img-responsive {
+  margin-left: 20px;
+}
+
+input#txtTextSearch {
+  padding: 6px 6px 6px 30px;
+  border: none;
+  outline: none;
+  background: url(https://vtcpay.vn/content/images/icon_search.png) no-repeat 1% center;
+  width: 415px;
+  max-width: 100%;
+  font-size: 14px;
+  color: #ababab;
+}
+
+.header-top {
+  padding: 0px 50px;
+}
+
+.navbar-img {
+  /*float: left;*/
+  padding: 15px 10px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 50px;
+}
+
+a.navbar-img {
+  margin-right: 35px;
+  padding: 8px 8px 8px 15px;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #e5e5e4 !important;
+  padding-left: 35px;
+  padding-right: 35px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  position: relative;
+  height: 100%;
+}
+
+body:hover {
+  background-color: #e5e5e4 !important;
+  border: 1px solid;
+}
+
+.container-fluid {
+  background-color: #e5e5e4;
+  width: 50%;
+}
+
+.menu-top {
+  width: 96%;
+  margin-left: 30px;
+  background-color: white;
+  margin-top: -11px;
+  margin-bottom: -10px;
+}
+
+.list_menu_left {
+  margin-top: -64px;
+  margin-left: 320px;
+}
+
+.list_menu_right {
+  margin-top: -64px;
+  margin-left: 720px;
+}
+
+.slideShow {
+  margin-left: 38px;
+  width: 95%;
+}
+
+.navbar-brand {
+  display: block;
+}
+
+@media (min-width: 1200px) {
+  .container1, .container-lg, .container-md, .container-sm, .container-xl {
+    background-color: white;
+    width: 1444px;
+    margin-left: 39px;
+  }
+}
+
+ol, ul {
+  list-style: none;
+}
+
+.list_menu_right ul li a, h3 {
+  font-size: 15px;
+  display: inherit;
+}
+
+.list_menu_right li {
+  margin-right: 15px;
+}
+
+.list_menu_right li.btn_dangnhap a {
+  text-align: center;
+  border: solid 1px #c7c7c7;
+  font-size: 14px;
+  color: #606165;
+  padding: 5px 0px;
+  border-radius: 3px;
+  -webkit-transition: 0.4s ease all;
+  -o-transition: 0.4s ease all;
+  -moz-transition: 0.4s ease all;
+  transition: 0.4s ease all;
+  width: 95px;
+  display: inline-block;
+}
+
+.list_menu_right li.btn_dangky a {
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  padding: 5px 0px;
+  background-color: #009de2;
+  border: solid 1px #009de2;
+  border-radius: 3px;
+  -webkit-transition: 0.4s ease all;
+  -o-transition: 0.4s ease all;
+  -moz-transition: 0.4s ease all;
+  transition: 0.4s ease all;
+  width: 95px;
+  display: inline-block;
+}
+
+ul.list_menu_right_child.row {
+  margin-left: 300px;
+}
+
+li.link_huongdan_udd, .link_tintuc_udd {
+  margin-top: 10px;
+}
+
+.list_radio_didong {
+  display: flex;
+  padding: 0px;
+}
+
+.checkbox1 {
+  display: inline-block;
+}
+
+.checkbox2 {
+  display: inline-block;
+  margin-left: 100px;
+}
+
+.checkbox3 {
+  display: inline-block;
+  margin-left: 300px;
+}
+
+.btn_chon_file {
+  display: flex;
+  margin-left: 187px;
+  margin-top: -30px;
+}
+
+table, th, td {
+  border: 1px solid #aab0b5;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+
+.col-lg-3 .col-md-3 .col-sm-12 .col-xs-12 {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+small img {
+  margin-left: 15px;
+  width: 60px;
+  vertical-align: baseline;
+}
+
+.tt_xdong {
+  margin-left: 195px;
+  margin-top: -24px;
+}
+
+.img-responsive1 {
+  display: flex;
+  width: 100px;
+  margin-left: -54px;
+  margin-top: 26px;
+}
+
+.img-responsive2 {
+  display: flex;
+  margin-left: 21px;
+  margin-top: 10px;
+}
+
+.img-responsive2 {
+  display: flex;
+  margin-left: 21px;
+  margin-top: 10px;
+}
+
+.img-responsive3 {
+  display: flex;
+  margin-left: 21px;
+  margin-top: 5px;
+}
+
+.img-responsive4 {
+  display: flex;
+  margin-left: 21px;
+  margin-top: 5px;
+}
+
+.box_hienthi_danhsach_nap {
+  text-decoration: none;
+}
+
+.flex-container {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+.flex-container>div {
+  background-color: white;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+.text-bank {
+  text-align: center;
+  margin-left: -30px;
+}
+
+span {
+  margin-left: 555px;
+  font-size: 14px;
+}
+
+.bank {
+  width: 70%;
+}
+
+.flex-container>.nofade {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  border: 1px solid grey;
+  width: 125px;
+}
+
+.flex-container>.nofade:hover {
+  -webkit-filter: none;
+  filter: none;
+  border: 1px solid blue;
+}
+
+.container.content-pay {
+  padding: 0;
+}
+
+.content-pay-home {
+  background: white;
+  position: relative;
+  z-index: 2;
+  width: 95%;
+  margin-left: 39px;
+}
+
+.why-reg.acc {
+  background-image: url(https://vtcpay.vn/content/images/acc-bg.jpg);
+}
+
+.why-reg {
+  background: url(https://vtcpay.vn/content/images/bg-hd-3.jpg) no-repeat center center;
+  background-attachment: fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  padding: 110px 0px;
+  position: relative;
+  z-index: 1;
+}
+
+.tt-w {
+  color: #ffffff;
+  font-size: 21px;
+  margin-bottom: 33px;
+  font-weight: 300;
+}
+
+.tt-w.tt-w-nho {
+  font-size: 21px;
+}
+
+.tt-w span {
+  display: block;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.tt-w.tt-w-nho span {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.tt-w.tt-w-nho i {
+  font-weight: normal;
+  font-style: normal;
+}
+
+.active .tt-w.tt-w-nho span {
+  -webkit-animation: 1s ease fadeInLeft forwards;
+  -moz-animation: 1s ease fadeInLeft forwards;
+  -o-animation: 1s ease fadeInLeft forwards;
+  animation: 1s ease fadeInLeft forwards;
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  -o-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.active .tt-w.tt-w-nho i {
+  -webkit-animation: 1s ease fadeInRight forwards;
+  -moz-animation: 1s ease fadeInRight forwards;
+  -o-animation: 1s ease fadeInRight forwards;
+  animation: 1s ease fadeInRight forwards;
+  display: block;
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  -o-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  opacity: 0;
+}
+
+a.btn-black {
+  display: inline-block;
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0 60px;
+  -moz-border-radius: 56px;
+  border-radius: 56px;
+  color: #ffffff;
+  font-size: 21px;
+  border: 1px solid #fcfcfb;
+  -webkit-transition: 0.4s ease all;
+  -o-transition: 0.4s ease all;
+  -moz-transition: 0.4s ease all;
+  transition: 0.4s ease all;
+}
+
+a.btn-black:hover {
+  background: #0061af;
+  color: white;
+  border-color: #0061af;
+  text-decoration: none;
+}
+
+.box_doitac_thanhtoan_ud {
+  background-color: #eeeeee;
+  margin-top: -56px;
+  margin-left: 40px;
+  width: 95%;
+}
+
+.box_info_doitac_thanhtoan {
+  padding: 90px 45px
+}
+
+.box_info_doitac_thanhtoan h3 {
+  font-size: 30px;
+  color: #292a2d;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.box_info_doitac_thanhtoan p {
+  font-size: 14px;
+  color: #545454;
+  display: block;
+  max-width: 590px;
+  line-height: 25px;
+}
+
+.box_slide_doitac {
+  background-color: #fff;
+  width: 1065px;
+  position: relative;
+  z-index: 3;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  padding: 12px 25px;
+  max-width: 120%;
+}
+
+.box_slide_doitac.owl-carousel .owl-item img {
+  width: auto;
+}
+
+.link_trothanh_doitac {
+  display: table;
+  font-style: italic;
+  position: relative;
+  color: #0475c5;
+  font-size: 14px;
+}
+
+.link_trothanh_doitac:before {
+  content: "";
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  background: url(https://vtcpay.vn/content/images/icon_link_doitac.png) no-repeat;
+  width: 7px;
+  height: 14px;
+  -webkit-transition: 0.4s ease all;
+  -o-transition: 0.4s ease all;
+  -moz-transition: 0.4s ease all;
+  transition: 0.4s ease all;
+}
+
+.link_trothanh_doitac:hover {
+  color: #0d8fea;
+}
+
+.link_trothanh_doitac:hover:before {
+  right: -20px;
+  -webkit-transition: 0.4s ease all;
+  -o-transition: 0.4s ease all;
+  -moz-transition: 0.4s ease all;
+  transition: 0.4s ease all;
+}
+
+.list_tinhnang_doitac {
+  background-color: #606165;
+  padding: 50px 0px 10px 0px;
+  display: block;
+}
+
+.list_tinhnang_doitac li {
+  display: block;
+  padding: 20px 120px;
+  border-bottom: solid 1px #6d6d71;
+  overflow: hidden;
+  color: #fff;
+  vertical-align: middle;
+  line-height: 55px;
+}
+
+.list_tinhnang_doitac li:last-child {
+  border: none;
+}
+
+.list_tinhnang_doitac li .img_thumb_tinnang_doitac {
+  float: left;
+  margin-right: 20px;
+}
+
+.img_noidung_tinnang_doitac {
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.img_noidung_tinnang_doitac span {
+  display: block;
+  text-transform: uppercase;
+}
+
+.box_quatang_voucher {
+  background: url(https://vtcpay.vn/content/images/bg_quatang_voucher.jpg) no-repeat top center;
+  background-size: cover;
+  padding: 40px 45px;
+}
+
+.bg_nen_quatang_voucher {
+  background-color: rgba(255, 255, 255, 0.26);
+  width: 100%;
+  height: 100%;
+  padding: 50px 65px;
+}
+
+.bg_nen_quatang_voucher h4 {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 30px;
+  display: block;
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.transformer-tabs {
+  display: table;
+  text-align: center;
+  border-bottom: solid 1px #fff;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.transformer-tabs li {
+  display: inline-block;
+}
+
+.transformer-tabs a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  padding: 5px 15px;
+  position: relative;
+}
+
+.transformer-tabs a:before {
+  width: 100%;
+  height: 3px;
+  background-color: #00b8f1;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  content: "";
+  display: none;
+}
+
+.transformer-tabs a.active {
+  color: #00b8f1;
+}
+
+.transformer-tabs a.active:before {
+  display: block;
+}
+
+.tab_noidung {
+  display: none;
+}
+
+.active.tab_noidung {
+  display: block;
+}
+
+.list_all_sp_quatang {
+  display: flex;
+  flex-flow: wrap;
+  /*margin-bottom: 50px;*/
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.list_all_sp_quatang li {
+  display: inline-block;
+  width: 165px;
+  height: 165px;
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+
+.list_all_sp_quatang li a {
+  position: relative;
+  background-color: #fff;
+  width: 165px;
+  height: 165px;
+  display: inline-block;
+  text-align: center;
+  border: solid 1px #ccc;
+}
+
+.list_all_sp_quatang li a img, .list_all_sp_quatang li a em {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.list_all_sp_quatang li a em {
+  width: 100%;
+  font-style: normal;
+  font-size: 13px;
+  color: #0475c5;
+}
+
+#footer>.container {
+  background: white;
+  margin: 0px;
+  padding: 40px 20px 30px 60px;
+  border-top: 1px solid #e9e9e9;
+  width: 100%;
+}
+
+.ft-duoi-1, .ft-duoi-2 {
+  padding-top: 10px;
+}
+
+.link_thanh_daily {
+  border: solid 1px #0475c5;
+  font-size: 14px;
+  color: #0475c5;
+  line-height: 35px;
+  display: table;
+  text-align: center;
+  width: 100%;
+  max-width: 200px;
+  -webkit-transition: 0.4s ease all;
+  -o-transition: 0.4s ease all;
+  -moz-transition: 0.4s ease all;
+  transition: 0.4s ease all;
+}
+
+.link_thanh_daily:hover {
+  background-color: #0061af;
+  color: #fff;
+}
+
+.ft-duoi-2 .link_thanh_daily {
+  margin-top: -5px;
+}
+
+.ft-duoi-1 .m-b-20 a {
+  font-size: 14px;
+  color: #3d3c3c;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+footer#footer.footer2 .ft-duoi-1 .m-b-20 a {
+  color: #a0a0a0;
+}
+
+.ft-duoi-1 .m-b-20 a:hover {
+  color: #285594;
+}
+
+.ft-duoi-1 img {
+  width: 27px;
+  margin-right: 5px;
+}
+
+.ft-duoi-1 a:last-child img {
+  margin-right: 0;
+}
+
+ul.introduce-list li a {
+  font-size: 13px;
+  color: #3d3c3c;
+}
+
+footer#footer.footer2 .ft-duoi-1 img {
+  -webkit-filter: grayscale(1);
+}
+
+footer#footer.footer2 ul.introduce-list li a {
+  color: #a0a0a0;
+}
+
+.tt-footer1 {
+  margin-left: 38px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 21px;
+  margin-bottom: 0px;
+}
+
+footer#footer.footer2 .tt-footer1 {
+  color: #b5b5b3;
+}
+
+.ct-ft-1 {
+  margin-left: 38px;
+  font-size: 14px;
+  color: #3d3c3c;
+}
+
+.ct-ft-1 p {
+  margin-bottom: 0px;
+}
+
+.ct-ft-1 small {
+  padding-top: 15px;
+  font-size: 14px;
+  color: #3d3c3c;
+  margin-top: 0px;
+  display: inline-block;
+}
+
+footer#footer.footer2 .ct-ft-1 small {
+  color: #b5b5b3;
+}
+
+.tt-footer-2 {
+  margin-bottom: 10px;
+  margin-left: 40px;
+  margin-top: 35px;
+  font-size: 14px;
+  color: #3d3c3c;
+  font-weight: 600;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+}
+
+.tt-footer-application {
+  text-transform: uppercase;
+}
+
+.tt-footer-connect {
+  text-transform: uppercase;
+}
+
+ul.introduce-list li a img {
+  vertical-align: middle;
+  margin-right: 0px;
+}
+
+ul.introduce-list li a:hover {
+  color: #285594;
+}
+
+.baomat img {
+  height: 27px;
+  margin-right: 15px;
+}
+
+.baomat a:last-child img {
+  margin-right: 0;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: 0.4s ease all;
+  -o-transition: 0.4s ease all;
+  -moz-transition: 0.4s ease all;
+  transition: 0.4s ease all;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-perspective: 700px;
+  -moz-perspective: 700px;
+  perspective: 700px;
+}
+
+.back-to-top:hover {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.tt_xdong {
+  margin-left: 245px;
+  display: flex;
+}
+
+.list_ungdung_ud {
+  margin-left: -60px;
+  display: flex;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  justify-content: left;
+}
+
+.list_ungdung_ud li {
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.list_ungdung_ud li:last-child {
+  margin-right: 0;
+}
+
+.list_ungdung_ud li a {
+  display: block;
+}
+
+.tt-footer-2 {
+  margin-left: 40px;
+}
+
+.list_ketnoi_ud {
+  margin-top: 10px;
+  width: 57%;
+  margin-left: -40px;
+  display: flex;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  justify-content: left;
+}
+
+.list_ketnoi_ud li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.list_ketnoi_ud li:last-child {
+  margin-right: 0;
+}
+
+.list_ketnoi_ud li a {
+  display: block;
+}
+
+.social-btn1 {
+  width: 100%;
+  display: flex;
+}
+
+.social-btn2 {
+  width: 100%;
+  display: flex;
+}
+
+.social-btn3 {
+  width: 100%;
+  display: flex;
+}
+
+.social-btn4 {
+  width: 100%;
+  display: flex;
+}
+
+.language {
+  margin-left: 42px;
+}
+
+.lt_nn_ft_ud {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  color: #3d3c3c;
+  margin-top: 20px
+}
+
+.suport-pay {
+  padding: 60px 60px;
+  background-color: white;
+  margin-left: 40px;
+  width: 95%;
+}
+
+.buycard {
+  padding: 30px 30px 50px 30px;
+  margin-left: 38px;
+  width: 95%;
+  position: relative;
+  background-color: white;
+}
+.slideService {
+  padding: 5px 30px 0px 30px;
+  margin-left: 38px;
+  width: 95%;
+  position: relative;
+  background-color: white;
+}
+.slideService:hover {
+  cursor: grab;
+}
+
+.slideShow2 {
+  background-size: cover;
+  padding: 0px 45px;
+  overflow: hidden;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.discount {
+  margin-top: 50px;
+  margin-bottom: -48px;
+}
+
+.text-discount {
+  margin-bottom: 1.5rem;
+}
+
+.container {
+  width: 100%;
+}

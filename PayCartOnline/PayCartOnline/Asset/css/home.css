@@ -1,22 +1,21 @@
 .img-responsive {
-  width: 280px;
+  margin-left: 20px;
 }
 
-.img {}
-
 input#txtTextSearch {
-  padding: 6px 6px 6px 30px;
-  border: none;
-  outline: none;
-  background: url(https://vtcpay.vn/content/images/icon_search.png) no-repeat 1% center;
-  width: 415px;
-  max-width: 100%;
-  font-size: 14px;
-  color: #ababab;
+    padding: 6px 6px 6px 30px;
+    border: none;
+    outline: none;
+    background: url(https://vtcpay.vn/content/images/icon_search.png) no-repeat 1% center;
+    width: 415px;
+    max-width: 100%;
+    font-size: 14px;
+    color: #ababab;
+    margin-top: 25px;
 }
 
 .header-top {
-  padding: 10px 20px;
+  padding: 0px 50px;
 }
 
 .navbar-img {
@@ -32,23 +31,51 @@ a.navbar-img {
   padding: 8px 8px 8px 15px;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: #e5e5e4 !important;
   padding-left: 35px;
   padding-right: 35px;
-  background: #000;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
   position: relative;
   height: 100%;
 }
 
+body:hover {
+  background-color: #e5e5e4 !important;
+  border: 1px solid;
+}
+
 .container-fluid {
-  background-color: #fff;
-  padding: 10px;
+  background-color: #e5e5e4;
+  width: 50%;
+}
+
+.menu-top {
+  width: 96%;
+  margin-left: 30px;
+  background-color: white;
+  margin-top: -11px;
+  margin-bottom: -10px;
+}
+
+.list_menu_left {
+  margin-top: -64px;
+  margin-left: 320px;
+}
+
+.list_menu_right {
+  margin-top: -64px;
+  margin-left: 720px;
+}
+
+.slideShow {
+  margin-left: 38px;
+  width: 95%;
 }
 
 .navbar-brand {
@@ -56,8 +83,10 @@ body {
 }
 
 @media (min-width: 1200px) {
-  .container {
-    max-width: 1225px !important;
+  .container1, .container-lg, .container-md, .container-sm, .container-xl {
+    background-color: white;
+    width: 1444px;
+    margin-left: 39px;
   }
 }
 
@@ -106,7 +135,7 @@ ol, ul {
 }
 
 ul.list_menu_right_child.row {
-  
+  margin-left: 300px;
 }
 
 li.link_huongdan_udd, .link_tintuc_udd {
@@ -156,6 +185,7 @@ th, td {
 }
 
 small img {
+  margin-left: 15px;
   width: 60px;
   vertical-align: baseline;
 }
@@ -251,6 +281,8 @@ span {
   background: white;
   position: relative;
   z-index: 2;
+  width: 95%;
+  margin-left: 39px;
 }
 
 .why-reg.acc {
@@ -347,10 +379,13 @@ a.btn-black:hover {
 
 .box_doitac_thanhtoan_ud {
   background-color: #eeeeee;
+  margin-top: -56px;
+  margin-left: 40px;
+  width: 95%;
 }
 
 .box_info_doitac_thanhtoan {
-  padding: 50px 45px;
+  padding: 90px 45px
 }
 
 .box_info_doitac_thanhtoan h3 {
@@ -423,13 +458,13 @@ a.btn-black:hover {
 
 .list_tinhnang_doitac {
   background-color: #606165;
-  padding: 40px 0px 40px 135px;
+  padding: 50px 0px 10px 0px;
   display: block;
 }
 
 .list_tinhnang_doitac li {
   display: block;
-  padding: 25px 0px;
+  padding: 20px 120px;
   border-bottom: solid 1px #6d6d71;
   overflow: hidden;
   color: #fff;
@@ -573,8 +608,10 @@ a.btn-black:hover {
 
 #footer>.container {
   background: white;
-  padding: 35px 20px 30px 60px;
+  margin: 0px;
+  padding: 40px 20px 30px 60px;
   border-top: 1px solid #e9e9e9;
+  width: 100%;
 }
 
 .ft-duoi-1, .ft-duoi-2 {
@@ -643,9 +680,9 @@ footer#footer.footer2 ul.introduce-list li a {
 }
 
 .tt-footer1 {
+  margin-left: 38px;
   font-size: 15px;
-  color: #3d3c3c;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 21px;
   margin-bottom: 0px;
 }
@@ -655,6 +692,7 @@ footer#footer.footer2 .tt-footer1 {
 }
 
 .ct-ft-1 {
+  margin-left: 38px;
   font-size: 14px;
   color: #3d3c3c;
 }
@@ -664,6 +702,7 @@ footer#footer.footer2 .tt-footer1 {
 }
 
 .ct-ft-1 small {
+  padding-top: 15px;
   font-size: 14px;
   color: #3d3c3c;
   margin-top: 0px;
@@ -675,10 +714,21 @@ footer#footer.footer2 .ct-ft-1 small {
 }
 
 .tt-footer-2 {
+  margin-bottom: 10px;
+  margin-left: 40px;
+  margin-top: 35px;
   font-size: 14px;
   color: #3d3c3c;
   font-weight: 600;
   margin-bottom: 0px;
+  text-transform: uppercase;
+}
+
+.tt-footer-application {
+  text-transform: uppercase;
+}
+
+.tt-footer-connect {
   text-transform: uppercase;
 }
 
@@ -725,10 +775,12 @@ ul.introduce-list li a:hover {
 }
 
 .tt_xdong {
+  margin-left: 245px;
   display: flex;
 }
 
 .list_ungdung_ud {
+  margin-left: -60px;
   display: flex;
   overflow: hidden;
   text-align: center;
@@ -755,6 +807,9 @@ ul.introduce-list li a:hover {
 }
 
 .list_ketnoi_ud {
+  margin-top: 10px;
+  width: 57%;
+  margin-left: -40px;
   display: flex;
   overflow: hidden;
   text-align: center;
@@ -763,7 +818,6 @@ ul.introduce-list li a:hover {
 }
 
 .list_ketnoi_ud li {
-  vertical-align: middle;
   display: inline-block;
   margin-right: 15px;
 }
@@ -776,8 +830,24 @@ ul.introduce-list li a:hover {
   display: block;
 }
 
-.social-btn {
-  width: 100%
+.social-btn1 {
+  width: 100%;
+  display: flex;
+}
+
+.social-btn2 {
+  width: 100%;
+  display: flex;
+}
+
+.social-btn3 {
+  width: 100%;
+  display: flex;
+}
+
+.social-btn4 {
+  width: 100%;
+  display: flex;
 }
 
 .language {
@@ -794,18 +864,49 @@ ul.introduce-list li a:hover {
 
 .suport-pay {
   padding: 60px 60px;
+  background-color: white;
+  margin-left: 40px;
+  width: 95%;
 }
 
 .buycard {
-  padding: 25px;
+  padding: 30px 30px 50px 30px;
+  margin-left: 38px;
+  width: 95%;
   position: relative;
+  background-color: white;
+}
+.slideService {
+  padding: 5px 30px 0px 30px;
+  margin-left: 38px;
+  width: 95%;
+  position: relative;
+  background-color: white;
+}
+.slideService:hover {
+  cursor: grab;
+}
+
+.slideShow2 {
+  background-size: cover;
+  padding: 0px 45px;
+  overflow: hidden;
+  display: inline-block;
+  max-width: 100%;
 }
 
 .discount {
   margin-top: 50px;
-  margin-bottom: 25px;
+  margin-bottom: -48px;
 }
 
 .text-discount {
   margin-bottom: 1.5rem;
+}
+
+.container {
+  width: 100%;
+}
+.list_menu_right.col-lg-6.col-md-6.col-sm-6 {
+    margin-top: 25px;
 }

@@ -1,0 +1,365 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>   
+    <div class="box_all">
+        <div class="slideService">
+            <div class="swiper-container service" style=" height: 60px;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <i class="fab fa-google-play"></i>
+                            <p>Google play</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <i class="fas fa-wifi"></i>
+                            <p>Internet</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <i class="fas fa-mobile-alt"></i>
+                            <p>Phone</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <i class="fas fa-signal"></i>
+                            <p>Data 3G/4G</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <i class="fas fa-gamepad"></i>
+                            <p>Cart Game</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <i class="fas fa-lightbulb"></i>
+                            <p>Electricity</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <i class="fas fa-tint"></i>
+                            <p>Water</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <i class="fas fa-tv"></i>
+                            <p>TV</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <i class="fas fa-plane"></i>
+                            <p>Air ticket</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <i class="fas fa-credit-card"></i>
+                            <p>Credit</p>
+                        </a>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <!-- <div class="swiper-pagination"></div> -->
+                <!-- Add Arrows -->
+                <div class="swiper-button-next" style=" margin-right: -11px;"></div>
+                <div class="swiper-button-prev" style=" margin-left: -11px;"></div>
+            </div>
+        </div>
+        <div class="buycard">
+            <h4>Nạp & mua mã thẻ điện thoại di động</h4>
+            <ul class="list_radio_didong">
+                <li class="checkbox1">
+                    <input id="radio_didong1" class="css-checkbox" type="radio" name="radio_didong" checked="checked">
+                    <label for="radio_didong1" name="radio_didong" class="css-lable chrome-style">Nạp trả trước</label>
+                </li>
+                <li class="checkbox2">
+                    <input id="radio_didong2" class="css-checkbox" type="radio" name="radio_didong" checked="checked">
+                    <label for="radio_didong2" name="radio_didong" class="css-label chrome-style">Nạp trả sau</label>
+                </li>
+                <li class="checkbox3">
+                    <input id="radio_didong3" class="css-checkbox3" type="radio" name="radio_didong" checked="checked">
+                    <label for="radio_didong3" name="radio_didong" class="css-label chrome-style">Mua mã thẻ</label>
+                </li>
+            </ul>
+            <div id="MobiView">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="input-group">
+                            <input id="mobile" type="text" class="form-control" placeholder="Số điện thoại">
+
+                            <div class="input-group-btn">
+                                <button class="btn btn-default checkmobile" type="button">
+                                    Kiểm tra
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="box_hienthi_danhsach_nap">
+                            <input id="nhamang" type="text" class="form-control" placeholder="Nhà mạng">
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="box_hienthi_danhsach_nap">
+                            <input id="menhgia" type="text" class="form-control" placeholder="Chọn mệnh giá">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <button type="button" onclick="dieu_huong()"
+                                style="background-color: #0475c5; color: white; width: 100%; height: 100%;">
+                            THANH TOÁN
+                        </button>
+                        <script>
+                            function dieu_huong() {
+                                location.assign("https://vtcpay.vn/phuong-thuc-thanh-toan");
+                            }
+                        </script>
+                    </div>
+                </div>
+                <div class="discount">
+                    <h5 class="text-discount">Rẻ nhất thị trường</h5>
+                    <table style="width: 100%">
+                        <tr>
+                            <th rowspan="4">Chiết khấu tối đa</th>
+                            <td>Sản phẩm</td>
+                            <td>Viettel</td>
+                            <td>Mobifone</td>
+                            <td>Vinaphone</td>
+                            <td>Vietnamobile</td>
+                            <td>Gmobile</td>
+                        </tr>
+                        <tr>
+                            <td>Mã thẻ điện thoại</td>
+                            <td>2,7%</td>
+                            <td>3,7%</td>
+                            <td>4,1%</td>
+                            <td>5,4%</td>
+                            <td>5,2%</td>
+                        </tr>
+                        <tr>
+                            <td>Nạp tiền thuê bao trả trước</td>
+                            <td>2,5%</td>
+                            <td>4%</td>
+                            <td>4%</td>
+                            <td>5,4%</td>
+                            <td>5,2%</td>
+                        </tr>
+                        <tr>
+                            <td>Nạp tiền thuê bao trả sau</td>
+                            <td>2,5%</td>
+                            <td>4%</td>
+                            <td>4%</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <br></br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="slideShow2">
+            <div class="row">
+                <div class="col-md-12 p-0">
+                    <div class="swiper-container parallax-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="img-container one"></div>
+                                <div class="container h-100">
+                                    <div class="row h-100">
+                                        <div class="col-md-12">
+                                            <div class="content">
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                                        <img src="https://365.vtcpay.vn/media/Upload/Images/Product/images/the%20garena-min-1.png"
+                                                             alt="" style="width:400px;height:200px;">
+                                                    </div>
+                                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                                        <p class="description">
+                                                            <strong>THẺ GARENA</strong><br>
+                                                            <br>
+                                                            Thẻ Garena là một loại thẻ game được phát hành bởi Garena. Thẻ Garena có thể sử dụng để
+                                                            nạp cho các tựa game như: Liên Quân Mobile, Liên Minh Huyền Thoại, Free Fire, FiFa
+                                                            Online,.... Thẻ Garena có mệnh giá đa dạng từ
+                                                            20.000VND, 50.000VND, 100.000VND, 200.000VND và 500.000VND. Khi mua thẻ Garena tại VTC Pay
+                                                            bạn sẽ được giảm giá 3% trên mọi mệnh giá thẻ. Chỉ cần một chiếc máy tính hoặc điện thoại
+                                                            có kết nối Internet,
+                                                            bạn có thể mua thẻ Garena online chỉ trong 2 phút.&nbsp;<br>
+                                                            &nbsp;
+                                                        </p>
+                                                        <button class="onlick_mua"><img src="../FE_SEM3/img/muaNgay.jpg" alt=""></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-container two"></div>
+                                <div class="container h-100">
+                                    <div class="row h-100">
+                                        <div class="col-md-12">
+                                            <div class="content">
+
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                                        <img src="https://365.vtcpay.vn/media/Upload/Images/Product/images/Gate-min.png" alt=""
+                                                             style="width:400px;height:200px;">
+
+                                                    </div>
+                                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                                        <h3><strong>THẺ GATE</strong></h3>
+                                                        <br>
+                                                        Thẻ FPT Gate được phát hành bởi Công ty Cổ phần FPT được dùng để nạp vào các tựa game như:
+                                                        Túy Tiêu Dao, Cửu Âm Chân Kinh,… hoặc dùng để thanh toán gói dịch vụ viễn thông mà FPT cung
+                                                        cấp. Thẻ Gate được phân phối rộng rãi
+                                                        trên khắp thị trường. Cũng như những loại thẻ game khác, thẻ Gate được phân phối trên thị
+                                                        trường chủ yếu có hai loại: thẻ giấy và mã thẻ online. Khi mua thẻ Gate online tại VTC Pay
+                                                        bạn được giảm giá 5%.&nbsp;<br>
+                                                        &nbsp;
+                                                        <button class="onlick_mua"><img src="../FE_SEM3/img/muaNgay.jpg" alt=""></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-container two"></div>
+                                <div class="container h-100">
+                                    <div class="row h-100">
+                                        <div class="col-md-12">
+                                            <div class="content">
+
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                                        <img src="https://365.vtcpay.vn/media/Upload/Images/Product/images/Mindjet%20MindManager%208_lnk.jpg"
+                                                             alt="" style="width:400px;height:200px;">
+                                                    </div>
+                                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                                        <p class="description">
+                                                            Với 30 tỷ lượt tương hợp cho đến nay, Tinder® là nhịp cầu kết nối thành công hơn hết thảy
+                                                            các ứng dụng hẹn hò khác trên thế giới. Nếu bạn đến với Tinder để hẹn gặp người mới, mở
+                                                            rộng
+                                                            giao lưu, làm quen với dân địa phương nơi bạn du lịch, kết bạn cùng sở thích hoặc chỉ là
+                                                            sống trọn khoảnh khắc hiện tại, thì bạn đã đến đúng nơi. Hãy xem Tinder như bạn đồng hành
+                                                            đáng tin cậy - dù bạn
+                                                            đi đâu Tinder luôn sát cánh cùng.<br>
+                                                            <br>
+                                                            Để chào mừng, VTC Pay đang có chương trình giảm giá đặc biệt dành cho các gói Tinder Plus
+                                                            và Tinder Gold! Chỉ cần chọn gói bạn muốn mua, hoàn tất thanh toán, tài khoản của bạn sẽ
+                                                            được
+                                                            nâng cấp với nhiều tính năng hơn.<br>
+                                                            <br>
+                                                            * Tinder Plus và Tinder Gold&nbsp;có những&nbsp;tính năng gì, mời bạn xem thêm tại đây:
+                                                            http://vtcpay.vn/tindergold_plus<br>
+                                                            * Để kích hoạt Tinder Gold và Tinder Plus thành công, mời bạn xem hướng dẫn tại đây:
+                                                            http://vtcpay.vn/hdtinder<br>
+                                                            &nbsp;
+                                                        </p>
+                                                        <button class="onlick_mua"><img src="../FE_SEM3/img/muaNgay.jpg" alt=""></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-container two"></div>
+                                <div class="container h-100">
+                                    <div class="row h-100">
+                                        <div class="col-md-12">
+                                            <div class="content">
+
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                                        <img src="https://365.vtcpay.vn/media/Upload/Images/Product/images/vcoin-min.png" alt=""
+                                                             style="width:400px;height:200px;">
+                                                    </div>
+                                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                                        <p class="description">
+                                                            <h3><strong>THẺ VCOIN</strong></h3>
+                                                            <br>
+                                                            &#8203;Thẻ Vcoin là một loại thẻ đa năng có thể dùng để nạp game và thanh toán một số dịch
+                                                            vụ nội dung số. Một số tựa game nổi bật sử dụng thẻ Vcoin có thể kể đến như: MU Đại Thiên Sứ
+                                                            H5, Gọi ta là Quan lão gia,
+                                                            Audition, Laplace M, Age Of Z, Au Mix,... VTC pay là đơn vị cung cấp độc quyền thẻ Vcoin
+                                                            trên thị trường hiện nay. Khi mua thẻ VCoin tại VTC Pay bạn sẽ được giảm giá 5% trên mọi
+                                                            mệnh giá thẻ. VTC Pay cung cấp đến bạn đa
+                                                            dạng mệnh giá thẻ Vcoin từ 10.000VND đến 10.000.000VND.<br>
+                                                        </p>
+                                                        <button class="onlick_mua"><img src="../FE_SEM3/img/muaNgay.jpg" alt=""></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="img-container three"></div>
+                                <div class="container h-100">
+                                    <div class="row h-100">
+                                        <div class="col-md-12">
+                                            <div class="content">
+
+                                                <div class="row">
+                                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                                        <img src="https://365.vtcpay.vn/media/Upload/Images/Product/images/zing-min.png" alt=""
+                                                             style="width:400px;height:200px;">
+                                                    </div>
+                                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                                        <p class="description">
+                                                            <h3><strong>THẺ ZING XU</strong></h3>
+                                                            <br>
+                                                            &nbsp; Thẻ Zing xu là 1 loại thẻ được phát hành bởi VNG được dùng để nạp game bà thanh toán
+                                                            cho một số dịch vụ của VNG phát hành. Cụ thể Thẻ Zing có thể nạp vào một số tựa game của VNG
+                                                            như: Võ Lâm Truyền Kỳ (PC &amp;
+                                                            Mobile), Gunny Mobi, Rulers of Survival, Thiện Nữ U Hồn (PC &amp; Mobile), PUBG Mobile...
+                                                            Ngoài ra bạn cũng có thể dùng thẻ Zing để nạp ví Zing me dùng để thanh toán cho các sản phẩm
+                                                            số trên Zing mp3. Mua thẻ Zing xu
+                                                            online tại VTC Pay bạn sẽ được giảm giá 3,5%. Bên cạnh đó bạn sẽ được thưởng 1,5% mệnh giá
+                                                            thẻ Zing xu đối với tài khoản ví VTC Pay có hóa đơn mua từ 1.000.000đ trở lên. Chi tiết
+                                                            chính sách xem&nbsp;<strong>
+                                                                tại
+                                                                đây
+                                                            </strong><br>
+                                                        </p>
+                                                        <button class="onlick_mua"><img src="../FE_SEM3/img/muaNgay.jpg" alt=""></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slider controls -->
+                        <!-- pagination -->
+                        <div class="swiper-pagination pagination-ctrl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End SlideShow Phuong -->
+   
+</body>

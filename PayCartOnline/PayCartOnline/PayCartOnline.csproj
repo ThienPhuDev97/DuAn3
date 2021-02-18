@@ -2241,6 +2241,7 @@
     <Content Include="Asset\Admin\plugins\uplot\uPlot.iife.js" />
     <Content Include="Asset\Admin\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Asset\Admin\plugins\uplot\uPlot.min.css" />
+    <Content Include="Asset\css\a.css" />
     <Content Include="Asset\css\bootstrap-grid.css" />
     <Content Include="Asset\css\bootstrap-grid.min.css" />
     <Content Include="Asset\css\bootstrap-reboot.css" />
@@ -2253,6 +2254,7 @@
     <Content Include="Asset\css\owl.carousel.css" />
     <Content Include="Asset\css\owl.carousel.min.css" />
     <Content Include="Asset\css\owl.theme.default.css" />
+    <Content Include="Asset\css\slideMenu.css" />
     <Content Include="Asset\css\style.css" />
     <Content Include="Asset\css\swiper-bundle.min.css" />
     <Content Include="Asset\css\thanhtoan.css" />
@@ -2266,8 +2268,10 @@
     <Content Include="Asset\images\undraw_remotely_2j6y.svg" />
     <Content Include="Asset\images\viettel.jpg" />
     <Content Include="Asset\img\background.jpg" />
+    <Content Include="Asset\img\broadcast.svg" />
     <Content Include="Asset\img\garena.jpg" />
     <Content Include="Asset\img\gate.jpg" />
+    <Content Include="Asset\img\mobile.svg" />
     <Content Include="Asset\img\muaNgay.jpg" />
     <Content Include="Asset\img\slideshow.jpg" />
     <Content Include="Asset\img\tinder.jpg" />
@@ -2293,6 +2297,7 @@
     <Content Include="Asset\js\popper.min.js" />
     <Content Include="Asset\js\script.js" />
     <Content Include="Asset\js\scrollspy.js" />
+    <Content Include="Asset\js\slideMenu.js" />
     <Content Include="Asset\js\tab.js" />
     <Content Include="Asset\js\tooltip.js" />
     <Content Include="Asset\js\util.js" />
@@ -2520,7 +2525,6 @@
     <Content Include="Asset\OwlCarousel2-2.3.4\src\scss\_theme.scss" />
     <Content Include="Asset\OwlCarousel2-2.3.4\src\scss\_video.scss" />
     <Content Include="Asset\OwlCarousel2-2.3.4\_config.json" />
-    <Content Include="Asset\css\.DS_Store" />
     <Content Include="Asset\fonts\.DS_Store" />
     <Content Include="Asset\fonts\icomoon\fonts\icomoon.eot" />
     <Content Include="Asset\fonts\icomoon\fonts\icomoon.ttf" />
