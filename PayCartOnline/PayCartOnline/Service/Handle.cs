@@ -57,7 +57,7 @@ namespace PayCartOnline.Service
                 record.Price = item["Price"] != null ? Convert.ToInt32(item["Price"].ToString()) : 0;
                 record.CardType = item["CardType"] != null ? item["CardType"].ToString() : null;
                 record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
-                record.Create_At = item["Create_At"] != null ? DateTime.Parse(item["Create_At"].ToString()) : (DateTime?)null;
+                record.Create_At =  DateTime.Parse(item["Create_At"].ToString());
 
                 
             }
@@ -93,7 +93,7 @@ namespace PayCartOnline.Service
                 record.Price = item["Price"] != null ? Convert.ToInt32(item["Price"].ToString()) : 0;
                 record.CardType = item["CardType"] != null ? item["CardType"].ToString() : null;
                 record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
-                record.Create_At = item["Create_At"] != null ? DateTime.Parse(item["Create_At"].ToString()) : (DateTime?)null;
+                record.Create_At =  DateTime.Parse(item["Create_At"].ToString());
 
                 data.Add(record);
             }
@@ -122,7 +122,7 @@ namespace PayCartOnline.Service
                 record.Price = item["Price"] != null ? Convert.ToInt32(item["Price"].ToString()) : 0;
                 record.CardType = item["CardType"] != null ? item["CardType"].ToString() : null;
                 record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
-                record.Create_At = item["Create_At"] != null ? DateTime.Parse(item["Create_At"].ToString()) : (DateTime?)null;
+                record.Create_At =  DateTime.Parse(item["Create_At"].ToString());
 
                 data.Add(record);
             }

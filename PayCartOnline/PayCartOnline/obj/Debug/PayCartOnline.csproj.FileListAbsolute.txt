@@ -665,3 +665,8 @@ C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\Long\Smile\ProjectSem3\PayCa
 C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\Long\Smile\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.csproj.CopyComplete
 C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\Long\Smile\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.dll
 C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\Long\Smile\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.pdb
+C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\Long\Smile\ProjectSem3\PayCartOnline\PayCartOnline\bin\EPPlus.dll
+C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\Long\Smile\ProjectSem3\PayCartOnline\PayCartOnline\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\Long\Smile\ProjectSem3\PayCartOnline\PayCartOnline\bin\System.ComponentModel.Annotations.dll
+C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\Long\Smile\ProjectSem3\PayCartOnline\PayCartOnline\bin\EPPlus.xml
+C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\Long\Smile\ProjectSem3\PayCartOnline\PayCartOnline\bin\Microsoft.IO.RecyclableMemoryStream.xml

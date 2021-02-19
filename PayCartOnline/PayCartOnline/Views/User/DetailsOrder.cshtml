@@ -250,7 +250,7 @@
             <div class="container content-pay">
                 <h4 class="text_tieude_all_doanhnghiep">CHI TIẾT ĐƠN HÀNG  @*hien thị mã đơn hàng*@</h4>
                 <ul class="table-subicon">
-                    <li><a> <img src="https://vtcpay.vn/Content/images/excel.png"></a></li>
+                    <li><a href="/User/ExportExcel/@order.Id_order"> <img src="https://vtcpay.vn/Content/images/excel.png"></a></li>
                     <li><a> <img src="https://vtcpay.vn/Content/images/PDF.png"></a></li>
                     <li><a> <img src="https://vtcpay.vn/Content/images/print.png"></a></li>
                 </ul>
@@ -265,14 +265,14 @@
                             <th>Mệnh Giá</th>
                             <th>Thể Loại Thẻ</th>
                             <th>Phương Thức Thanh Toán</th>
-                            <th>Tên Ngân Hàng</th>
+                            <th>Ngân Hàng</th>
                             <th>Ngày Thanh Toán</th>
-                            <th></th>
+                           
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                        <tr>
+                        
                             <td>@order.Code_Order</td>
                             <td>@order.Phone </td>
                             <td>@order.Brand</td>
@@ -282,7 +282,7 @@
                             <td>@order.BankCode</td>
                             <td>@order.Create_At</td>
 
-                        </tr>
+                       
                         </tr>
 
 

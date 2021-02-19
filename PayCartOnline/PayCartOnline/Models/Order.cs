@@ -14,7 +14,7 @@ namespace PayCartOnline.Models
         public int Total { get; set; }
         public string CardType { get; set; }
         public string BankCode { get; set; }
-        public DateTime? Create_At { get; set; }
+        public DateTime Create_At { get; set; }
         public int Price { get; set; }
     }
 }
