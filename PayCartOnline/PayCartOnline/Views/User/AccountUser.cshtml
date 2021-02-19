@@ -3,6 +3,7 @@
     PayCartOnline.Models.CheckUser isCheck = Session["Account"] != null ? (PayCartOnline.Models.CheckUser)Session["Account"] : null;
 
 }
+@model PayCartOnline.Models.Users
 <!DOCTYPE html>
 <html style="padding-top: 0px;">
 <head>
@@ -240,22 +241,22 @@
         <div class="box_noidung_thongtin_admin">
             <div class="container">
                 <div class="row">
-                    <form action="CreatePost" method="post">
+                    <form action="AccountUser" method="post">
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                             <div class="box_left_noidung_admin">
                                 <h4 class="tieude_all_noidung_admin">Thông tin chủ tài khoản</h4>
 
                                 <div class="form-group">
                                     <label>Họ và tên</label>
-                                    <input id="fullname" class="form-control" type="text" value="" name="fullname" required>
+                                    <input id="fullname" class="form-control" type="text" value="@Model.FullName" name="fullname" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Địa chỉ liên hệ</label>
-                                    <input id="address" class="form-control" type="text" value="" name="address" required>
+                                    <input id="address" class="form-control" type="text" value="@Model.Address" name="address" required>
                                 </div>
                                 <div class="form-group">
                                     <label>CMND/Hộ chiếu</label>
-                                    <input maxlength="15" class="form-control" id="passport" type="number" value="" name="cmnd" required>
+                                    <input maxlength="15" class="form-control" id="passport" type="number" value="@Model.Identity_people" name="cmnd" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Giới tính</label>
@@ -266,7 +267,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Ngày sinh</label>
-                                    <input id="dob" class="form-control" type="date" value="" name="birthday" required>
+                                    <input id="dob" class="form-control" type="date" value="@Model.Birthday" name="birthday" required>
                                 </div>
 
                                 <button type="submit" class="btn_all_admin_ud">Cập nhật</button>
@@ -404,7 +405,7 @@
                     alert("Nhập lại đi bạn, sai định dạng rồi.");
                     $('#passport').val("");
                 }
-               
+
             });
         });
     </script>

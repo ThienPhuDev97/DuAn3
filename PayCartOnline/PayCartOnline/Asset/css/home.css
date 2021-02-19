@@ -2,6 +2,10 @@
   margin-left: 20px;
 }
 
+
+.home-partner.active {
+    margin-top: 60px;
+}
 input#txtTextSearch {
     padding: 6px 6px 6px 30px;
     border: none;
@@ -15,7 +19,7 @@ input#txtTextSearch {
 }
 
 .header-top {
-  padding: 0px 50px;
+  padding: 10px 20px;
 }
 
 .navbar-img {
@@ -37,8 +41,6 @@ html {
 
 body {
   background-color: #e5e5e4 !important;
-  padding-left: 35px;
-  padding-right: 35px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   position: relative;
@@ -51,8 +53,8 @@ body:hover {
 }
 
 .container-fluid {
-  background-color: #e5e5e4;
-  width: 50%;
+  background-color: #fff;
+/*  width: 50%;*/
 }
 
 .menu-top {
@@ -62,22 +64,6 @@ body:hover {
   margin-top: -11px;
   margin-bottom: -10px;
 }
-
-.list_menu_left {
-  margin-top: -64px;
-  margin-left: 320px;
-}
-
-.list_menu_right {
-  margin-top: -64px;
-  margin-left: 720px;
-}
-
-.slideShow {
-  margin-left: 38px;
-  width: 95%;
-}
-
 .navbar-brand {
   display: block;
 }
@@ -134,9 +120,9 @@ ol, ul {
   display: inline-block;
 }
 
-ul.list_menu_right_child.row {
+/*ul.list_menu_right_child.row {
   margin-left: 300px;
-}
+}*/
 
 li.link_huongdan_udd, .link_tintuc_udd {
   margin-top: 10px;

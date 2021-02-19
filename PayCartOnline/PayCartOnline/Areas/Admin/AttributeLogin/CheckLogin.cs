@@ -16,10 +16,12 @@ namespace PayCartOnline.Areas.Admin.AttributeLogin
             CheckUser user = (CheckUser)HttpContext.Current.Session["Account"];
             if ( user == null || user.Role.Equals("User"))
             {
+                // chay vao day mà k chuyển trang nữa nhỉ còn sang cổnller
                 HttpContext.Current.Response.Redirect("/Home/Index");
                 base.OnActionExecuting(filterContext);
             }
-            
+       
+
 
         }
     }
