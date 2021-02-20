@@ -78,7 +78,7 @@ namespace PayCartOnline.Controllers
             var password = Request["password"];
 
             CheckUser isCheck = db.CheckUserLogin(phone, password);
-            if (isCheck is null)
+            if (string.IsNullOrEmpty(isCheck.Phone))
             {
 
                 return RedirectToAction("Index");

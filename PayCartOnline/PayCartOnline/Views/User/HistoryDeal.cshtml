@@ -1,5 +1,10 @@
 ﻿@{
     Layout = "";
+    var orders = ViewBag.orders;
+    var startDate = ViewBag.startDate != null ? ViewBag.startDate : null;
+    var expirationDate = ViewBag.expirationDate != null ? ViewBag.expirationDate : null;
+    var typePay = ViewBag.typePay != null ? ViewBag.typePay : null;
+
 }
 <!DOCTYPE html>
 <html style="padding-top: 0px;">
@@ -25,12 +30,16 @@
     <script type="text/javascript" src="https://vtcpay.vn/Content/js/plugins/datetimepicker/moment.js"></script>
     <script type="text/javascript" src="https://vtcpay.vn/Content/js/plugins/datetimepicker/bootstrap-datetimepicker.js"></script>
     <script type="text/javascript" src="https://vtcpay.vn/content/js/lib/bootstrap-select.js"></script>
-
+    <link rel="stylesheet" href="~/Asset/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
 </head>
 <body class="show_all" style="padding-top: 0px;">
 
     <div class="header_admin">
-        <a href="" class="logo_admin">
+        <a href="/Home/Index" class="logo_admin">
             <span class="logo_admin_small"><img src="https://vtcpay.vn/Content/images/logo_small.png" alt=""></span>
             <span class="logo_admin_big">
                 <img src="https://vtcpay.vn/Content/images/logo-pay/vtcpay-v-blue-tet.svg" width="200" alt="">
@@ -98,7 +107,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">Lịch sử giao dịch</a>
+                            <a href="/User/HistoryDeal">Lịch sử giao dịch</a>
                         </li>
 
                         <li>
@@ -245,100 +254,99 @@
             <div class="container content-pay">
                 <h4 class="text_tieude_all_doanhnghiep">LỊCH SỬ GIAO DỊCH</h4>
                 <ul class="list_boloc_all_timkiem">
-                    <li>
-                        <label class="tieude_input_small">Từ ngày</label>
-                        <div id="sandbox-container">
-                            <div class="input-group date" id="fromDateaddon">
-                                <input type="text" id="fromDate" class="form-control" placeholder="dd/mm/yyy">
-                                <span class="input-group-addon"><img src="https://vtcpay.vn/Content/images/img_date.png"></span>
+                    <form action="/User/HistoryDeal" method="GET">
+                        <li>
+                            <label class="tieude_input_small">Từ ngày</label>
+                            <div id="sandbox-container">
+                                <div class="input-group date" id="fromDateaddon">
+                                    @if (startDate is null)
+                                    {
+                                        <input type="date" id="startDate" name="startDate" class="form-control" value="@startDate"> // a mún set chô này nè
+                                    }
+                                    else
+                                    {
+                                        <input type="date" id="startDate" name="startDate" class="form-control" placeholder="dd/mm/yyy">
+                                    }
+
+                                    @*<span class="input-group-addon"><img src="https://vtcpay.vn/Content/images/img_date.png"></span>*@
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <label class="tieude_input_small">Đến ngày</label>
-                        <div id="sandbox-container">
-                            <div class="input-group date" id="toDateaddon">
-                                <input type="text" id="toDate" class="form-control" placeholder="dd/mm/yyy">
-                                <span class="input-group-addon"><img src="https://vtcpay.vn/Content/images/img_date.png"></span>
+                        </li>
+                        <li>
+                            <label class="tieude_input_small">Đến ngày</label>
+                            <div id="sandbox-container">
+                                <div class="input-group date" id="toDateaddon">
+                                    <input type="date" id="expirationDate" name="expirationDate" class="form-control" placeholder="dd/mm/yyy">
+                                    @*<span class="input-group-addon"><img src="https://vtcpay.vn/Content/images/img_date.png"></span>*@
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <label class="tieude_input_small">Trạng thái</label>
-                        <select class="select_loai_gd_all" id="ddlStatus">
-                            <option value="-2">Tất cả</option>
-                            <option value="-1">Thất bại</option>
-                            <option value="1">Đã trừ tiền</option>
-                            <option value="2">Nghi vấn</option>
-                            <option value="3">Thành công</option>
-                            <option value="4">Hoàn tiền một phần</option>
-                            <option value="5">Hoàn tiền toàn bộ</option>
-                        </select>
-                    </li>
-                    <li>
-                        <label class="tieude_input_small">Hình thức thanh toán</label>
-                        <select class="select_loai_gd_all" id="ddlPayType">
-                            <option value="0">Tất cả</option>
-                            <option value="1">Ví VTCPay</option>
-                            <option value="2">Ngân hàng nội địa</option>
-                            <option value="3">Thẻ quốc tế</option>
-                            <option value="4">Thẻ gắn kết</option>
-                        </select>
-                    </li>
+                        </li>
 
-                </ul>
+                        <li>
+                            <label class="tieude_input_small">Hình thức thanh toán</label>
+                            <select class="select_loai_gd_all" id="typePay" name="typePay">
+                                <option value="0">Tất cả</option>
+                                <option value="1">VN PAY</option>
+                                <option value="2">MoMo</option>
 
-
-                <ul class="list_boloc_all_timkiem" style="padding-top: 12px;">
-
-                    <li>
-                        <label class="tieude_input_small">Loại giao dịch</label>
-                        <select class="select_loai_gd_all" id="ddlSystemtrantype" style="width: 277px;">
-                            <option value="0">Tất cả</option>
-                            <option value="2">Mua hàng 365</option>
-                            <option value="1">Nạp</option>
-                            <option value="7">Bán hàng online</option>
-                            <option value="9">Chuyển khoản</option>
-                            <option value="10">Mua hàng online</option>
-                            <option value="11">Rút tiền</option>
-                            <option value="15">Hoàn tiền</option>
-                            <option value="16">Truy thu</option>
-                            <option value="17">Đóng mở băng</option>
-                            <option value="18">Phí giao dịch</option>
-                            <option value="19">Dịch vụ SMS</option>
-                            <option value="22">Thu hồi số dư TK</option>
-                        </select>
-                    </li>
-
-                    <li id="service-item">
-                        <label class="tieude_input_small">Danh mục</label>
-                        <select id="ddlServices" class="select_loai_gd_all" onchange="" style="width: 277px;"></select>
-
-                    </li>
-                    <li id="category-item">
-                        <label class="tieude_input_small">Loại sản phẩm</label>
-                        <select id="ddlCategories" class="select_loai_gd_all"></select>
-                    </li>
-
-                    <li>
-                        <label class="tieude_input_small">Nội dung tìm kiếm</label>
-                        <div id="sandbox-container">
-                            <input type="text" id="txtSearchKey" class="form-control" placeholder="Nội dung tìm kiếm" style="height: 38px;">
-                        </div>
-                    </li>
-
-                    <li>
-                        <a onclick="" class="btn_timkiem_hoantien" style="margin-top: 29px;width: 295px;">Tìm kiếm</a>
-                    </li>
+                            </select>
+                        </li>
+                        <li>
+                            <button type="submit" class="btn_timkiem_hoantien" style="margin-top: 29px;width: 295px;">Tìm kiếm</button>
+                        </li>
+                    </form>
 
                 </ul>
 
                 <div class="clear"></div>
-                <ul class="table-subicon">
-                    <li><a> <img src="https://vtcpay.vn/Content/images/excel.png"></a></li>
-                    <li><a> <img src="https://vtcpay.vn/Content/images/PDF.png"></a></li>
-                    <li><a> <img src="https://vtcpay.vn/Content/images/print.png"></a></li>
-                </ul>
+               
+                <div class="row">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Mã Đơn hàng</th>
+                                <th>Số Điện Thoại</th>
+                                <th>Nhà Mạng</th>
+                                <th>Mệnh Giá</th>
+                                <th>Thể Loại Thẻ</th>
+                                <th>Phương Thức Thanh Toán</th>
+                                <th>Tên Ngân Hàng</th>
+                                <th>Ngày Thanh Toán</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in orders)
+                            {
+                                <tr>
+                                    <td>@item.Code_Order</td>
+                                    <td>@item.Phone </td>
+                                    <td>@item.Brand</td>
+                                    <td>@item.Price</td>
+                                    <td>@item.CardType</td>
+                                    <td>VNPAY</td>
+                                    <td>@item.BankCode</td>
+                                    <td>@item.Create_At</td>
+                                    <td><a href="/User/DetailsOrder?id=@item.Id_order"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Mã Đơn hàng</th>
+                                <th>Số Điện Thoại</th>
+                                <th>Nhà Mạng</th>
+                                <th>Mệnh Giá</th>
+                                <th>Thể Loại Thẻ</th>
+                                <th>Phương Thức Thanh Toán</th>
+                                <th>Tên Ngân Hàng</th>
+                                <th>Ngày Thanh Toán</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
                 <div id="TransactionHistoryPartial"></div>
                 <div id="TransactionHistoryListCard"></div>
             </div>
@@ -346,85 +354,6 @@
         <div id="PopupTransactionHistoryDetail"></div>
         <link href="https://vtcpay.vn/Content/js/lib/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
         <script src="https://vtcpay.vn/Content/js/lib/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-
-
-
-                $("#service-item").hide();
-                $("#category-item").hide();
-
-                $(document).keypress(function (e) {
-                    if (e.which == 13) {
-                        TransactionHistory.BtnSearch();
-                    }
-                });
-
-
-
-                $("#ddlSystemtrantype").change(function () {
-
-                    var tran_type = $("#ddlSystemtrantype").val();
-                    if (tran_type == 2) {
-                        $("#service-item").show();
-                        $("#category-item").show();
-                        TransactionHistory.GetAllServices();
-                    } else {
-                        $("#service-item").hide();
-                        $("#category-item").hide();
-                    }
-
-                });
-
-                // set from and to date
-                $('#fromDateaddon').datepicker({
-                    forceParse: false,
-                    autoclose: true,
-                    todayHighlight: true,
-                    toggleActive: true,
-                    format: 'dd/mm/yyyy',
-                    orientation: "bottom left",
-                });
-
-                $('#toDateaddon').datepicker({
-                    forceParse: false,
-                    autoclose: true,
-                    todayHighlight: true,
-                    toggleActive: true,
-                    format: 'dd/mm/yyyy',
-                    orientation: "bottom left",
-                });
-                //$('#toDate').datetimepicker({
-                // dateFormat: 'dd-mm-yy',
-                //   format: 'DD/MM/YYYY'
-                //});
-                var fromdate = '01/01/2021';
-                var todate = '30/01/2021';
-                $('#fromDate').val(fromdate);
-                $('#toDate').val(todate);
-
-                $("#fromDateaddon").on("dp.change dp.show", function (e) {
-                    $('#toDateaddon').data("DateTimePicker").setMinDate(e.date);
-                });
-                $("#toDateaddon").on("dp.change dp.show", function (e) {
-                    $('#fromDateaddon').data("DateTimePicker").setMaxDate(e.date);
-                });
-
-                TransactionHistory.BtnSearch();
-
-            });
-
-            function PrintData() {
-                var divToPrint = document.getElementById("aTable");
-                newWin = window.open("");
-                newWin.document.write(divToPrint.outerHTML);
-                newWin.print();
-                newWin.close();
-            }
-        </script>
-
 
     </div>
 
@@ -443,9 +372,20 @@
     <script type="text/javascript" src="https://vtcpay.vn/content/js/views/integrate/ManageProfile.js?v=202101300409"></script>
     <script type="text/javascript" src="https://vtcpay.vn/content/js/views/integrate/ManageSubAccount.js?v=202101300409"></script>
     <script type="text/javascript" src="https://vtcpay.vn/content/js/views/accountsecure/AccountSecure.js?v=202101300409"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
 
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "pagingType": "full_numbers"
+            });
 
+        });
 
+    </script>
 </body>
 </html>
 

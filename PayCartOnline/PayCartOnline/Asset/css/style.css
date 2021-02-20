@@ -10,9 +10,8 @@
   --white-bg: #ffffff;
   --red-bg: #f03a37;
 }
-.onlick_mua{
-
-    margin-left: -70%;
+.onlick_mua {
+    margin-top: 20px;
     padding-left: -0%;
     border: 2px solid #555;
     width: 190px;

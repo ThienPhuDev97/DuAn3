@@ -29,7 +29,11 @@ namespace PayCartOnline.Service
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = InsertOrder;
 
+
+                string code_order = "#" + DateTime.Now.ToBinary().ToString() + user.ID_User;
+
                 command.Parameters.Add(new SqlParameter("@USER_ID", user.ID_User));
+                command.Parameters.Add(new SqlParameter("@Code", code_order));
                 command.Parameters.Add(new SqlParameter("@TYPEPAY",1));
                 command.Parameters.Add(new SqlParameter("@CARDTYPE", order.CardType));
                 command.Parameters.Add(new SqlParameter("@DENOMINATION_ID", order.denomination));

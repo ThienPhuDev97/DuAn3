@@ -27,8 +27,109 @@ namespace PayCartOnline.Service
         private const string Register = "Register";
         private const string InsertOrder = "InsertOrder";
         private const string UpdateInformationCustomer = "UpdateInformationCustomer";
+        private const string AllOrderByID = "TableOrder";
+        private const string Search = "Search";
+        private const string SearchOrderByID = "SearchOrderByID";
 
 
+
+        public Order SearchOrder(int id)
+        {
+            SqlCommand com = new SqlCommand(SearchOrderByID, con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@ID", System.Data.SqlDbType.Int).Value = id == 0 ? DBNull.Value : (object)id;
+
+           
+
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable ds = new DataTable();
+            da.Fill(ds);
+            List<Order> data = new List<Order>();
+            Order record = new Order();
+            foreach (DataRow item in ds.Rows)
+            {
+                
+                record.Id_order = Int32.Parse(item["ID_Order"].ToString());
+                record.Code_Order = item["Code_Order"] != null ? item["Code_Order"].ToString() : null;
+                record.Phone = item["Phone"] != null ? Int32.Parse(item["Phone"].ToString()) : 0;
+                record.Brand = item["Brand"] != null ? item["Brand"].ToString() : null;
+                record.Total = item["Total"] != null ? Convert.ToInt32(item["Total"].ToString()) : 0;
+                record.Price = item["Price"] != null ? Convert.ToInt32(item["Price"].ToString()) : 0;
+                record.CardType = item["CardType"] != null ? item["CardType"].ToString() : null;
+                record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
+                record.Create_At =  DateTime.Parse(item["Create_At"].ToString());
+
+                
+            }
+
+            return record;
+
+        }
+        public List<Order> SearchHistory(SearchHistory search)
+        {
+            SqlCommand com = new SqlCommand(Search, con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@ID_Acc", System.Data.SqlDbType.Int).Value = search.ID_Acc == 0 ? DBNull.Value : (object)search.ID_Acc;
+            
+            com.Parameters.AddWithValue("@startDate", System.Data.SqlDbType.DateTime).Value = search.startDate == null ? DBNull.Value : (object)search.startDate;
+
+          
+            com.Parameters.AddWithValue("@expirationDate", System.Data.SqlDbType.DateTime).Value = search.expirationDate == null ? DBNull.Value : (object)search.expirationDate;
+
+            com.Parameters.AddWithValue("@typePay", System.Data.SqlDbType.Int).Value = search.typePay == 0 ? DBNull.Value : (object)search.typePay;
+
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable ds = new DataTable();
+            da.Fill(ds);
+            List<Order> data = new List<Order>();
+            foreach (DataRow item in ds.Rows)
+            {
+                Order record = new Order();
+                record.Id_order = Int32.Parse(item["ID_Order"].ToString());
+                record.Code_Order = item["Code_Order"] != null ? item["Code_Order"].ToString() : null;
+                record.Phone = item["Phone"] != null ? Int32.Parse(item["Phone"].ToString()) : 0;
+                record.Brand = item["Brand"] != null ? item["Brand"].ToString() : null;
+                record.Total = item["Total"] != null ? Convert.ToInt32(item["Total"].ToString()) : 0;
+                record.Price = item["Price"] != null ? Convert.ToInt32(item["Price"].ToString()) : 0;
+                record.CardType = item["CardType"] != null ? item["CardType"].ToString() : null;
+                record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
+                record.Create_At =  DateTime.Parse(item["Create_At"].ToString());
+
+                data.Add(record);
+            }
+
+            return data;
+
+        }
+
+        public List<Order> GetOrderByIDAcc(int? ID)
+        {
+            SqlCommand com = new SqlCommand(AllOrderByID, con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.Add(new SqlParameter("@ID_Acc", ID));
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable ds = new DataTable();
+            da.Fill(ds);
+            List<Order> data = new List<Order>();
+            foreach (DataRow item in ds.Rows)
+            {
+                Order record = new Order();
+                record.Id_order = Int32.Parse(item["ID_Order"].ToString());
+                record.Code_Order = item["Code_Order"] != null ? item["Code_Order"].ToString() : null;
+                record.Phone = item["Phone"] != null ? Int32.Parse(item["Phone"].ToString()) : 0;
+                record.Brand = item["Brand"] != null ? item["Brand"].ToString() : null;
+                record.Total = item["Total"] != null ? Convert.ToInt32(item["Total"].ToString()) : 0;
+                record.Price = item["Price"] != null ? Convert.ToInt32(item["Price"].ToString()) : 0;
+                record.CardType = item["CardType"] != null ? item["CardType"].ToString() : null;
+                record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
+                record.Create_At =  DateTime.Parse(item["Create_At"].ToString());
+
+                data.Add(record);
+            }
+
+            return data;
+
+        }
 
         /// <summary>
         /// get data all table denomination
@@ -152,9 +253,9 @@ namespace PayCartOnline.Service
             record.Address = string.IsNullOrEmpty(dr["Address"].ToString()) ? null : dr["Address"].ToString();
             record.Birthday = string.IsNullOrEmpty(dr["Birthday"].ToString()) ? null : dr["Birthday"].ToString();
             record.Gender = string.IsNullOrEmpty(dr["Gender"].ToString()) ? 0 : Int32.Parse(dr["Gender"].ToString());
-            record.Identity_people = dr["ID"].ToString() == null ? 0 : Int32.Parse(dr["ID"].ToString());
+            record.Identity_people = string.IsNullOrEmpty(dr["Identity_People"].ToString()) ? 0 : Int32.Parse(dr["Identity_People"].ToString());
             record.ID = Int32.Parse(dr["ID"].ToString());
-
+            
             return record;
 
         }
