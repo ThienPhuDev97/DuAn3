@@ -1,231 +1,11 @@
 ﻿@{
-    Layout = "";
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
     var order = ViewBag.order;
+    PayCartOnline.Models.CheckUser isCheck = Session["Account"] != null ? (PayCartOnline.Models.CheckUser)Session["Account"] : null;
+
 }
-<!DOCTYPE html>
-<html style="padding-top: 0px;">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1,maximum-scale=1,user-scalable=false,maximum-scale=1">
-    <title>Ví điện tử - Cổng thanh toán trực tuyến VTC Pay</title>
-    <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
-
-    <link rel="stylesheet" href="https://vtcpay.vn/content/css/bootstrap.min.css">
-    <link href="https://vtcpay.vn/content/css/style_all.css" rel="stylesheet" type="text/css" />
-    <link href="https://vtcpay.vn/Content/js/plugins/datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=vietnamese" rel="stylesheet">
-    <link href="https://vtcpay.vn/content/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://vtcpay.vn/content/old_css/simple-sidebar.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/lib/jquery.cookie.js"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/lib/client-custom.min.js"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/lib/i18next-1.6.3.min.js"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/lib/bootbox.min.js"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/Content/js/plugins/datetimepicker/moment.js"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/Content/js/plugins/datetimepicker/bootstrap-datetimepicker.js"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/lib/bootstrap-select.js"></script>
-    <link rel="stylesheet" href="~/Asset/css/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/Site.css" rel="stylesheet" />
-    <link href="~/Content/PagedList.css" rel="stylesheet" />
-</head>
-<body class="show_all" style="padding-top: 0px;">
-
-    <div class="header_admin">
-        <a href="/Home/Index" class="logo_admin">
-            <span class="logo_admin_small"><img src="https://vtcpay.vn/Content/images/logo_small.png" alt=""></span>
-            <span class="logo_admin_big">
-                <img src="https://vtcpay.vn/Content/images/logo-pay/vtcpay-v-blue-tet.svg" width="200" alt="">
-            </span>
-        </a>
-        <div class="menu_top_admin">
-            <a href="https://vtcpay.vn/" class="logo_admin_left_ud hidden-lg hidden-md">
-                <span class="logo_admin_small"><img src="https://vtcpay.vn/Content/images/logo_small.png" alt=""></span>
-                <span class="logo_admin_big"><img src="https://vtcpay.vn/Content/Images/vtcpay.svg" width="120" alt=""></span>
-            </a>
-            <a href="javascript:void(0);" class="btn_thugon_menu_admin"><span></span></a>
-            <div id="header_title" class="hidden-xs" style="position: absolute;top: 10px;left: 80px;width: 50%;"></div>
-            <div class="menu_right_top_admin">
-                <ul class="list_menu_phai dang-nhap">
-
-                    <!--Box thông báo load ajax sau-->
-                    <li class="list_thongbao_tin">
-                        <a href="javascript:void(0);"><img src="https://vtcpay.vn/content/images/icon_chuong.png"></a>
-                    </li>
-                    <li class="info_user">
-                        <a href="javascript:void(0);">
-                            <div class="box_thumb_ava"><img src="https://vtcpay.vn/Content/images/df_avt.png" alt="" style="max-width: 100%; height: 40px;"></div>
-                            <div class="box_noidung_ava">
-                                <span>0366729714</span>
-                                <em>0 VND</em>
-                            </div>
-                        </a>
-                        <!--Box thông tin người dùng load ajax sau-->
-                        <div class="box_show_info_user" style="display: none;">
-
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="menu_left_admin">
-        <ul class="list_menu_left_admin" id="accordion">
-            <li>
-                <a href="">
-                    <i class="icon_list_menu_left_admin icon_menu_left_1"></i>
-                    <span>Trang chủ</span>
-                </a>
-            </li>
-            <li class="panel">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="collapsed">
-                    <i class="icon_list_menu_left_admin icon_menu_left_2"></i>
-                    <span>Tài khoản</span>
-                    <img src="" alt="">
-                    <i class="icon_drop_list_menu_left_admin"></i>
-                </a>
-                <div id="collapse1" class="collapse">
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="">
-                                Thông tin tài khoản
-                                <img src="" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                Định danh ngân hàng
-                                <img src="" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">Lịch sử giao dịch</a>
-                        </li>
-
-                        <li>
-                            <a href="">Cài đặt thông báo</a>
-                        </li>
-
-                        <li>
-                            <a href="">Tra cứu hóa đơn điện tử</a>
-                        </li>
-                        <li>
-                            <a href="">Bảo mật đăng nhập</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="panel">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="collapsed">
-                    <i class="icon_list_menu_left_admin icon_menu_left_3"></i>
-                    <span>Sử dụng Ví</span>
-                    <i class="icon_drop_list_menu_left_admin"></i>
-                </a>
-                <div id="collapse2" class="collapse">
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="">Nạp tiền</a>
-                        </li>
-                        <li>
-                            <a href="">Rút tiền</a>
-                        </li>
-                        <li>
-                            <a href="">Rút tiền tự động</a>
-                        </li>
-                        <li>
-                            <a href="">Chuyển tiền</a>
-                        </li>
-                        <li>
-                            <a href="">Gửi thông báo nạp tiền</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="panel">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="collapsed">
-                    <i class="icon_list_menu_left_admin icon_menu_left_4"></i>
-                    <span>Tích hợp thanh tóan</span>
-                    <i class="icon_drop_list_menu_left_admin"></i>
-                </a>
-                <div id="collapse3" class="collapse">
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="">Tíchch hợp website</a>
-                        </li>
-                        <li>
-                            <a href="">Tích hợp mobile</a>
-                        </li>
-                        <li>
-                            <a href="">Hệ thống hóa đơn</a>
-                        </li>
-                        <li>
-                            <a href="">Tích;ch hợp QR Code sản phẩm</a>
-                        </li>
-                        <li>
-                            <a href="">Tích hợp QR Code điểm bán</a>
-                        </li>
-                        <li style="">
-                            <a href="">Quản lí profile</a>
-                        </li>
-                        <li style="">
-                            <a href="">Quản lí tài khoản sale</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-
-
-
-
-
-            <li>
-                <a href="">
-                    <i class="icon_list_menu_left_admin icon_menu_left_6"></i>
-                    <span>Tin tức</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="icon_list_menu_left_admin icon_menu_left_7"></i>
-                    <span>Hướng dẫn</span>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="icon_list_menu_left_admin icon_menu_left_8"></i>
-                    <span>Liên hệ</span>
-                </a>
-            </li>
-            <li>
-                <a href="" target="_blank">
-                    <i class="icon_list_menu_left_admin icon_menu_left_10"></i>
-                    <span>Góp ý</span>
-                </a>
-            </li>
-            <li class="link_ngonngu_left_ud">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapse6" class="collapsed">
-                    <i class="icon_list_menu_left_admin icon_menu_left_9"></i>
-                    <span>Change language</span>
-                    <i class="icon_drop_list_menu_left_admin"></i>
-                </a>
-                <div id="collapse6" class="collapse">
-                    <ul class="dropdown-menu">
-                        <li><a onclick="utils.RedirectUriByLang('vi');" href="javascript:;">Tiếng Việt</a></li>
-                        <li><a onclick="utils.RedirectUriByLang('en');" href="javascript:;">English</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </div>
 
     <div class="all_noidung_admin">
-
-
-
         <div class="box_giaodien_doanhnghiep">
             <div class="container content-pay">
                 <div class="row">
@@ -233,14 +13,14 @@
                         <div class="box_info_doanhnghiep">
                             <div class="img_thumb_info_doanhnghiep"><img style="width: 100%; height: 80px;" src="https://vtcpay.vn/Content/images/df_avt.png" alt=""></div>
                             <div class="text_info_doanhnghiep">
-                                0366729714 @*check ss dang login thay sdt*@
+                                @isCheck.Phone
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
                         <ul class="box_all_tien_doanhnghiep">
-                            <li><em>Số dư khả dụng</em>0 VND</li>
-                            <li><a href="">Giao diện mua hàng</a></li>
+                            <li><em>Số đơn hàng</em></li>
+                            <li><a href="/Home/Index">Giao diện mua hàng</a></li>
                         </ul>
                     </div>
                 </div>
@@ -248,17 +28,15 @@
         </div>
         <div class="box_noidung_thongtin_admin">
             <div class="container content-pay">
-                <h4 class="text_tieude_all_doanhnghiep">CHI TIẾT ĐƠN HÀNG  @*hien thị mã đơn hàng*@</h4>
+                <h4 class="text_tieude_all_doanhnghiep">CHI TIẾT ĐƠN HÀNG @order.Code_Order</h4>
                 <ul class="table-subicon">
                     <li><a href="/User/ExportExcel/@order.Id_order"> <img src="https://vtcpay.vn/Content/images/excel.png"></a></li>
-                    <li><a> <img src="https://vtcpay.vn/Content/images/PDF.png"></a></li>
-                    <li><a> <img src="https://vtcpay.vn/Content/images/print.png"></a></li>
+                    <li><a > <img src="https://vtcpay.vn/Content/images/PDF.png"></a></li>
+                    <li><a OnClick = "return PrintPanel();"> <img src="https://vtcpay.vn/Content/images/print.png"></a></li>
                 </ul>
-                <table class="table table-bordered">
+                <table id="print" class="table table-bordered">
                     <thead>
                         <tr>
-
-
                             <th>Mã Đơn hàng</th>
                             <th>Số Điện Thoại</th>
                             <th>Nhà Mạng</th>
@@ -266,13 +44,11 @@
                             <th>Thể Loại Thẻ</th>
                             <th>Phương Thức Thanh Toán</th>
                             <th>Ngân Hàng</th>
-                            <th>Ngày Thanh Toán</th>
-                           
+                            <th>Ngày Thanh Toán</th>                     
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        
+                        <tr>                       
                             <td>@order.Code_Order</td>
                             <td>@order.Phone </td>
                             <td>@order.Brand</td>
@@ -280,12 +56,8 @@
                             <td>@order.CardType</td>
                             <td>VNPAY</td>
                             <td>@order.BankCode</td>
-                            <td>@order.Create_At</td>
-
-                       
+                            <td>@order.Create_At</td>                     
                         </tr>
-
-
                     </tbody>
                 </table>
                 <div id="TransactionHistoryPartial"></div>
@@ -295,38 +67,6 @@
         <div id="PopupTransactionHistoryDetail"></div>
         <link href="https://vtcpay.vn/Content/js/lib/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
         <script src="https://vtcpay.vn/Content/js/lib/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-
     </div>
 
-    <div id="divPopup"></div>
-
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/utils.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/common.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/utilites.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/header.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/login.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/TransactionHistory.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/ElectricInvoice.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/PartnerConnectInfo.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/Merchant/MerchantHistory.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/integrate/integrated.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/integrate/ManageProfile.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/integrate/ManageSubAccount.js?v=202101300409"></script>
-    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/accountsecure/AccountSecure.js?v=202101300409"></script>
-    <script src="~/Scripts/jquery-3.4.1.js"></script>
-    <script src="~/Scripts/jquery-3.5.1.js"></script>
-
-    <script src="~/Scripts/jquery.dataTables.min.js"></script>
-    <script src="~/Scripts/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#example').DataTable({
-                "pagingType": "full_numbers"
-            });
-
-        });
-
-    </script>
-</body>
-</html>
 

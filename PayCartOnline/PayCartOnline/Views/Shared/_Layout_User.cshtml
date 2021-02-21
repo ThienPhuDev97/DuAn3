@@ -1,0 +1,112 @@
+﻿@{  
+    PayCartOnline.Models.CheckUser isCheck = Session["Account"] != null ? (PayCartOnline.Models.CheckUser)Session["Account"] : null;
+
+}
+@model PayCartOnline.Models.Users
+<!DOCTYPE html>
+<html style="padding-top: 0px;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1,maximum-scale=1,user-scalable=false,maximum-scale=1">
+    <title>Th&#244;ng tin t&#224;i khoản</title>
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+    <link rel="stylesheet" href="https://vtcpay.vn/content/css/bootstrap.min.css">
+    <link href="https://vtcpay.vn/content/css/style_all.css" rel="stylesheet" type="text/css" />
+    <link href="https://vtcpay.vn/Content/js/plugins/datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=vietnamese" rel="stylesheet">
+    <link href="https://vtcpay.vn/content/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://vtcpay.vn/content/old_css/simple-sidebar.css" rel="stylesheet" type="text/css" />
+    <link href="https://vtcpay.vn/content/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="https://vtcpay.vn/Content/old_css/simple-sidebar.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/lib/client-custom.min.js"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/lib/i18next-1.6.3.min.js"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/lib/bootbox.min.js"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/Content/js/plugins/datetimepicker/moment.js"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/Content/js/plugins/datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/lib/bootstrap-select.js"></script>
+    <link rel="stylesheet" href="~/Asset/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+</head>
+<body class="show_all" style="padding-top: 0px;">
+    @Html.Partial("~/Views/Shared/Header_User.cshtml")
+
+    @Html.Partial("~/Views/Shared/SiderBar_User.cshtml")
+
+    @RenderBody();
+
+    <div id="divPopup"></div>
+
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/utils.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/common.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/utilites.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/header.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/login.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/TransactionHistory.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/ElectricInvoice.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/PartnerConnectInfo.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/Merchant/MerchantHistory.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/integrate/integrated.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/integrate/ManageProfile.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/integrate/ManageSubAccount.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/accountsecure/AccountSecure.js?v=202101290945"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/AccountInfo.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/changePass.js?v=202101290945"></script>
+    <script type="text/javascript" src="https://vtcpay.vn/content/js/views/account/kyc.js?v=202101290945"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.5.1.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var ngayHienTai = new Date().toISOString();
+            $("#dob").change(function () {
+                if ($('#dob').val() > ngayHienTai) {
+                    alert("Sai ngày rồi bạn.");
+                    $('#dob').val("");
+                }
+            });
+            $("#passport").change(function () {
+                var cmnd = $("#passport").val();
+                if (cmnd.length != 9 && cmnd.length != 12) {
+                    alert("Nhập lại đi bạn, sai định dạng rồi.");
+                    $('#passport').val("");
+                }
+
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "pagingType": "full_numbers"
+            });
+
+        });
+
+    </script>
+    <script type="text/javascript">
+        function PrintPanel() {
+            var panel = document.getElementById("print");
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>Order Customer By Nong</title>');
+            printWindow.document.write('</head><table >');
+            printWindow.document.write(panel.innerHTML);
+            printWindow.document.write('</table></html>');
+            printWindow.document.close();
+            setTimeout(function () {
+                printWindow.print();
+            }, 500);
+            return false;
+        }
+    </script>
+</body>
+</html>

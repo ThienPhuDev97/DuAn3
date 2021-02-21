@@ -2985,6 +2985,9 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\test.cshtml" />
     <Content Include="Views\User\DetailsOrder.cshtml" />
+    <Content Include="Views\Shared\_Layout_User.cshtml" />
+    <Content Include="Views\Shared\Header_User.cshtml" />
+    <Content Include="Views\Shared\SiderBar_User.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
