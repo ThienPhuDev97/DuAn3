@@ -3,6 +3,7 @@ using OfficeOpenXml.Style;
 using PayCartOnline.Areas.Admin.AttributeLogin;
 using PayCartOnline.Models;
 using PayCartOnline.Service;
+using Rotativa;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -73,11 +74,9 @@ namespace PayCartOnline.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-
-
         }
+        
         [HttpPost]
-
         public ActionResult AccountUser(FormCollection fc)
         {
             if ((CheckUser)Session["Account"] != null)
@@ -124,13 +123,28 @@ namespace PayCartOnline.Controllers
 
         }
 
+        public ActionResult ExportPDF(int id)
+        {
+            Order order = db.SearchOrder(id);
+            try {
+                return new ActionAsPdf("DetailsOrder", "User")
+                {
+                    FileName = Server.MapPath("~/Content/ListOrder.pdf")
+                };
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return null;
+           
+
+        } 
         public ActionResult ExportExcel(int id)
         {
             Order order = db.SearchOrder(id);
             try
             {
-
-
                 //handle Export excel
                 ExcelPackage excel = new ExcelPackage();
                 excel.Workbook.Properties.Title = "Đơn hàng chi tiết";
@@ -145,8 +159,6 @@ namespace PayCartOnline.Controllers
                 //  
                 workSheet.Name = "Đơn hàng chi tiết";
                 workSheet.Workbook.Properties.Title = "Đơn hàng chi tiết";
-
-
 
                 workSheet.Row(1).Height = 20;
                 workSheet.Row(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
@@ -176,10 +188,7 @@ namespace PayCartOnline.Controllers
                 workSheet.Cells[recordIndex, 8].Value = order.BankCode;
                 workSheet.Cells[recordIndex, 9].Value = order.Create_At.ToString("dd/MM/yyyy");
                 workSheet.Cells[recordIndex, 10].Value = order.Total;
-
-               
-                
-
+                          
                 workSheet.Column(1).AutoFit();
                 workSheet.Column(2).AutoFit();
                 workSheet.Column(3).AutoFit();
@@ -200,15 +209,12 @@ namespace PayCartOnline.Controllers
                     Response.Flush();
                     Response.End();
                 }
-
             }
             catch (Exception e)
             {
-
                 Console.WriteLine(e.Message);
             }
             return View();
-
         }
     }
 }

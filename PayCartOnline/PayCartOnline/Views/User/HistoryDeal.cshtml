@@ -4,6 +4,7 @@
     var startDate = ViewBag.startDate != null ? ViewBag.startDate : null;
     var expirationDate = ViewBag.expirationDate != null ? ViewBag.expirationDate : null;
     var typePay = ViewBag.typePay != null ? ViewBag.typePay : null;
+    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
     PayCartOnline.Models.CheckUser isCheck = Session["Account"] != null ? (PayCartOnline.Models.CheckUser)Session["Account"] : null;
 
 }
@@ -97,7 +98,7 @@
                                     <td>@item.Code_Order</td>
                                     <td>@item.Phone </td>
                                     <td>@item.Brand</td>
-                                    <td>@item.Price</td>
+                                    <td>@String.Format(culture, "{0:N0}", @item.Price)</td>
                                     <td>@item.CardType</td>
                                     <td>VNPAY</td>
                                     <td>@item.BankCode</td>

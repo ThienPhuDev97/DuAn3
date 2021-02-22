@@ -2,6 +2,7 @@
     Layout = "~/Views/Shared/_Layout_User.cshtml";
     var order = ViewBag.order;
     PayCartOnline.Models.CheckUser isCheck = Session["Account"] != null ? (PayCartOnline.Models.CheckUser)Session["Account"] : null;
+    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
 
 }
 
@@ -31,7 +32,7 @@
                 <h4 class="text_tieude_all_doanhnghiep">CHI TIẾT ĐƠN HÀNG @order.Code_Order</h4>
                 <ul class="table-subicon">
                     <li><a href="/User/ExportExcel/@order.Id_order"> <img src="https://vtcpay.vn/Content/images/excel.png"></a></li>
-                    <li><a > <img src="https://vtcpay.vn/Content/images/PDF.png"></a></li>
+                    <li><a href="/User/ExportPDF/@order.Id_order" > <img src="https://vtcpay.vn/Content/images/PDF.png"></a></li>
                     <li><a OnClick = "return PrintPanel();"> <img src="https://vtcpay.vn/Content/images/print.png"></a></li>
                 </ul>
                 <table id="print" class="table table-bordered">
@@ -52,7 +53,7 @@
                             <td>@order.Code_Order</td>
                             <td>@order.Phone </td>
                             <td>@order.Brand</td>
-                            <td>@order.Price</td>
+                            <td>@String.Format(culture, "{0:N0}", order.Price) VNĐ</td>
                             <td>@order.CardType</td>
                             <td>VNPAY</td>
                             <td>@order.BankCode</td>

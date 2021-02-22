@@ -9,6 +9,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Globalization;
 
 namespace PayCartOnline.Controllers
 {
@@ -18,9 +19,8 @@ namespace PayCartOnline.Controllers
         //VnPayResponse? nong)
 
         public ActionResult Index( )
-        {
-            
-            ViewBag.menhgia = db.ShowDenomination();
+        {          
+            ViewBag.menhgia = db.ShowDenomination();        
             return View();
         }
         public ActionResult VnResponse(VnPayResponse vnPayResponse)
@@ -51,7 +51,6 @@ namespace PayCartOnline.Controllers
         }
         public ActionResult Login()
         {
-           
 
             return View();
         }
@@ -72,16 +71,18 @@ namespace PayCartOnline.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public ActionResult CheckLogin()
+        public ActionResult Login(FormCollection data)
         {
-            var phone = Request["phone"];
-            var password = Request["password"];
+            var phone = data["phone"];
+            var password = data["password"];
 
             CheckUser isCheck = db.CheckUserLogin(phone, password);
             if (string.IsNullOrEmpty(isCheck.Phone))
             {
-
-                return RedirectToAction("Index");
+                ViewBag.phone = phone;
+                ViewBag.pwd = password;
+                ViewBag.error = "Phone đăng nhập hoặc mật khẩu không đúng";
+                return View();
             }
             else
             {

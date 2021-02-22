@@ -2,6 +2,8 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var list_menhgia = ViewBag.menhgia;
+    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+
 }
 <body>
     <div class="slideShow">
@@ -141,10 +143,10 @@
                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="box_hienthi_danhsach_nap">
                                 <select class="form-control" id="id_menhgia">
-
+                                    
                                     @foreach (var item in list_menhgia)
                                     {
-                                        <option value="@item.ID"> @item.Price VND</option>
+                                        <option value="@item.ID"> @String.Format(culture, "{0:N0}", item.Price) VND</option>
 
                                     }
                                 </select>

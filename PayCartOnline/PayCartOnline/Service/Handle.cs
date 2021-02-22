@@ -176,7 +176,7 @@ namespace PayCartOnline.Service
             foreach (DataRow item in ds.Rows)
             {
                 user.ID_User = Int32.Parse(item["User_ID"].ToString());
-                user.Phone = string.IsNullOrEmpty(item["Phone"].ToString()) ? null : item["Phone"].ToString();
+                user.Phone = string.IsNullOrEmpty(item["PhoneUser"].ToString()) ? null : item["PhoneUser"].ToString();
                 user.Role = string.IsNullOrEmpty(item["Name"].ToString()) ? null : item["Name"].ToString();
                 user.UserName = string.IsNullOrEmpty(item["UserName"].ToString()) ? null : item["UserName"].ToString();
             }
@@ -197,7 +197,7 @@ namespace PayCartOnline.Service
             foreach (DataRow item in ds.Rows)
             {
                 CheckUser record = new CheckUser();
-                record.Phone = string.IsNullOrEmpty(item["Phone"].ToString()) ? null : item["Phone"].ToString();
+                record.Phone = string.IsNullOrEmpty(item["PhoneUser"].ToString()) ? null : item["PhoneUser"].ToString();
                 record.Role = string.IsNullOrEmpty(item["Name"].ToString()) ? null : item["Name"].ToString();
                 record.UserName = string.IsNullOrEmpty(item["UserName"].ToString()) ? null : item["UserName"].ToString();
                 record.Pwd = string.IsNullOrEmpty(item["Password"].ToString()) ? null : item["Password"].ToString();
@@ -223,7 +223,7 @@ namespace PayCartOnline.Service
                 dr = ds.Rows[0];
             
                 CheckUser record = new CheckUser();
-                record.Phone = string.IsNullOrEmpty(dr["Phone"].ToString()) ? null : dr["Phone"].ToString();
+                record.Phone = string.IsNullOrEmpty(dr["PhoneUser"].ToString()) ? null : dr["PhoneUser"].ToString();
                 record.Role = string.IsNullOrEmpty(dr["Name"].ToString()) ? null : dr["Name"].ToString();
                 record.UserName = string.IsNullOrEmpty(dr["UserName"].ToString()) ? null : dr["UserName"].ToString();
                 record.Pwd = string.IsNullOrEmpty(dr["Password"].ToString()) ? null : dr["Password"].ToString();
@@ -272,7 +272,7 @@ namespace PayCartOnline.Service
             foreach (DataRow item in ds.Rows)
             {
                 CheckUser record = new CheckUser();
-                data.Add(item["Phone"].ToString() == null ? null : item["Phone"].ToString());
+                data.Add(item["PhoneUser"].ToString() == null ? null : item["PhoneUser"].ToString());
                 
                 
             }
