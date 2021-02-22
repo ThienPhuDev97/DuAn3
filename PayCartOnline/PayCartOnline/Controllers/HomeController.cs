@@ -186,7 +186,7 @@ namespace PayCartOnline.Controllers
             vnpay.AddRequestData("vnp_Phone", order.Phone.ToString());
             vnpay.AddRequestData("vnp_OrderInfo", order.OrderDescription);
             vnpay.AddRequestData("vnp_OrderType", "insurance"); //default value: other
-            vnpay.AddRequestData("vnp_Amount", (order.Amount * 100).ToString());
+            vnpay.AddRequestData("vnp_Amount", (order.Amount*100).ToString());
             vnpay.AddRequestData("vnp_ReturnUrl", vnp_Returnurl);
             vnpay.AddRequestData("vnp_IpAddr", GetIpAddress());
             vnpay.AddRequestData("vnp_CreateDate", order.CreatedDate.ToString("yyyyMMddHHmmss"));

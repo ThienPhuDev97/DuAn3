@@ -2924,6 +2924,7 @@
     <Content Include="Asset\css\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="Asset\css\font-awesome-4.7.0\scss\_variables.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Customine\js\HistoryDetail.js" />
     <Content Include="Scripts\Customine\js\UpdateAcc.js" />
     <Content Include="Scripts\dataTables.bootstrap4.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
