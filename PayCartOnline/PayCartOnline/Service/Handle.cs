@@ -58,7 +58,7 @@ namespace PayCartOnline.Service
                 record.CardType = item["CardType"] != null ? item["CardType"].ToString() : null;
                 record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
                 record.Create_At =  DateTime.Parse(item["Create_At"].ToString());
-
+                record.Status = item["Status"].ToString();
                 
             }
 

@@ -4,20 +4,22 @@
     let expirationDate = $('#expirationDate').val();
     let typePay = $('#typePay').val();
     let status = $('#status').val();
-
-    console.log(startDate + '' + expirationDate)
-
+   
     if (startDate != '' && expirationDate == '' || startDate == '' && expirationDate != '' ) {
 
         alert('Chưa chọn đủ trường')
         return
     }
-    if (!(Date.parse(startDate) <= Date.parse(expirationDate)))
-    {
-        alert('lỗi nè')
-        return;
+    
+    console.log(startDate + '' + expirationDate)
+    if (startDate != '' && expirationDate != '') {
+        if (!(Date.parse(startDate) <= Date.parse(expirationDate))) {
+            alert('chọn lại ngày tìm kiếm')
+            return;
+        }
     }
-
+    
+   
     $.ajax({
         url: '/User/HistoryDeal',
         type: 'GET',

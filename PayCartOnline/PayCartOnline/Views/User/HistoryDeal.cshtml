@@ -103,18 +103,26 @@
                     <tbody id="content">                 
                             @foreach (var item in orders)
                             {
-                            <tr>
-                                <td>@item.Code_Order</td>
-                                <td>@item.Phone </td>
-                                <td>@item.Brand</td>
-                                <td>@String.Format(culture, "{0:N0}", @item.Price)</td>
-                                <td>@item.CardType</td>
-                                <td>VNPAY</td>
-                                <td>@item.BankCode</td>
-                                <td>@item.Status</td>
-                                <td>@item.Create_At</td>
+                        <tr>
+                            <td>@item.Code_Order</td>
+                            <td>@item.Phone </td>
+                            <td>@item.Brand</td>
+                            <td>@String.Format(culture, "{0:N0}", @item.Price)</td>
+                            <td>@item.CardType</td>
+                            <td>VNPAY</td>
+                            <td>@item.BankCode</td>
+                            <td>@item.Status</td>
+                            <td>@item.Create_At</td>
+                            @if (item.Status == "Thành Công")
+                            {
                                 <td><a href="/User/DetailsOrder?id=@item.Id_order"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
-                            </tr>
+                            }
+                            else
+                            {
+                                <td><a href="/Home/ReceiveInfo?menhgia='@item.Price'?moblie=@item.Phone?nhamang=@item.Brand?type=@item.CardType">Thanh toán lại</a></td>
+                            }
+                            
+                        </tr>
                             }
 
 
