@@ -84,40 +84,17 @@
                                                             <span style="width:90px">Địa Chỉ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</span>
                                                             <span class="show_address" style="border: none;">
                                                                 <b>
-                                                                    <span>Số nhà 18, ngõ 114, đường Thanh Bình, Phường Mộ Lao, Quận Hà Đông, Thành phố Hà Nội, Việt Nam</span>
+                                                                    <span>8A Tôn Thất Thuyết ,Quận Nam Từ Liêm,Thành phố Hà Nội, Việt Nam</span>
                                                                 </b>
                                                             </span>
                                                         </p>
-                                                        <p>
-                                                            <span style="width:90px">
-                                                                Số tài khoản &nbsp;:
-                                                            </span>
-                                                            <span style="border: none;">
-                                                                <b>
-                                                                    <span class="show_bank_code">
-                                                                        <span>19133030911017</span>
-                                                                    </span>
-                                                                    -
-                                                                    <span class="show_bank_name">
-                                                                        <span>Ngân hàng Techcombank - CN Hà Tây</span>
-                                                                    </span>
-                                                                </b>
-                                                            </span>
-                                                        </p>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
                                             <div id="info-buyer">
                                                 <div style="clear: both;width:100%;border-top:1px solid #000;margin-bottom: 20px;" class="cus">
-                                                    <p>
-                                                        <span class="nameCustomer">
-                                                            Tên người mua hàng :
-                                                        </span>
-                                                        <span class="dotted ng-scope">abc</span>
-                                                        <span style="width:70%; font-size: 22px; font-weight: bold;">
-                                                            <span style="font-size: 22px; font-weight: bold;" class="ng-binding"></span>
-                                                        </span>
-                                                    </p>
+                                                    
                                                     <p>
                                                         <span class="nameCustomer">
                                                             Số điện thoại được nạp :
@@ -185,7 +162,7 @@
                                                         <span class="nameCustomer">
                                                             Trạng Thái :
                                                         </span>
-                                                        <span class="dotted ng-scope">KC</span>
+                                                        <span class="dotted ng-scope"><b class="nhanmanh"> @order.Status</b></span>
                                                         <span style="width:70%; font-size: 22px; font-weight: bold;">
                                                             <span style="font-size: 22px; font-weight: bold;" class="ng-binding"></span>
                                                         </span>
@@ -214,6 +191,7 @@
                                                         Ký bởi: <span>CÔNG TY CỔ PHẦN BUGGER</span>
                                                     </p>
                                                     <p>
+
                                                         Ký ngày:@order.Create_At
                                                     </p>
                                                 </div>
@@ -225,7 +203,9 @@
                                         <img class="images_result" src="~/Asset/images/viettel.jpg" />
                                     </div>
                                     <style type="text/css">
-
+                                        .nhanmanh{
+                                            color:red;
+                                        }
                                         .uk-grid-collapse > * {
                                             padding-left: 0;
                                         }
