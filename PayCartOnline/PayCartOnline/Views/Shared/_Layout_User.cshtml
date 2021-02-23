@@ -99,9 +99,9 @@
             var panel = document.getElementById("print");
             var printWindow = window.open('', '', 'height=400,width=800');
             printWindow.document.write('<html><head><title>Order Customer By Nong</title>');
-            printWindow.document.write('</head><table >');
+            printWindow.document.write('</head><img>');
             printWindow.document.write(panel.innerHTML);
-            printWindow.document.write('</table></html>');
+            printWindow.document.write('</img></html>');
             printWindow.document.close();
             setTimeout(function () {
                 printWindow.print();
