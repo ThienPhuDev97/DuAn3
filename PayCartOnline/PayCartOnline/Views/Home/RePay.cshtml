@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Thanh toán";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var isCheck = Session["Account"] != null ? Session["Account"] : "Đăng Nhập";
@@ -20,32 +19,14 @@
                         </li>
                         <li>
                             <h6>@ViewBag.type : @ViewBag.nhamang</h6>
-                            <span>@ViewBag.valueMenhgia.Price VNĐ</span>
+                            <span>@ViewBag.valueMenhgia.Price</span>
                         </li>
                         <li>
                             <h6> Số được nạp</h6>
                             <span>@ViewBag.mobile</span>
                         </li>
-                    </ul>
-                    <ul class="list_all_thongtin_thanhtoan" style="margin-bottom: 0;">
-                        <li>
-                            <h6>Chiết khấu</h6>
-                            <span>250 VND</span>
-                        </li>
-                        <li>
-                            <h6>Thành tiền</h6>
-                            <span>9.750 VND</span>
-                        </li>
-                        <li>
-                            <h6>Phí</h6>
-                            <span id="txtbank">0 VND</span>
-                        </li>
-                        <li>
-                            <h6 style="font-weight: 800;font-size: 15px;">Tổng thanh toán</h6>
-                            <span id="txtTotalAmount">9.750 VND</span>
-                        </li>
-                    </ul>
-                </div>              
+                    </ul>                
+                </div>
             </div>
         </div>
     </div>
@@ -56,7 +37,7 @@
                 <div class="panel-heading" role="tab" id="headingOne">
                     <h4 class="panel-title">
                         <a role="button" href="#">
-                            Ví điện tử Bugger
+                            Ví điện tử VTC Pay
                             <span class="text_mien_phithanhtoan">Miễn phí thanh toán</span>
                         </a>
                     </h4>
@@ -64,7 +45,7 @@
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel">
                     <div class="panel-body">
                         <div class="row">
-                            @*<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="box_chonso_tien max_width_300">
                                     <div class="select_dropdownform">
                                         <div class="box_hienthi_danhsach_nap">
@@ -72,8 +53,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>*@
-                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="box_chonso_tien max_width_300">
                                     <div class="select_dropdownform">
                                         @if (Session["Account"] != null)

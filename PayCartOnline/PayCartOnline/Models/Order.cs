@@ -17,5 +17,6 @@ namespace PayCartOnline.Models
         public DateTime Create_At { get; set; }
         public int Price { get; set; }
         public string Status { get; set; }
+        public int ID_Denomination { get; set; }
     }
 }

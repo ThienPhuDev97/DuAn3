@@ -105,6 +105,7 @@ namespace PayCartOnline.Service
                 record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
                 record.Status = item["Status"] != null ? item["Status"].ToString() : null;
                 record.Create_At =  DateTime.Parse(item["Create_At"].ToString());
+                record.ID_Denomination = Int32.Parse(item["ID_Denomination"].ToString());
 
                 data.Add(record);
             }
@@ -135,7 +136,7 @@ namespace PayCartOnline.Service
                 record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
                 record.Create_At =  DateTime.Parse(item["Create_At"].ToString());
                 record.Status = item["Status"] != null ? item["Status"].ToString() : null;
-
+                record.ID_Denomination = Int32.Parse(item["ID_Denomination"].ToString());
                 data.Add(record);
             }
 

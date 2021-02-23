@@ -192,6 +192,7 @@
     <Compile Include="Areas\Admin\AttributeLogin\CheckLogin.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DenominationController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="Models\VNPAY\VnPayResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Handle.cs" />
+    <Compile Include="Service\HandleDenomination.cs" />
     <Compile Include="Service\Pay.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -2932,6 +2934,10 @@
     <Content Include="Asset\css\font-awesome-4.7.0\scss\_stacked.scss" />
     <Content Include="Asset\css\font-awesome-4.7.0\scss\_variables.scss" />
     <Content Include="App_Browsers\qt.browser" />
+    <Content Include="Areas\Admin\Views\Denomination\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Denomination\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Denomination\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Denomination\Update.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Customine\js\HistoryDetail.js" />
     <Content Include="Scripts\Customine\js\UpdateAcc.js" />
@@ -2997,10 +3003,10 @@
     <Content Include="Views\Shared\_Layout_User.cshtml" />
     <Content Include="Views\Shared\Header_User.cshtml" />
     <Content Include="Views\Shared\SiderBar_User.cshtml" />
+    <Content Include="Views\Home\RePay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
