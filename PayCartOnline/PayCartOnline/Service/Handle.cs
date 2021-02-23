@@ -67,17 +67,27 @@ namespace PayCartOnline.Service
         }
         public List<Order> SearchHistory(SearchHistory search)
         {
+            var status = "";
+            if (search.Status != 0)
+            {
+                status = search.Status == 1 ? "Thành Công" : "Chưa Thanh Toán";
+            }
+            else
+            {
+                status = null;
+            }
+            
             SqlCommand com = new SqlCommand(Search, con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@ID_Acc", System.Data.SqlDbType.Int).Value = search.ID_Acc == 0 ? DBNull.Value : (object)search.ID_Acc;
             
-            com.Parameters.AddWithValue("@startDate", System.Data.SqlDbType.DateTime).Value = search.startDate == null ? DBNull.Value : (object)search.startDate;
+            com.Parameters.AddWithValue("@startDate", System.Data.SqlDbType.DateTime).Value = search.StartDate == null ? DBNull.Value : (object)search.StartDate;
 
           
-            com.Parameters.AddWithValue("@expirationDate", System.Data.SqlDbType.DateTime).Value = search.expirationDate == null ? DBNull.Value : (object)search.expirationDate;
+            com.Parameters.AddWithValue("@expirationDate", System.Data.SqlDbType.DateTime).Value = search.ExpirationDate == null ? DBNull.Value : (object)search.ExpirationDate;
 
-            com.Parameters.AddWithValue("@typePay", System.Data.SqlDbType.Int).Value = search.typePay == 0 ? DBNull.Value : (object)search.typePay;
-
+            com.Parameters.AddWithValue("@typePay", System.Data.SqlDbType.Int).Value = search.TypePay == 0 ? DBNull.Value : (object)search.TypePay;
+            com.Parameters.AddWithValue("@status", System.Data.SqlDbType.NVarChar).Value = String.IsNullOrEmpty(status) ? DBNull.Value : (object)status;
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable ds = new DataTable();
             da.Fill(ds);
@@ -93,6 +103,7 @@ namespace PayCartOnline.Service
                 record.Price = item["Price"] != null ? Convert.ToInt32(item["Price"].ToString()) : 0;
                 record.CardType = item["CardType"] != null ? item["CardType"].ToString() : null;
                 record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
+                record.Status = item["Status"] != null ? item["Status"].ToString() : null;
                 record.Create_At =  DateTime.Parse(item["Create_At"].ToString());
 
                 data.Add(record);
@@ -123,6 +134,7 @@ namespace PayCartOnline.Service
                 record.CardType = item["CardType"] != null ? item["CardType"].ToString() : null;
                 record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
                 record.Create_At =  DateTime.Parse(item["Create_At"].ToString());
+                record.Status = item["Status"] != null ? item["Status"].ToString() : null;
 
                 data.Add(record);
             }

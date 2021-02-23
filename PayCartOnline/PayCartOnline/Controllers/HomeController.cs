@@ -9,6 +9,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Globalization;
 
 namespace PayCartOnline.Controllers
 {
@@ -18,9 +19,8 @@ namespace PayCartOnline.Controllers
         //VnPayResponse? nong)
 
         public ActionResult Index( )
-        {
-            
-            ViewBag.menhgia = db.ShowDenomination();
+        {          
+            ViewBag.menhgia = db.ShowDenomination();        
             return View();
         }
         public ActionResult VnResponse(VnPayResponse vnPayResponse)
@@ -33,7 +33,8 @@ namespace PayCartOnline.Controllers
             var user = (CheckUser)Session["Account"];
             Pay pay = new Pay();
             pay.AddOrder(vnPayResponse,user, inforOrder);
-            return View();
+
+            return View(vnPayResponse);
         }
 
         public ActionResult About()

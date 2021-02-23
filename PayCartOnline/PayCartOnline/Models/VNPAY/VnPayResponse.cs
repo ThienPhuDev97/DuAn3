@@ -13,5 +13,6 @@ namespace PayCartOnline.Models.VNPAY
         public string vnp_CardType { get; set; }
         public string vnp_PayDate { get; set; }
         public string vnp_OrderInfo { get; set; }
+        public string vnp_Command { get; set; }
     }
 }

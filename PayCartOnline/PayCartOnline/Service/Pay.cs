@@ -29,6 +29,7 @@ namespace PayCartOnline.Service
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = InsertOrder;
 
+                var status = vnPayResponse.vnp_ResponseCode == "00" ? "Thành Công" : "Chưa Thanh Toán";
 
                 string code_order = "#" + DateTime.Now.ToBinary().ToString() + user.ID_User;
 
@@ -40,9 +41,9 @@ namespace PayCartOnline.Service
                 command.Parameters.Add(new SqlParameter("@PHONE", mobile));
                 command.Parameters.Add(new SqlParameter("@BRAND", order.network));
                 command.Parameters.Add(new SqlParameter("@QUANTITY", 1));
-                command.Parameters.Add(new SqlParameter("@TOTAL",vnPayResponse.vnp_Amount));
+                command.Parameters.Add(new SqlParameter("@TOTAL",vnPayResponse.vnp_Amount/100));
                 command.Parameters.Add(new SqlParameter("@DISCOUNT",1));
-                command.Parameters.Add(new SqlParameter("@STATUS","Pending"));
+                command.Parameters.Add(new SqlParameter("@STATUS", status));
                 command.Parameters.Add(new SqlParameter("@BANKCODE",vnPayResponse.vnp_BankCode));
                 command.Parameters.Add(new SqlParameter("@CREATED_AT",date));
                 command.ExecuteNonQuery();
