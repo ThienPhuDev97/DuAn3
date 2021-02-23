@@ -6,68 +6,580 @@
 
 }
 
-    <div class="all_noidung_admin">
-        <div class="box_giaodien_doanhnghiep">
-            <div class="container content-pay">
-                <div class="row">
-                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-                        <div class="box_info_doanhnghiep">
-                            <div class="img_thumb_info_doanhnghiep"><img style="width: 100%; height: 80px;" src="https://vtcpay.vn/Content/images/df_avt.png" alt=""></div>
-                            <div class="text_info_doanhnghiep">
-                                @isCheck.Phone
-                            </div>
+
+
+<div class="all_noidung_admin">
+    <div class="box_giaodien_doanhnghiep">
+        <div class="container content-pay">
+            <div class="row">
+                <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                    <div class="box_info_doanhnghiep">
+                        <div class="img_thumb_info_doanhnghiep"><img style="width: 100%; height: 80px;" src="https://vtcpay.vn/Content/images/df_avt.png" alt=""></div>
+                        <div class="text_info_doanhnghiep">
+                            @isCheck.Phone
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-                        <ul class="box_all_tien_doanhnghiep">
-                            <li><em>Số đơn hàng</em></li>
-                            <li><a href="/Home/Index">Giao diện mua hàng</a></li>
-                        </ul>
-                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="box_all_tien_doanhnghiep">
+                        <li><em>Số đơn hàng</em></li>
+                        <li><a href="/Home/Index">Giao diện mua hàng</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="box_noidung_thongtin_admin">
-            <div class="container content-pay">
-                <h4 class="text_tieude_all_doanhnghiep">CHI TIẾT ĐƠN HÀNG @order.Code_Order</h4>
-                <ul class="table-subicon">
-                    <li><a href="/User/ExportExcel/@order.Id_order"> <img src="https://vtcpay.vn/Content/images/excel.png"></a></li>
-                    <li><a href="/User/ExportPDF/@order.Id_order" > <img src="https://vtcpay.vn/Content/images/PDF.png"></a></li>
-                    <li><a OnClick = "return PrintPanel();"> <img src="https://vtcpay.vn/Content/images/print.png"></a></li>
-                </ul>
-                <table id="print" class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Mã Đơn hàng</th>
-                            <th>Số Điện Thoại</th>
-                            <th>Nhà Mạng</th>
-                            <th>Mệnh Giá</th>
-                            <th>Thể Loại Thẻ</th>
-                            <th>Phương Thức Thanh Toán</th>
-                            <th>Ngân Hàng</th>
-                            <th>Ngày Thanh Toán</th>                     
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>                       
-                            <td>@order.Code_Order</td>
-                            <td>@order.Phone </td>
-                            <td>@order.Brand</td>
-                            <td>@String.Format(culture, "{0:N0}", order.Price) VNĐ</td>
-                            <td>@order.CardType</td>
-                            <td>VNPAY</td>
-                            <td>@order.BankCode</td>
-                            <td>@order.Create_At</td>                     
-                        </tr>
-                    </tbody>
-                </table>
-                <div id="TransactionHistoryPartial"></div>
-                <div id="TransactionHistoryListCard"></div>
-            </div>
-        </div>
-        <div id="PopupTransactionHistoryDetail"></div>
-        <link href="https://vtcpay.vn/Content/js/lib/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
-        <script src="https://vtcpay.vn/Content/js/lib/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     </div>
+    <div class="box_noidung_thongtin_admin">
+        <div class="container content-pay">
+            <h4 class="text_tieude_all_doanhnghiep">CHI TIẾT ĐƠN HÀNG @order.Code_Order</h4>
+            <ul class="table-subicon">
+                <li><a href="/User/ExportExcel/@order.Id_order"> <img src="https://vtcpay.vn/Content/images/excel.png"></a></li>
+                <li><a href="/User/ExportPDF/@order.Id_order"> <img src="https://vtcpay.vn/Content/images/PDF.png"></a></li>
+                <li><a OnClick="return PrintPanel();"> <img src="https://vtcpay.vn/Content/images/print.png"></a></li>
+            </ul>
+            <section id="print" class="documents-content">
+                <section class="panel-body">
+                    <div class="uk-width-large-3-4">
+                        <div id="border1" class="ng-scope">
+                            <div id="border2">
+                                <div class="VATTEMP" id="VATTEMP">
+                                    <div class="content">
+                                        <div id="main-content">
+                                            <div id="header">
+                                                <div class="header-right" style="float: right; width: 25%; padding:10px 0; padding-top: 40px">
+                                                    <p style="padding-top:5px" class="ng-binding">Mẫu số : 01GTKT0/001                                        </p>
+                                                    <p>Ký hiệu : ccc</p>
+                                                    <p>Số:<strong style="color:red" class="ng-binding">000000000</strong></p>
+                                                </div>
+                                                <div style="float: right; width: 50%; padding:10px 0">
+                                                    <div style="text-transform: uppercase;font-size: 24px;font-weight: bold;text-align: center;padding-top:5px;color: red;">
+                                                       HÓA ĐƠN <br />GIÁ TRỊ GIA TĂNG
+                                                    </div>
+                                                    <div style="text-transform: uppercase; font-size: 16px; font-weight: bold; text-align: center; padding-top:5px"></div>
+                                                    <div class="date" style="text-align:center">
+                                                        <label>
+                                                          Ngày
+                                                        </label>
+                                                        <label class="ng-binding">@order.Create_At</label>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div id="logo">
+                                                    <img class="images_result" src="~/Asset/Admin/dist/img/avatar2.png" />
+                                                </div>
+                                            </div>
+                                            <div id="info-seller" style="position:relative">
+                                                <div class="header-title">
+                                                    <h3 class="show_company" style="text-transform: uppercase; font-size: 24px;font-weight:bold;color:3366FF">
+                                                        <span>CÔNG TY CỔ PHẦN BUGGER</span>
+                                                    </h3>
+                                                    <div class="cominfo">
+                                                        <p>
+                                                            <span style="width:90px">Mã đơn hàng&nbsp;:</span>
+                                                            <span>
+                                                                <b class="show_company_code"><span>@order.Code_Order</span></b>
+                                                            </span>
+                                                        </p>
+                                                        <p>
+                                                            <span style="width:90px">Địa Chỉ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</span>
+                                                            <span class="show_address" style="border: none;">
+                                                                <b>
+                                                                    <span>Số nhà 18, ngõ 114, đường Thanh Bình, Phường Mộ Lao, Quận Hà Đông, Thành phố Hà Nội, Việt Nam</span>
+                                                                </b>
+                                                            </span>
+                                                        </p>
+                                                        <p>
+                                                            <span style="width:90px">
+                                                                Số tài khoản &nbsp;:
+                                                            </span>
+                                                            <span style="border: none;">
+                                                                <b>
+                                                                    <span class="show_bank_code">
+                                                                        <span>19133030911017</span>
+                                                                    </span>
+                                                                    -
+                                                                    <span class="show_bank_name">
+                                                                        <span>Ngân hàng Techcombank - CN Hà Tây</span>
+                                                                    </span>
+                                                                </b>
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="info-buyer">
+                                                <div style="clear: both;width:100%;border-top:1px solid #000;margin-bottom: 20px;" class="cus">
+                                                    <p>
+                                                        <span class="nameCustomer">
+                                                            Tên người mua hàng :
+                                                        </span>
+                                                        <span class="dotted ng-scope">abc</span>
+                                                        <span style="width:70%; font-size: 22px; font-weight: bold;">
+                                                            <span style="font-size: 22px; font-weight: bold;" class="ng-binding"></span>
+                                                        </span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="nameCustomer">
+                                                            Số điện thoại được nạp :
+                                                        </span>
+                                                        <span class="dotted ng-scope">@order.Phone</span>
+                                                        <span style="width:70%; font-size: 22px; font-weight: bold;">
+                                                            <span style="font-size: 22px; font-weight: bold;" class="ng-binding"></span>
+                                                        </span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="nameCustomer">
+                                                            Nhà Mạng :
+                                                        </span>
+                                                        <span class="dotted ng-scope">@order.Brand</span>
+                                                        <span style="width:70%; font-size: 22px; font-weight: bold;">
+                                                            <span style="font-size: 22px; font-weight: bold;" class="ng-binding"></span>
+                                                        </span>
+                                                   </p>
+                                                    <p>
+                                                        <span class="nameCustomer">
+                                                            Mệnh Giá :
+                                                        </span>
+                                                        <span class="dotted ng-scope">@String.Format(culture, "{0:N0}", order.Price) VNĐ</span>
+                                                        <span style="width:70%; font-size: 22px; font-weight: bold;">
+                                                            <span style="font-size: 22px; font-weight: bold;" class="ng-binding"></span>
+                                                        </span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="nameCustomer">
+                                                            Thể Loại Thẻ :
+                                                        </span>
+                                                        <span class="dotted ng-scope">@order.CardType</span>
+                                                        <span style="width:70%; font-size: 22px; font-weight: bold;">
+                                                            <span style="font-size: 22px; font-weight: bold;" class="ng-binding"></span>
+                                                        </span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="nameCustomer">
+                                                            Phương Thức Thanh Toán :
+                                                        </span>
+                                                        <span class="dotted ng-scope">ATM</span>
+                                                        <span style="width:70%; font-size: 22px; font-weight: bold;">
+                                                            <span style="font-size: 22px; font-weight: bold;" class="ng-binding"></span>
+                                                        </span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="nameCustomer">
+                                                            Ngân Hàng Thanh Toán :
+                                                        </span>
+                                                        <span class="dotted ng-scope">@order.BankCode</span>
+                                                        <span style="width:70%; font-size: 22px; font-weight: bold;">
+                                                            <span style="font-size: 22px; font-weight: bold;" class="ng-binding"></span>
+                                                        </span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="nameCustomer">
+                                                            Ngày Thanh Toán :
+                                                        </span>
+                                                        <span class="dotted ng-scope">@order.Create_At</span>
+                                                        <span style="width:70%; font-size: 22px; font-weight: bold;">
+                                                            <span style="font-size: 22px; font-weight: bold;" class="ng-binding"></span>
+                                                        </span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="nameCustomer">
+                                                            Trạng Thái :
+                                                        </span>
+                                                        <span class="dotted ng-scope">KC</span>
+                                                        <span style="width:70%; font-size: 22px; font-weight: bold;">
+                                                            <span style="font-size: 22px; font-weight: bold;" class="ng-binding"></span>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                <div class="ghi_chu ng-binding" style="text-align: center;"></div>
+
+                                            </div>
+                                        <div>
+                                            <p style="text-align:right" id="countPage"></p>
+                                        </div>
+                                        <div id="footer" style="clear:both;margin-top:15px">
+                                            <div class="fl-l" style="width:40%;">
+                                                <p style="font-size:14px;text-align:center" class="label-sign">Người mua hàng <i></i></p>
+                                            </div>
+                                            <div class="fl-l" style="width:20%;">
+                                                &nbsp;
+                                            </div>
+                                            <div class="fl-r" style="width:40%;">
+                                                <p style="font-size:14px;text-align:center" class="label-sign">Người bán hàng <i></i></p>
+                                                <div class="bgimg" style="border:1px solid red;text-align:  left;color: red;padding: 10px;height:140px;">
+                                                 <p  class="ng-scope">
+                                                       Đã thanh toán
+                                                    </p>                                                 
+                                                    <p class="show_company">
+                                                        Ký bởi: <span>CÔNG TY CỔ PHẦN BUGGER</span>
+                                                    </p>
+                                                    <p>
+                                                        Ký ngày:@order.Create_At
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="clear:both;">   &nbsp;  </div>
+                                    <div class="bground">
+                                        <img class="images_result" src="~/Asset/images/viettel.jpg" />
+                                    </div>
+                                    <style type="text/css">
+
+                                        .uk-grid-collapse > * {
+                                            padding-left: 0;
+                                        }
+
+                                        #border1 {
+                                            border-style: solid;
+                                            border-width: 3px;
+                                            padding: 1px 1px 1px 0.5px;
+                                        }
+
+                                        .uk-grid > * > :last-child {
+                                            margin-bottom: 0;
+                                        }
+
+                                        #border2 {
+                                            border: 2px solid;
+                                            border-color: grey;
+                                        }
+
+                                        .VATTEMP {
+                                            background-color: #fff;
+                                            font-family: 'Arial';
+                                            font-size: 13px !important;
+                                            background: #fff !important;
+                                            position: relative;
+                                        }
+
+                                            .VATTEMP .content {
+                                                padding: 10px;
+                                            }
+
+                                            .VATTEMP .content {
+                                                width: 100%;
+                                                clear: left;
+                                                overflow: hidden;
+                                                margin: 0 auto;
+                                            }
+
+                                            .VATTEMP #main-content {
+                                                clear: left;
+                                                overflow: hidden;
+                                                width: 100%;
+                                            }
+
+                                            .VATTEMP #header {
+                                                border-bottom: 1px solid #000;
+                                            }
+
+                                            .VATTEMP #header, .VATTEMP #main-content {
+                                                clear: left;
+                                                overflow: hidden;
+                                                width: 100%;
+                                            }
+
+                                            .VATTEMP #header {
+                                                padding-top: 5px;
+                                            }
+
+                                            .VATTEMP #main-content p {
+                                                margin: 0;
+                                                line-height: 25px;
+                                                padding: 0;
+                                            }
+
+                                            .VATTEMP #logo {
+                                                float: left;
+                                                padding-left: 50px;
+                                                width: 25%;
+                                            }
+
+                                            .VATTEMP .header-title {
+                                                float: left;
+                                                width: 100%;
+                                                height: auto;
+                                                overflow: hidden;
+                                                padding: 10px 0;
+                                            }
+
+                                                .VATTEMP .header-title h3 {
+                                                    margin: 0;
+                                                    text-transform: uppercase;
+                                                    color: #06066F;
+                                                    padding-top: 5px;
+                                                }
+
+                                                .VATTEMP .header-title .cominfo {
+                                                    float: left;
+                                                    width: 100%;
+                                                    height: auto;
+                                                    overflow: hidden;
+                                                    line-height: 1.6;
+                                                }
+
+                                            .VATTEMP .cominfo p {
+                                                width: 100%;
+                                                clear: left;
+                                                display: block;
+                                            }
+
+                                            .VATTEMP .nameCustomer {
+                                                width: 191px;
+                                                display: inline-block;
+                                                margin-top: 25px;
+                                            }
+
+                                            .VATTEMP .background-table {
+                                                height: 100%;
+                                                opacity: 0.2;
+                                                position: absolute;
+                                                width: 100%;
+                                                background-size: 100%;
+                                            }
+
+                                            .VATTEMP .table.template-bordered {
+                                                border: 1px solid #000;
+                                            }
+
+                                        .table {
+                                            width: 100%;
+                                            max-width: 100%;
+                                            margin-bottom: 1rem;
+                                            background-color: transparent;
+                                        }
+
+                                        .VATTEMP #footer {
+                                            padding-top: 30px;
+                                        }
+
+                                        .VATTEMP .fl-l {
+                                            float: left;
+                                            width: 164px;
+                                            text-align: center;
+                                        }
+
+                                            .VATTEMP .fl-r p, .VATTEMP .fl-l p {
+                                                padding: 0;
+                                                margin: 0;
+                                                line-height: 25px;
+                                            }
+
+                                        .bground {
+                                            position: absolute;
+                                            top: 300px;
+                                            left: 5%;
+                                            opacity: 0.2;
+                                        }
+
+                                            .bground img {
+                                                width: 90%;
+                                            }
+                                        /*abc*/
+                                        #printView {
+                                            background: #fff;
+                                        }
+
+                                        .VATTEMP {
+                                            background-color: #fff;
+                                            font-family: 'Arial';
+                                            font-size: 13px !important;
+                                            background: #fff !important;
+                                            position: relative;
+                                        }
+
+                                            .VATTEMP .content {
+                                                width: 100%;
+                                                clear: left;
+                                                overflow: hidden;
+                                                margin: 0 auto;
+                                            }
+
+                                            .VATTEMP .content {
+                                                padding: 10px;
+                                            }
+
+                                            .VATTEMP #header {
+                                                padding-top: 5px;
+                                            }
+
+                                            .VATTEMP #header, .VATTEMP #main-content {
+                                                clear: left;
+                                                overflow: hidden;
+                                                width: 100%;
+                                            }
+
+                                            .VATTEMP #header {
+                                                border-bottom: 1px solid #000;
+                                            }
+
+                                            .VATTEMP #logo {
+                                                float: left;
+                                                padding-left: 50px;
+                                                width: 25%;
+                                            }
+
+                                                .VATTEMP #logo img {
+                                                    width: 60%;
+                                                    margin: 5px;
+                                                }
+
+                                            .VATTEMP .header-title {
+                                                float: left;
+                                                width: 100%;
+                                                height: auto;
+                                                overflow: hidden;
+                                                padding: 10px 0;
+                                            }
+
+                                                .VATTEMP .header-title h3 {
+                                                    margin: 0;
+                                                    text-transform: uppercase;
+                                                    color: #06066F;
+                                                    padding-top: 5px;
+                                                }
+
+                                                .VATTEMP .header-title .cominfo {
+                                                    float: left;
+                                                    width: 100%;
+                                                    height: auto;
+                                                    overflow: hidden;
+                                                    line-height: 1.6;
+                                                }
+
+                                            .VATTEMP .cominfo p {
+                                                width: 100%;
+                                                clear: left;
+                                                display: block;
+                                            }
+
+                                            .VATTEMP .header-title p {
+                                                margin: 0;
+                                            }
+
+                                            .VATTEMP .totalInWord {
+                                                clear: left;
+                                                position: relative;
+                                            }
+
+                                            .VATTEMP .fl-l {
+                                                float: left;
+                                                width: 164px;
+                                                text-align: center;
+                                            }
+
+                                            .VATTEMP .fl-r {
+                                                float: right;
+                                                width: 300px;
+                                                text-align: center;
+                                            }
+
+                                            .VATTEMP .table.template-bordered {
+                                                border: 1px solid #000;
+                                            }
+
+                                                .VATTEMP .table.template-bordered td {
+                                                    border: 1px solid #000;
+                                                    padding: 0.5rem;
+                                                }
+
+                                            .VATTEMP #main-content p {
+                                                margin: 0;
+                                                line-height: 25px;
+                                                padding: 0;
+                                            }
+
+                                            .VATTEMP .fl-r p, .VATTEMP .fl-l p {
+                                                padding: 0;
+                                                margin: 0;
+                                                line-height: 25px;
+                                            }
+
+                                            .VATTEMP .dotted {
+                                                width: calc(100% - 200px);
+                                                border-bottom: 1px dotted;
+                                                padding-top: 23px;
+                                                display: inline-block;
+                                            }
+
+                                            .VATTEMP .dotted2 {
+                                                width: calc(100% - 270px);
+                                                border-bottom: 1px dotted;
+                                                padding-top: 23px;
+                                                display: inline-block;
+                                            }
+
+                                            .VATTEMP .dotted3 {
+                                                width: calc(100% - 93px);
+                                                border-bottom: 1px dotted;
+                                                padding-top: 23px;
+                                                display: inline-block;
+                                            }
+
+                                            .VATTEMP .label {
+                                                width: 191px;
+                                                display: inline-block;
+                                            }
+
+                                            .VATTEMP #footer {
+                                                padding-top: 30px;
+                                            }
+
+                                            .VATTEMP .background-table {
+                                                height: 100%;
+                                                opacity: 0.2;
+                                                position: absolute;
+                                                width: 100%;
+                                                background-size: 100%;
+                                            }
+
+                                        .background-table img {
+                                            width: 80%;
+                                            position: absolute;
+                                            top: 100px;
+                                            left: 8%;
+                                        }
+
+                                        .bground {
+                                            position: absolute;
+                                            top: 300px;
+                                            left: 5%;
+                                            opacity: 0.2;
+                                        }
+
+                                            .bground img {
+                                                width: 90%;
+                                            }
+
+                                        #border1 {
+                                            border-style: solid;
+                                            border-width: 3px;
+                                            padding: 1px 1px 1px 0.5px;
+                                        }
+
+                                        #border2 {
+                                            border: 2px solid;
+                                            border-color: grey;
+                                        }
+                                    </style>
+                                </div>
+                                <div style="clear:both; font-size:12px; font-style: italic;text-align:center;border-top:1px dashed #000;width:100%;">
+                                    Đơn vị cung cấp giải pháp:Công Ty TNHH Giải Pháp Hóa Đơn Điện Tử Bugger-Invoice, MĐH: @order.Code_Order
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+            </section>        
+            <div id="TransactionHistoryPartial"></div>
+            <div id="TransactionHistoryListCard"></div>
+        </div>
+    </div>
+    <div id="PopupTransactionHistoryDetail"></div>
+    <link href="https://vtcpay.vn/Content/js/lib/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <script src="https://vtcpay.vn/Content/js/lib/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+</div>
 
 

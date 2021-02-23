@@ -2272,6 +2272,7 @@
     <Content Include="Asset\css\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Asset\css\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="Asset\css\home.css" />
+    <Content Include="Asset\css\OrderDetails.css" />
     <Content Include="Asset\css\owl.carousel.css" />
     <Content Include="Asset\css\owl.carousel.min.css" />
     <Content Include="Asset\css\owl.theme.default.css" />
@@ -2932,6 +2933,7 @@
     <Content Include="Asset\css\font-awesome-4.7.0\scss\_variables.scss" />
     <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Customine\js\HistoryDetail.js" />
     <Content Include="Scripts\Customine\js\UpdateAcc.js" />
     <Content Include="Scripts\dataTables.bootstrap4.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -2991,7 +2993,6 @@
     <Content Include="Views\User\AccountUser.cshtml" />
     <Content Include="Views\User\HistoryDeal.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\test.cshtml" />
     <Content Include="Views\User\DetailsOrder.cshtml" />
     <Content Include="Views\Shared\_Layout_User.cshtml" />
     <Content Include="Views\Shared\Header_User.cshtml" />

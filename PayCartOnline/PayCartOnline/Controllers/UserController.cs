@@ -49,26 +49,30 @@ namespace PayCartOnline.Controllers
         }
         [HttpGet]
         //[CheckLogin]
-        public ActionResult HistoryDeal(DateTime? startDate, DateTime? expirationDate, int? typePay)
+        public ActionResult HistoryDeal(DateTime? startDate, DateTime? expirationDate, int? typePay,int? status)
         {
             if ((CheckUser)Session["Account"] != null)
             {
                 CheckUser current = (CheckUser)Session["Account"];
-                if (startDate != null || expirationDate != null || typePay != null)
+                if (startDate != null || expirationDate != null || typePay != null || status != null)
                 {
                     SearchHistory search = new SearchHistory
-                    { ID_Acc = current.ID_User, startDate = startDate, expirationDate = expirationDate, typePay = typePay };
+                    { ID_Acc = current.ID_User, StartDate = startDate, ExpirationDate = expirationDate, TypePay = typePay ,Status= status};
 
                     List<Order> data = db.SearchHistory(search);
                     ViewBag.startDate = startDate;
                     ViewBag.expirationDate = expirationDate;
                     ViewBag.typePay = typePay;
                     ViewBag.orders = data;
+                    return Json(data,JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    var orders = db.GetOrderByIDAcc(current.ID_User);
+                    ViewBag.orders = orders;
                     return View();
                 }
-                var orders = db.GetOrderByIDAcc(current.ID_User);
-                ViewBag.orders = orders;
-                return View();
+                
             }
             else
             {

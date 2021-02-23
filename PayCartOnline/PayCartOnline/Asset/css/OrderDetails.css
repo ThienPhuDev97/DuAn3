@@ -1,0 +1,134 @@
+﻿@media (min-width: 960px) {
+    .uk-width-large-3-4 {
+        width: 75%;
+    }
+}
+.uk-grid-collapse > * {
+    padding-left: 0;
+}
+@media (min-width: 1220px) {
+    .uk-grid > * {
+        padding-left: 35px;
+    }
+}
+#border1 {
+    border-style: solid;
+    border-width: 3px;
+    padding: 1px 1px 1px 0.5px;
+}
+.uk-grid > * > :last-child {
+    margin-bottom: 0;
+}
+#border2 {
+    border: 2px solid;
+    border-color: grey;
+}
+.VATTEMP {
+    background-color: #fff;
+    font-family: 'Arial';
+    font-size: 13px !important;
+    background: #fff !important;
+    position: relative;
+}
+    .VATTEMP .content {
+        padding: 10px;
+    }
+    .VATTEMP .content {
+        width: 100%;
+        clear: left;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    .VATTEMP #main-content {
+        clear: left;
+        overflow: hidden;
+        width: 100%;
+    }
+    .VATTEMP #header {
+        border-bottom: 1px solid #000;
+    }
+    .VATTEMP #header, .VATTEMP #main-content {
+        clear: left;
+        overflow: hidden;
+        width: 100%;
+    }
+    .VATTEMP #header {
+        padding-top: 5px;
+    }
+    .VATTEMP #main-content p {
+        margin: 0;
+        line-height: 25px;
+        padding: 0;
+    }
+    .VATTEMP #logo {
+        float: left;
+        padding-left: 50px;
+        width: 25%;
+    }
+    .VATTEMP .header-title {
+        float: left;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        padding: 10px 0;
+    }
+        .VATTEMP .header-title h3 {
+            margin: 0;
+            text-transform: uppercase;
+            color: #06066F;
+            padding-top: 5px;
+        }
+        .VATTEMP .header-title .cominfo {
+            float: left;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+    .VATTEMP .cominfo p {
+        width: 100%;
+        clear: left;
+        display: block;
+    }
+    .VATTEMP .label {
+        width: 191px;
+        display: inline-block;
+    }
+    .VATTEMP .background-table {
+        height: 100%;
+        opacity: 0.2;
+        position: absolute;
+        width: 100%;
+        background-size: 100%;
+    }
+    .VATTEMP .table.template-bordered {
+        border: 1px solid #000;
+    }
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+.VATTEMP #footer {
+    padding-top: 30px;
+}
+.VATTEMP .fl-l {
+    float: left;
+    width: 164px;
+    text-align: center;
+}
+    .VATTEMP .fl-r p, .VATTEMP .fl-l p {
+        padding: 0;
+        margin: 0;
+        line-height: 25px;
+    }
+.bground {
+    position: absolute;
+    top: 300px;
+    left: 5%;
+    opacity: 0.2;
+}
+    .bground img {
+        width: 90%;
+    }

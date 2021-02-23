@@ -1,2 +1,11 @@
-﻿<h1> Bạn đã thanh toán thành công cho SĐT "0 @ViewBag.infor.phone"</h1>
+﻿@model PayCartOnline.Models.VNPAY.VnPayResponse
+@if (Model.vnp_ResponseCode == "00")
+{
+    <h1>Bạn đã thanh toán thành công cho SĐT @ViewBag.infor.phone </h1 >
+}
+else
+{
+    <h1>THanh toán lỗi</h1>
+}
+
 <a href="Home/Index">Trở về Home để tiếp tục thao tác</a>
