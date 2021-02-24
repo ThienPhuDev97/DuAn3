@@ -23,15 +23,45 @@ namespace PayCartOnline.Service
         private const string CheckPhone = "CheckPhone";
         private const string AllRole = "AllRole";
         private const string UpdateAccount = "UpdateAccount";
-        private const string InsertAcc = "Test";
+        private const string InsertAcc = "InsertUser";
         private const string Register = "Register";
         private const string InsertOrder = "InsertOrder";
         private const string UpdateInformationCustomer = "UpdateInformationCustomer";
         private const string AllOrderByID = "TableOrder";
         private const string Search = "Search";
         private const string SearchOrderByID = "SearchOrderByID";
+        private const string TakeAllOrder = "AllOrder";
 
 
+        public List<Order> ListOrder()
+        {
+            SqlCommand com = new SqlCommand(TakeAllOrder, con);
+            com.CommandType = CommandType.StoredProcedure;
+
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable ds = new DataTable();
+            da.Fill(ds);
+            List<Order> data = new List<Order>();
+            foreach (DataRow item in ds.Rows)
+            {
+                Order record = new Order();
+                record.Id_order = Int32.Parse(item["ID_Order"].ToString());
+                record.Code_Order = item["Code_Order"] != null ? item["Code_Order"].ToString() : null;
+                record.Phone = item["Phone"] != null ? Int32.Parse(item["Phone"].ToString()) : 0;
+                record.Brand = item["Brand"] != null ? item["Brand"].ToString() : null;
+                record.Total = item["Total"] != null ? Convert.ToInt32(item["Total"].ToString()) : 0;
+                
+                record.CardType = item["CardType"] != null ? item["CardType"].ToString() : null;
+                record.BankCode = item["BankCode"] != null ? item["BankCode"].ToString() : null;
+                record.Create_At = DateTime.Parse(item["Create_At"].ToString());
+                record.Status = item["Status"] != null ? item["Status"].ToString() : null;
+              
+                data.Add(record);
+            }
+
+            return data;
+
+        }
 
         public Order SearchOrder(int id)
         {

@@ -2,7 +2,17 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    int total = ViewBag.total;
+    int countOrder = ViewBag.count;
+    var orderSuccess = ViewBag.orderSuccess;
+    var order_Error = ViewBag.order_Error;
+    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
 }
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/jquery.dataTables.min.css" />
+</head>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -34,7 +44,10 @@
 
                                 <div class="info-box-content">
                                     <span class="info-box-text">Tổng tiền tất cả đơn hàng</span>
+
                                     <span class="info-box-number">1,410</span>
+
+                                    <span class="info-box-number">@String.Format(culture, "{0:N0}", @total) VND</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -48,6 +61,8 @@
                                 <div class="info-box-content">
                                     <span class="info-box-text">Tổng Số Giao Dịch</span>
                                     <span class="info-box-number">410</span>
+
+                                    <span class="info-box-number">@countOrder</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -60,7 +75,10 @@
 
                                 <div class="info-box-content">
                                     <span class="info-box-text">Số Đơn Thành Công</span>
+
                                     <span class="info-box-number">13,648</span>
+
+                                    <span class="info-box-number">@orderSuccess</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -73,7 +91,10 @@
 
                                 <div class="info-box-content">
                                     <span class="info-box-text">Số Đơn Lỗi</span>
+
                                     <span class="info-box-number">93,139</span>
+
+                                    <span class="info-box-number">@order_Error</span>
                                 </div>
                                 <!-- /.info-box-content -->
                             </div>
@@ -140,11 +161,18 @@
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+
                                         <th>Rendering engine</th>
                                         <th>Browser</th>
                                         <th>Platform(s)</th>
                                         <th>Engine version</th>
                                         <th>CSS grade</th>
+
+                                        <th scope="col">Rendering engine</th>
+                                        <th scope="col">Browser</th>
+                                        <th scope="col">Platform(s)</th>
+                                        <th scope="col">Engine version</th>
+                                        <th scope="col">CSS grade</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -157,6 +185,7 @@
                                         <td>Win 95+</td>
                                         <td> 4</td>
                                         <td>X</td>
+
                                     </tr>
                                     <tr>
                                         <td>Trident</td>
@@ -299,6 +328,7 @@
                                         <td>Win 95+ / OSX.1+</td>
                                         <td>1.4</td>
                                         <td>A</td>
+
                                     </tr>
                                     <tr>
                                         <td>Gecko</td>
@@ -412,6 +442,7 @@
                                         <td>-</td>
                                         <td>A</td>
                                     </tr>
+
                                     <tr>
                                         <td>Presto</td>
                                         <td>Opera 8.5</td>
@@ -531,6 +562,7 @@
                                         <td>-</td>
                                         <td>X</td>
                                     </tr>
+
                                     <tr>
                                         <td>Misc</td>
                                         <td>Lynx</td>
@@ -559,6 +591,7 @@
                                         <td>-</td>
                                         <td>U</td>
                                     </tr>
+
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -584,4 +617,11 @@
     <!-- /.content -->
 </div>
 
+<script src="~/Scripts/jquery-3.5.1.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example2').DataTable();
+    });
+</script>
 

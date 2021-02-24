@@ -16,7 +16,7 @@
 
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
                     <li class="breadcrumb-item active">
-                        <a href="/Admin/Account">Manage Denimonation</a>
+                        <a href="/Admin/Denomination">Manage Denomination</a>
                     </li>
                     <li class="breadcrumb-item active">
                         Add Denimonation
@@ -26,11 +26,11 @@
 
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <a class="btn btn-light" href="/Admin/Account"><i class="fas fa-backward"></i> Back</a>
+                    <a class="btn btn-light" href="/Admin/Denomination"><i class="fas fa-backward"></i> Back</a>
                 </ol>
             </div>
         </div>
-        <form action="/Admin/Denomination/Create" method="post">
+        <form action="/Admin/Denomination/CreateOrUpdate" method="post">
             @Html.AntiForgeryToken()
             <hr>
 
@@ -38,7 +38,8 @@
             <div class="form-group mt-4">
                 <label class="control-label col-md-2" for="Price">Price</label>
                 <div class="col-md-5">
-                    <input class="form-control text-box single-line" id="Price" name="Price" type="text" required>
+                    <input class="form-control text-box single-line" id="Price" name="Price" type="number" required onchange="check()"
+                           placeholder="money VND" min="1" max="1000000">
                     <span class="field-validation-valid text-danger" id="errPrice" style="font-weight: 600; font-size: 15px;"></span>
                 </div>
             </div>
@@ -46,7 +47,7 @@
             <div class="form-group mt-4">
                 <label class="control-label col-md-2" for="Price">Status</label>
                 <div class="col-md-5">
-                    <select class="form-control" id="Role" name="Role">
+                    <select class="form-control" id="Status" name="Status">
                         <option value="1" selected="">Action</option>
                         <option value="0">Disable</option>
                         
@@ -64,3 +65,4 @@
     </div>
 </div>
 
+<script src="~/Scripts/Customine/js/Denomination.js"></script>

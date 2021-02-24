@@ -64,12 +64,14 @@ namespace PayCartOnline.Controllers
                     ViewBag.expirationDate = expirationDate;
                     ViewBag.typePay = typePay;
                     ViewBag.orders = data;
+                    ViewBag.count = data.Count;
                     return Json(data,JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
                     var orders = db.GetOrderByIDAcc(current.ID_User);
                     ViewBag.orders = orders;
+                    ViewBag.count = orders.Count;
                     return View();
                 }
                 
