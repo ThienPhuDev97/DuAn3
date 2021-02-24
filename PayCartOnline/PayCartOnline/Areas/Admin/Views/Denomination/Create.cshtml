@@ -1,1 +1,66 @@
 ﻿
+
+@{
+    ViewBag.Title = "AddDenomination";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper" style=" background-color: white; ">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+
+        <div class="row mb-2">
+            <div class="col-sm-6">
+
+                <ol class="breadcrumb float-sm-left">
+
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">
+                        <a href="/Admin/Account">Manage Denimonation</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        Add Denimonation
+                    </li>
+                </ol>
+            </div><!-- /.col -->
+
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <a class="btn btn-light" href="/Admin/Account"><i class="fas fa-backward"></i> Back</a>
+                </ol>
+            </div>
+        </div>
+        <form action="/Admin/Denomination/Create" method="post">
+            @Html.AntiForgeryToken()
+            <hr>
+
+
+            <div class="form-group mt-4">
+                <label class="control-label col-md-2" for="Price">Price</label>
+                <div class="col-md-5">
+                    <input class="form-control text-box single-line" id="Price" name="Price" type="text" required>
+                    <span class="field-validation-valid text-danger" id="errPrice" style="font-weight: 600; font-size: 15px;"></span>
+                </div>
+            </div>
+
+            <div class="form-group mt-4">
+                <label class="control-label col-md-2" for="Price">Status</label>
+                <div class="col-md-5">
+                    <select class="form-control" id="Role" name="Role">
+                        <option value="1" selected="">Action</option>
+                        <option value="0">Disable</option>
+                        
+                    </select>
+                    
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

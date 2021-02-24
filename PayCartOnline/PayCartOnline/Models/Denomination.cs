@@ -9,5 +9,6 @@ namespace PayCartOnline.Models
     {
         public int ID { get; set; }
         public int Price { get; set; }
+        public string Status { get; set; }
     }
 }
