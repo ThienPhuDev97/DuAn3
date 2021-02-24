@@ -6,7 +6,7 @@
     var typePay = ViewBag.typePay != null ? ViewBag.typePay : null;
     System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
     PayCartOnline.Models.CheckUser isCheck = Session["Account"] != null ? (PayCartOnline.Models.CheckUser)Session["Account"] : null;
-
+    var count = ViewBag.count == null ? 0 : ViewBag.count;
 }
 <div class="all_noidung_admin">
     <div class="box_giaodien_doanhnghiep">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
                     <ul class="box_all_tien_doanhnghiep">
-                        <li><em>Tổng số đơn hàng</em>0 </li>
+                        <li><em>Tổng số đơn hàng</em>@count</li>
                         <li><a href="">Giao diện mua hàng</a></li>
                     </ul>
                 </div>

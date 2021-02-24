@@ -1,4 +1,5 @@
 ﻿@{
+    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
     ViewBag.Title = "Thanh toán";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var isCheck = Session["Account"] != null ? Session["Account"] : "Đăng Nhập";
@@ -19,7 +20,7 @@
                         </li>
                         <li>
                             <h6>@ViewBag.type : @ViewBag.nhamang</h6>
-                            <span>@ViewBag.valueMenhgia.Price</span>
+                            <span>@String.Format(culture, "{0:N0}", ViewBag.valueMenhgia.Price)</span>
                         </li>
                         <li>
                             <h6> Số được nạp</h6>

@@ -1,0 +1,356 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    int total = ViewBag.total;
+    int countOrder = ViewBag.count;
+    var orderSuccess = ViewBag.orderSuccess;
+    var order_Error = ViewBag.order_Error;
+    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
+}
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/jquery.dataTables.min.css" />
+</head>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Quản Lý Đơn Hàng</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Quản Lý Đơn Hàng</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Tổng tiền tất cả đơn hàng</span>
+                                    <span class="info-box-number">@String.Format(culture, "{0:N0}", @total) VND</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Tổng Số Giao Dịch</span>
+                                    <span class="info-box-number">@countOrder</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Số Đơn Thành Công</span>
+                                    <span class="info-box-number">@orderSuccess</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Số Đơn Lỗi</span>
+                                    <span class="info-box-number">@order_Error</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <div class="card">
+                        <div class="card-header row">
+                            <!-- Date range -->
+                            <div class="form-group col-lg-4 col-sm-4 col-md-4">
+                                <label>Start Date</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="far fa-calendar-alt"></i>
+                                        </span>
+                                    </div>
+                                    <input type="date" class="form-control float-right" id="reservation">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <div class="form-group col-lg-4 col-sm-4 col-md-4">
+                                <label>End Date :</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="far fa-calendar-alt"></i>
+                                        </span>
+                                    </div>
+                                    <input type="date" class="form-control float-right" id="reservation">
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <!-- /.form group -->
+                            <!-- Date and time range -->
+                            <div class="form-group col-md-2 col-lg-2 col-sm-2 ">
+                                <label>Status</label>
+                                <select class="form-control select2" style="width: 100%;">
+                                    <option selected="selected">Alabama</option>
+                                    <option>Alaska</option>
+                                    <option>California</option>
+                                    <option>Delaware</option>
+                                    <option>Tennessee</option>
+                                    <option>Texas</option>
+                                    <option>Washington</option>
+                                </select>
+                            </div>
+                            <div class="form-group ">
+                                <label>Người dùng</label>
+                                <select class="form-control select2" style="width: 100%;">
+                                    <option selected="selected">Alabama</option>
+                                    <option>Alaska</option>
+                                    <option>California</option>
+                                    <option>Delaware</option>
+                                    <option>Tennessee</option>
+                                    <option>Texas</option>
+                                    <option>Washington</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Rendering engine</th>
+                                        <th scope="col">Browser</th>
+                                        <th scope="col">Platform(s)</th>
+                                        <th scope="col">Engine version</th>
+                                        <th scope="col">CSS grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Trident</td>
+                                        <td>
+                                            Internet
+                                            Explorer 4.0
+                                        </td>
+                                        <td>Win 95+</td>
+                                        <td> 4</td>
+                                        <td>X</td>
+                                    </tr>                                
+                                    <tr>
+                                        <td>Gecko</td>
+                                        <td>Mozilla 1.0</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td>1</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gecko</td>
+                                        <td>Mozilla 1.1</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td>1.1</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gecko</td>
+                                        <td>Mozilla 1.2</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td>1.2</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gecko</td>
+                                        <td>Mozilla 1.3</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td>1.3</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gecko</td>
+                                        <td>Mozilla 1.4</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td>1.4</td>
+                                        <td>A</td>
+                                    </tr>                                
+                                    <tr>
+                                        <td>Presto</td>
+                                        <td>Opera 8.5</td>
+                                        <td>Win 95+ / OSX.2+</td>
+                                        <td>-</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Presto</td>
+                                        <td>Opera 9.0</td>
+                                        <td>Win 95+ / OSX.3+</td>
+                                        <td>-</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Presto</td>
+                                        <td>Opera 9.2</td>
+                                        <td>Win 88+ / OSX.3+</td>
+                                        <td>-</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Presto</td>
+                                        <td>Opera 9.5</td>
+                                        <td>Win 88+ / OSX.3+</td>
+                                        <td>-</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Presto</td>
+                                        <td>Opera for Wii</td>
+                                        <td>Wii</td>
+                                        <td>-</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Presto</td>
+                                        <td>Nokia N800</td>
+                                        <td>N800</td>
+                                        <td>-</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Presto</td>
+                                        <td>Nintendo DS browser</td>
+                                        <td>Nintendo DS</td>
+                                        <td>8.5</td>
+                                        <td>C/A<sup>1</sup></td>
+                                    </tr>
+                                    <tr>
+                                        <td>KHTML</td>
+                                        <td>Konqureror 3.1</td>
+                                        <td>KDE 3.1</td>
+                                        <td>3.1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>KHTML</td>
+                                        <td>Konqureror 3.3</td>
+                                        <td>KDE 3.3</td>
+                                        <td>3.3</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>KHTML</td>
+                                        <td>Konqureror 3.5</td>
+                                        <td>KDE 3.5</td>
+                                        <td>3.5</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tasman</td>
+                                        <td>Internet Explorer 4.5</td>
+                                        <td>Mac OS 8-9</td>
+                                        <td>-</td>
+                                        <td>X</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tasman</td>
+                                        <td>Internet Explorer 5.1</td>
+                                        <td>Mac OS 7.6-9</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tasman</td>
+                                        <td>Internet Explorer 5.2</td>
+                                        <td>Mac OS 8-X</td>
+                                        <td>1</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Misc</td>
+                                        <td>NetFront 3.1</td>
+                                        <td>Embedded devices</td>
+                                        <td>-</td>
+                                        <td>C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Misc</td>
+                                        <td>NetFront 3.4</td>
+                                        <td>Embedded devices</td>
+                                        <td>-</td>
+                                        <td>A</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Misc</td>
+                                        <td>Dillo 0.8</td>
+                                        <td>Embedded devices</td>
+                                        <td>-</td>
+                                        <td>X</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Misc</td>
+                                        <td>Links</td>
+                                        <td>Text only</td>
+                                        <td>-</td>
+                                        <td>X</td>
+                                    </tr>
+                   
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Rendering engine</th>
+                                        <th>Browser</th>
+                                        <th>Platform(s)</th>
+                                        <th>Engine version</th>
+                                        <th>CSS grade</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<script src="~/Scripts/jquery-3.5.1.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example2').DataTable();
+    });
+</script>
+

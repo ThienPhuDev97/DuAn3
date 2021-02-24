@@ -53,15 +53,34 @@ namespace PayCartOnline.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(string Price)
+        public ActionResult CreateOrUpdate()
         {
-            var price = Convert.ToInt32(Price);
-            db.AddDenominations(price);
-            return View();
+            var price = Convert.ToInt32(Request["Price"]);
+            int status = Convert.ToInt32(Request["Status"]);
+            if (Request["ID"] != null){
+                var id = Int32.Parse(Request["ID"]);
+                db.UpdateDenominations(id, price, status);
+            }
+            else
+            {
+                db.AddDenominations(price, status);
+            }
+            
+            
+            return RedirectToAction("Index");
         }
         public ActionResult Update()
         {
+            var id = Int32.Parse(Request["id"]);
+            Denomination data = db.FinDenomination(id);
+            ViewBag.data = data;
             return View();
+        }
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            db.DeleteDenominations(id);
+            return Content("Success");
         }
     }
 }

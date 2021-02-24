@@ -232,5 +232,5 @@ C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\DựAn\ProjectSem3\PayCartOn
 C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\DựAn\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.pdb
 E:\ProjectSem3\PayCartOnline\PayCartOnline\bin\Rotativa.dll
 C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\DựAn\ProjectSem3\PayCartOnline\PayCartOnline\bin\Rotativa.dll
-C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\DựAn\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.csprojAssemblyReference.cache
 E:\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.csprojAssemblyReference.cache
+C:\Users\ADMIN\OneDrive\Máy tính\testduan\DuanKi3\DựAn\ProjectSem3\PayCartOnline\PayCartOnline\obj\Debug\PayCartOnline.csprojAssemblyReference.cache

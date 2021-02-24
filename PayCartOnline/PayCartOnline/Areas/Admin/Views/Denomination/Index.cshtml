@@ -4,6 +4,9 @@
     var index = 1;
     System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
 }
+<head>
+    <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+</head>
 <div class="content-wrapper" style=" background-color: white; ">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -22,15 +25,11 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
 
-
-
                         <a href="/Admin/Denomination/Create" class="btn btn-success" style="margin-right:5px"><i class="fa fa-plus"></i> Add</a>
-
 
                         <a id="btnGroupDrop1" class="btn btn-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Back To
                         </a>
-                       
 
                         <!--test-->
                         <!-- The Modal -->
@@ -38,19 +37,18 @@
                     </ol>
                 </div><!-- /.col -->
             </div>
-            <div class="row mb-2 mt-4   ">
-                <table class="table table-striped ml-2 mr-2" id="example">
-                    <thead>
-                        <tr>
-                            <th scope="col">STT</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in ViewBag.deno)
-                        {
+            <table class="table table-striped ml-2 mr-2" id="table1">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.deno)
+                    {
 
                         <tr>
                             <th scope="row">@(index++)</th>
@@ -65,25 +63,131 @@
                                 {
                                     <span class="badge badge-danger">@item.Status</span>
                                 }
-                                                    </td>
-                            
+                            </td>
+
                             <td>
                                 <button type="button" id="Update" onclick="HandleUpdate(@item.ID)" class="btn btn-success"><i class="fas fa-edit"></i></button>
                                 <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                             </td>
 
                         </tr>
+                    }
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>
+<!--<div class="content-wrapper" style=" background-color: white; ">
+    <!-- Content Header (Page header) -->
+<!--<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-left">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">
+                        <a href="/Admin/Denomination">Manage Denomination</a>
+                    </li>
+                </ol>
+            </div>-->
+<!-- /.col -->
+<!--<div class="col-sm-6">
+    <ol class="breadcrumb float-sm-right">
+        <a href="/Admin/Denomination/Create" class="btn btn-success" style="margin-right:5px"><i class="fa fa-plus"></i> Add</a>
+        <a id="btnGroupDrop1" class="btn btn-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Back To
+        </a>
+    </ol>
+</div>-->
+<!-- /.col -->
+<!--</div>
+<div class="row mb-2 mt-4   ">
+    <table class="table table-striped ml-2 mr-2" id="table1">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.deno)
+            {
+
+                <tr>
+                    <th scope="row">@(index++)</th>
+
+                    <td> @String.Format(culture, "{0:N0}", @item.Price) VND</td>
+                    <td>
+                        @if (item.Status == "On")
+                        {
+                            <span class="badge badge-success">@item.Status</span>
                         }
+                        else
+                        {
+                            <span class="badge badge-danger">@item.Status</span>
+                        }
+                    </td>
+
+                    <td>
+                        <a id="Update" href="/Admin/Denomination/Update?id=@item.ID" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                        <button type="button" class="btn btn-danger" onclick="deleted(@item.ID)"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>-->
+@*<table class="table table-striped ml-2 mr-2">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.deno)
+            {
+
+                <tr>
+                    <th scope="row">@(index++)</th>
+
+                    <td> @String.Format(culture, "{0:N0}", @item.Price) VND</td>
+                    <td>
+                        @if (item.Status == "On")
+                        {
+                            <span class="badge badge-success">@item.Status</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger">@item.Status</span>
+                        }
+                    </td>
+
+                    <td>
+                        <a id="Update" href="/Admin/Denomination/Update?id=@item.ID" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                        <button type="button" class="btn btn-danger" onclick="deleted(@item.ID)"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+
+                </tr>
+            }
 
 
 
-                    </tbody>
-                </table>
+        </tbody>
+    </table>*@
 
-            </div>
+            </div>-->
 
-            <!--pagelisst-->
-            <div class="row">
+<!--pagelisst-->
+<!--<div class="row">
                 <div class="col-6">
                     <p class="float-sm-left edit_size">Showing 1 to @ViewBag.numSize of  @ViewBag.totalPage entries</p>
                 </div>
@@ -136,4 +240,28 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
+
+<script src="~/Scripts/jquery.min.js"></script>
+
+
+<script>
+    const deleted = (id) => {
+
+        var r = confirm("Do you want to delete");
+        if (r == true) {
+            $.ajax({
+                url: '/Admin/Denomination/Delete',
+                type: 'POST',
+                data: {
+                    id: id
+                },
+                success: function (response) {
+                    alert('Success')
+                    location.reload();
+                }
+            });
+
+        }
+    }
+</script>
