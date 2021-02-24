@@ -1,40 +1,181 @@
 ﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var index = 1;
+    System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("en-US");
 }
 <div class="content-wrapper" style=" background-color: white; ">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row">
-                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                    <thead>
+            <div class="row mb-2">
+                <div class="col-sm-6">
+
+                    <ol class="breadcrumb float-sm-left">
+
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">
+                            <a href="/Admin">Manage Denomination</a>
+                        </li>
+                    </ol>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+
+                        <a href="/Admin/Denomination/Create" class="btn btn-success" style="margin-right:5px"><i class="fa fa-plus"></i> Add</a>
+
+                        <a id="btnGroupDrop1" class="btn btn-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Back To
+                        </a>
+
+                        <!--test-->
+                        <!-- The Modal -->
+                        <!--test-->
+                    </ol>
+                </div><!-- /.col -->
+            </div>
+            <table class="table table-striped ml-2 mr-2" id="table1">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.deno)
+                    {
+
                         <tr>
-                            <th>ID</th>
-                            <th>Mệnh Giá</th>
-                            <th></th>
+                            <th scope="row">@(index++)</th>
+
+                            <td> @String.Format(culture, "{0:N0}", @item.Price) VND</td>
+                            <td>
+                                @if (item.Status == "On")
+                                {
+                                    <span class="badge badge-success">@item.Status</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">@item.Status</span>
+                                }
+                            </td>
+
+                            <td>
+                                <button type="button" id="Update" onclick="HandleUpdate(@item.ID)" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+
                         </tr>
-                    </thead>
-                    <tbody id="content">
-                        @foreach (var item in ViewBag.deno)
-                        {
-                            <tr>
-                                <td>@item.ID</td>
-                                <td>@item.Price</td>
-                            </tr>
-                        }
+                    }
+
+                </tbody>
+            </table>
+            @*<div class="row">
+                    <div class="row mb-2 mt-4   ">
+                        <table class="table table-striped ml-2 mr-2" id="example">
+                            <thead>
+                                <tr>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.deno)
+                                {
+
+                                    <tr>
+                                        <th scope="row">@(index++)</th>
+
+                                        <td> @String.Format(culture, "{0:N0}", @item.Price) VND</td>
+                                        <td>
+                                            @if (item.Status == "On")
+                                            {
+                                                <span class="badge badge-success">@item.Status</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-danger">@item.Status</span>
+                                            }
+                                        </td>
+
+                                        <td>
+                                            <button type="button" id="Update" onclick="HandleUpdate(@item.ID)" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                                            <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                        </td>
+
+                                    </tr>
+                                }
 
 
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Mệnh Giá</th>
-                            <th></th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            </div>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                    pagelisst
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="float-sm-left edit_size">Showing 1 to @ViewBag.numSize of  @ViewBag.totalPage entries</p>
+                        </div>
+
+                        <div class="col-6">
+                            <ul class="pagination  float-sm-right">
+
+                                @{
+                                    int position;
+                                    int pageCurrent = ViewBag.pageCurrent;
+
+                                    float numSize = ViewBag.numSize;
+
+                                    if (pageCurrent > 1)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="@Url.Action("/Index", new {page = pageCurrent-1 })" tabindex="-1">Previous</a>
+                                        </li>
+                                    }
+
+                                    for (position = 1; position <= numSize; position++)
+                                    {
+
+                                        if (position == pageCurrent)
+                                        {
+                                            <li class="page-item active">
+                                                <a class="page-link" href="@Url.Action("/Index", new {page = position })">@position</a>
+                                            </li>
+                                        }
+
+                                        else
+                                        {
+                                            <li class="page-item">
+                                                <a class="page-link" href="@Url.Action("/Index", new {page = position })">@position</a>
+                                            </li>
+                                        }
+
+                                    }
+                                    if (pageCurrent > 0 && pageCurrent < numSize)
+                                    {
+                                        <li class="page-item">
+                                            <a class="page-link" href="@Url.Action("/Index", new {page = pageCurrent+1 })" tabindex="-1">Next</a>
+                                        </li>
+                                    }
+
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
 </div>
-</div>
+<script src="~/Scripts/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#table1').DataTable();
+    });
+</script>

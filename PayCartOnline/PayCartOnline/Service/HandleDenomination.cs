@@ -33,12 +33,13 @@ namespace PayCartOnline.Service
                 Denomination record = new Denomination();
                 record.ID = item["ID_Denomination"] != null ? Int32.Parse(item["ID_Denomination"].ToString()) : 0;
                 record.Price = item["Price"] != null ? Int32.Parse(item["Price"].ToString()) : 0;
+                record.Status = !string.IsNullOrEmpty(item["Status"].ToString()) ? (Int32.Parse(item["Status"].ToString()) == 1 ? "On" : "Off") : "";
 
                 data.Add(record);
             }
             return data;
         }
-        public void AddDenominations(Denomination denomination)
+        public void AddDenominations(int price)
         {
             var connection = new SqlConnection(connectionString);
 
@@ -49,7 +50,7 @@ namespace PayCartOnline.Service
 
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = InsertDenomination;
-                command.Parameters.Add(new SqlParameter("@Price", denomination.Price));
+                command.Parameters.Add(new SqlParameter("@Price", price));
                 command.ExecuteNonQuery();
                 connection.Close();
             }
