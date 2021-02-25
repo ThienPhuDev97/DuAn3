@@ -126,19 +126,43 @@
                                 </div>
                                 <!-- /.form group -->
                                 <!-- Date and time range -->
-                                <div class="form-group col-md-2 col-lg-2 col-sm-2 ">
+                                <div class="form-group col-md-4 col-lg-4 col-sm-4 ">
                                     <label>Status</label>
                                     <select class="form-control select2" style="width: 100%;" name="status">
                                         <option selected="selected">Tất cả</option>
                                         <option value="1">Thành Công</option>
                                         <option value="-1">Chưa Thanh Toán	</option>
-                                       
+
                                     </select>
-                                </div>                          
-                                <div class="form-group col-md-2 col-lg-2 col-sm-2 ">
-                                    <label style="color:#fff" >Status</label>
-                                    <button class="form-control btn btn-success">Tìm kiếm</button>
                                 </div>
+                                <div class="form-group col-lg-4 col-sm-4 col-md-4">
+                                    @*<label>Search SĐT :</label>*@
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                        </div>
+                                        <input type="text" name="expiration" class="form-control float-right" id="" placeholder="Search Số Điện Thoại">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <div class="form-group col-lg-4 col-sm-4 col-md-4">
+                                    @*<label>Search Mệnh Giá :</label>*@
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                        </div>
+                                        <input type="text" name="expiration" class="form-control float-right" id="" placeholder="Search Mệnh Giá">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <div class="form-group col-lg-4 col-sm-4 col-md-4">
+                                    @*<label>abc</label>*@
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                        </div>
+                                        <button class="btn btn-success">Tìm Kiếm</button>
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+
 
                             </div>
                     </form>
